@@ -1,0 +1,11 @@
+# Mobile menu navigation links
+
+- title: Home
+  url: /
+
+- title: Clone Me
+  url: /changelog-timeline/
+
+- title: Contribute
+  url: /contribute/
+  button: success

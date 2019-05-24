@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Feeling Lost | Dtective</title>
+<meta name="generator" content="Jekyll v3.4.1" />
+<meta property="og:title" content="Feeling Lost" />
+<meta name="author" content="Pete Seth" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Powerful automation made easy." />
+<meta property="og:description" content="Powerful automation made easy." />
+<link rel="canonical" href="http://localhost:4000/Dtective/404.html" />
+<meta property="og:url" content="http://localhost:4000/Dtective/404.html" />
+<meta property="og:site_name" content="Dtective" />
+<script type="application/ld+json">
+{"description":"Powerful automation made easy.","author":{"@type":"Person","name":"Pete Seth"},"@type":"WebPage","url":"http://localhost:4000/Dtective/404.html","headline":"Feeling Lost","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:image" content="http://localhost:4000/Dtective/uploads/"/>
+  <link rel="stylesheet" href="/Dtective/assets/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="/Dtective/uploads/favicon.png" >
+  <link rel="alternate" type="application/rss+xml" title="Dtective" href="/Dtective/feed.xml">
+  <script src="/Dtective/assets/js/main.js"></script>
+  
+    <script>
+function searchResults(form) {
+
+    var currentItem = null;
+    var search = document.getElementById(form);
+    var results = document.getElementById(form + "-results");
+    var toggle = document.getElementById(form + "-toggle");
+
+    function removeActive() {
+        for (i = 0; i < results.children.length; i++) {
+            results.children[i].classList.remove("uk-background-muted");
+        }
+    }
+
+    // Detect all clicks on the document
+    document.addEventListener("click", function(event) {
+
+        var isClickSearch = false;
+        var isClickResults = false;
+        var isClickSearchToggle = false;
+
+        if (search !== null) {
+            isClickSearch = search.contains(event.target);
+        }
+
+        if (results !== null) {
+            isClickResults = results.contains(event.target);
+        }
+
+        if (toggle !== null) {
+            isClickSearchToggle = toggle.contains(event.target);
+        }
+
+        if (isClickSearch || isClickSearchToggle) {
+            results.style.display = "block";
+        }        
+
+        if (!isClickResults && !isClickSearch && !isClickSearchToggle) {
+            results.style.display = "none";
+        }        
+        
+    });    
+
+    results.addEventListener("mouseover", function(event) {
+
+        removeActive();
+        event.target.parentElement.classList.add("uk-background-muted");
+        currentItem = null;
+
+    });
+
+    results.addEventListener("mouseout", function(event) {
+        event.target.parentElement.classList.remove("uk-background-muted");
+    });
+
+
+    search.addEventListener("keyup", function(event) {
+
+        var resultItems = results.children;
+        var resultCount = results.children.length;
+                                
+        if (event.keyCode === 40) {
+
+            if (currentItem < (resultCount - 1)) {
+                if (currentItem === null) {
+                    currentItem = 0;
+                } else {
+                    removeActive();
+                    currentItem++;
+                }
+                removeActive();
+                resultItems[currentItem].classList.add("uk-background-muted");
+            }
+            
+        } else if (event.keyCode === 38) {
+
+            if (currentItem > 0) {
+                if (currentItem === null) {
+                    currentItem = 0;
+                } else {
+                    removeActive();
+                    currentItem--;
+                }
+                removeActive();
+                resultItems[currentItem].classList.add("uk-background-muted");
+            }
+
+        } else if (event.keyCode === 13) {
+
+            resultItems[currentItem].children[0].click();
+
+        }
+
+    });
+
+}
+</script>
+  
+  
+  
+</head>
+
+    <body>
+
+    
+        <div data-uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent; top: 200">
+    <nav class="uk-navbar-container">
+        <div class="uk-container">
+            <div data-uk-navbar>
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-item uk-logo uk-visible@m" href="/Dtective/">Dtective</a>
+                    
+                        <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas-docs" data-uk-toggle><span data-uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Docs</span></a>
+                    
+
+                    <ul class="uk-navbar-nav uk-visible@m">
+                        
+                            
+                            
+                            
+                                
+                                    
+                                        <li><a href="/Dtective/" >Home</a></li>
+                                                                                                        
+                                
+                            
+                        
+                            
+                            
+                            
+                                
+                                    
+                                        <li><a href="/Dtective/changelog-timeline/" >Changelog</a></li>
+                                                                                                        
+                                
+                            
+                        
+                    </ul>
+                </div>
+                <div class="uk-navbar-center uk-hidden@m">
+                    <a class="uk-navbar-item uk-logo" href="/Dtective/">Dtective</a>
+                </div>
+                <div class="uk-navbar-right">
+                    
+                        
+                            <div>
+                                <a id="search-navbar-toggle" class="uk-navbar-toggle" uk-search-icon href="#"></a>
+                                <div class="uk-drop uk-background-default uk-border-rounded" uk-drop="mode: click; pos: left-center; offset: 0">
+                                    <form class="uk-search uk-search-navbar uk-width-1-1" onsubmit="return false;">
+                                        <input id="search-navbar" class="uk-search-input" type="search" placeholder="Search for answers" autofocus autocomplete="off">
+                                    </form>
+                                    <ul id="search-navbar-results" class="uk-position-absolute uk-width-1-1 uk-list"></ul>
+                                </div>
+                            </div>
+                            <script>
+                            SimpleJekyllSearch({
+                                searchInput: document.getElementById('search-navbar'),
+                                resultsContainer: document.getElementById('search-navbar-results'),
+                                noResultsText: '<li class="no-results">No results found</li>',
+                                searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+                                json: '/search.json'
+                            });
+                            searchResults("search-navbar");
+                            </script>
+                        
+                    
+
+                    <ul class="uk-navbar-nav uk-visible@m">
+                        
+                            
+                            
+                            
+                                
+                                    <li><div class="uk-navbar-item"><a class="uk-button uk-button-primary-outline" href="https://github.com/Catena-Media/Dtective" target="_blank" >Fork Me 👈</a></div></li>
+                                
+                            
+                        
+                            
+                            
+                            
+                                
+                                    <li><div class="uk-navbar-item"><a class="uk-button uk-button-success" href="/Dtective/contribute/" >Contribution Guide</a></div></li>
+                                
+                            
+                        
+                    </ul>
+
+                    
+                        <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" data-uk-toggle><span data-uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span></a>
+                    
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+    
+
+    
+<div class="uk-section">
+    <div class="uk-container uk-container-small">
+
+        <article class="uk-article">
+
+            <h1 class="uk-article-title">Feeling Lost</h1>
+
+            <div class="article-content link-primary">
+                <h2 id="the-page-you-are-looking-for-cannot-be-found-please-navigate-to-homepage">The page you are looking for cannot be found. Please navigate to <a href="http://localhost:4000">homepage</a>.</h2>
+
+            </div>
+
+        </article>
+
+    </div>
+</div>
+
+
+    <div id="offcanvas-docs" data-uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+
+        <button class="uk-offcanvas-close" type="button" data-uk-close></button>
+
+        
+        <h5 class="uk-margin-top">Roadmap</h5>
+        <ul class="uk-nav uk-nav-default doc-nav">
+        
+          
+          
+          <li class=""><a href="/docs/roadmap/">Roadmap</a></li>
+        
+        </ul>
+        
+
+    </div>
+</div>
+
+
+    <div id="offcanvas" data-uk-offcanvas="flip: true; overlay: true">
+    <div class="uk-offcanvas-bar">
+
+        <a class="uk-logo uk-margin-small-bottom" href="/Dtective/">Dtective</a>
+     
+        <button class="uk-offcanvas-close" type="button" data-uk-close></button>
+      
+        <ul class="uk-nav uk-nav-primary uk-margin-top">
+            
+                
+
+                
+
+                
+                    <li><a href="/Dtective/" >Home</a></li>
+                
+            
+                
+
+                
+
+                
+                    <li><a href="/Dtective/changelog-timeline/" >Clone Me</a></li>
+                
+            
+                
+
+                
+
+                
+                    <li><div class="uk-navbar-item"><a class="uk-button uk-button-success" href="/Dtective/contribute/" >Contribute</a></div></li>
+                
+            
+        </ul>
+
+        <div class="uk-margin-top uk-text-center">
+            <div data-uk-grid class="uk-child-width-auto uk-grid-small uk-flex-center uk-grid">
+                
+
+<div>
+    <a href="https://www.facebook.com/catenamedia/" data-uk-icon="icon: facebook" class="uk-icon-link uk-icon" target="_blank"></a>
+</div>
+
+
+
+
+<div>
+    <a href="https://www.instagram.com/catenamedia" data-uk-icon="icon: instagram" class="uk-icon-link uk-icon" target="_blank"></a>
+</div>
+
+
+
+
+
+
+
+<div>
+    <a href="https://github.com/Catena-Media" data-uk-icon="icon: github" class="uk-icon-link uk-icon" target="_blank"></a>
+</div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    
+        <footer class="uk-section uk-text-center uk-text-muted">
+    <div class="uk-container uk-container-small">
+
+        <div>
+            <ul class="uk-subnav uk-flex-center">
+                
+                    
+                    
+                    
+                        <li><a href="/Dtective/" >Home</a></li>
+                    
+                
+                    
+                    
+                    
+                        <li><a href="/Dtective/contribute/" >Contribute</a></li>
+                    
+                
+            </ul>
+        </div>
+        <div class="uk-margin-medium">
+            <div data-uk-grid class="uk-child-width-auto uk-grid-small uk-flex-center uk-grid">
+                
+
+<div>
+    <a href="https://www.facebook.com/catenamedia/" data-uk-icon="icon: facebook" class="uk-icon-link uk-icon" target="_blank"></a>
+</div>
+
+
+
+
+<div>
+    <a href="https://www.instagram.com/catenamedia" data-uk-icon="icon: instagram" class="uk-icon-link uk-icon" target="_blank"></a>
+</div>
+
+
+
+
+
+
+
+<div>
+    <a href="https://github.com/Catena-Media" data-uk-icon="icon: github" class="uk-icon-link uk-icon" target="_blank"></a>
+</div>
+
+
+
+
+            </div>
+        </div>
+        <div class="uk-margin-medium uk-text-small copyright link-secondary">We're a bunch of human maintainers at <a href="https://www.catenamedia.com/">Catena Media</a>.</div>
+
+    </div>
+</footer>
+
+    
+
+    
+
+    
+
+    </body>
+
+</html>

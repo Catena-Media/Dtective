@@ -1,0 +1,16 @@
+# Boxes include navigation
+
+- title: Contribution Guide
+  desc: Get acquainted with a few contribution guidelines we use
+  icon: cog
+  doc: installation
+
+- title: Open an issue
+  desc: Have an issue? a bug? a feature? We want to hear you out
+  icon: question
+  doc: hero
+
+- title: Roadmap
+  desc: Check out our plans for the future
+  icon: future
+  doc: roadmap
