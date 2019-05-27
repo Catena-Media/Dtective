@@ -3,12 +3,12 @@
 - title: Contribution Guide
   desc: Get acquainted with a few contribution guidelines we use
   icon: cog
-  doc: installation
+  doc: contributing
 
 - title: Open an issue
   desc: Have an issue? a bug? a feature? We want to hear you out
   icon: question
-  doc: hero
+  doc: codeofconduct
 
 - title: Roadmap
   desc: Check out our plans for the future
