@@ -1,15 +1,15 @@
-#Contributing to Dtective
+# Contributing to Dtective
 
 We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/QA-Automation_Runner/blob/master/CODE_OF_CONDUCT.md).
 
-##Using our Issue Tracker
+## Using our Issue Tracker
 We have prepared templates for [bug reports](https://github.com/Catena-Media/QA-Automation_Runner/issues/new?template=BUG.md) and [feature requests](https://github.com/Catena-Media/QA-Automation_Runner/issues/new?template=FEATURE.md) to help you formulate the issue at hand.
 
-###Creating a Pull Request
+### Creating a Pull Request
 
 Good pull requests are always welcomed! But keep in mind that they should remain focused in scope and avoid containing unrelated commits, as well include a test that exercises the added functionality. Before submitting one also consider to look at our Roadmap.
 
-###Commit Format
+### Commit Format
 
 Commit messages matter a lot to us. Before the following instructions, know that sometimes a single line is fine for simple changes.
 The **type** and **subject** are mandatory.
@@ -43,7 +43,7 @@ The **type** and **subject** are mandatory.
 
 
 
-####First timer?
+#### First timer?
 
 We care to mark some few first issues that can be easier to tackle, make sure you take a look at them too.
 Here are some steps we would like you to follow when creating a pull request:
@@ -89,13 +89,13 @@ Please check the Javadocs section below for some guidance.
 
 8. Open a Pull Request with a clear title and description.
 
-####Bumping the version
+#### Bumping the version
 
 The core maintainers will review your pull request and if merged we will bump the version of the framework ourselves
  including the newest changes in the Changelog. It is important to submit pull requests with clear description to make
  our Changelog readers life better.
 
-####Javadocs
+#### Javadocs
 
 We are using [Javadocs](https://www.tutorialspoint.com/java/java_documentation.htm) to generate user-facing documentation.
  This is only mandatory when introducing new features in `src > main > java > com.catena.qa.framework > quality`
@@ -125,7 +125,7 @@ brief explanation of the method.
 */
 ```
 
-##Setting Up the Code for Local Development
+## Setting Up the Code for Local Development
 
 General Prerequesites
 * [Java 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
@@ -133,7 +133,7 @@ General Prerequesites
 The [Chrome](http://chromedriver.chromium.org/downloads) and [Firefox](https://github.com/mozilla/geckodriver/releases) drivers are provided at the root level of the project.
 We prefer using [IntelliJ](https://www.jetbrains.com/idea/download/#section=mac) since, for us, it speeds up the development with useful plugins, easy Maven integration and code completion (particularly handy for the BDD steps) but it is possible too to use your editor of choice as long as you take some extra commands.
 
-####With IntelliJ
+#### With IntelliJ
 
 - [x] Import Project
 - [ ] Select the QA-Automation_Runner project folder and click Open
@@ -143,14 +143,14 @@ We prefer using [IntelliJ](https://www.jetbrains.com/idea/download/#section=mac)
 - [ ] Ensure the selected SDK is 11 and the JDK home path is correct and click Next
 - [ ] On the pop up select Import Changes
 
-####Using another editor
+#### Using another editor
 
 Prerequesites
 * [Maven](https://maven.apache.org/install.html)
 
 (coming soon)
 
-###Structure
+### Structure
 
 There is plenty of material out there that explains thoroughly the concept of Behavior Driven Development.
 In a nutshell, the goal of BDD is a business readable and domain-specific language that allows you to describe easily
@@ -166,7 +166,7 @@ This is also a good starting point to understand how and what steps are availabl
 
 The magic hooks for JUnit live in `test > java > quality`.
 
-###Testing
+### Testing
 
 It is fundamental that fixes and new features pass our existing set of tests. This keeps the quality standards of the
  framework. To run the tests keep in mind the following:
