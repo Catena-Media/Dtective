@@ -1,3 +1,5 @@
+![logo](uploads/logo.png)
+
 # Contributing to Dtective
 
 We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/QA-Automation_Runner/blob/master/CODE_OF_CONDUCT.md).
