@@ -12,7 +12,7 @@
                   {% assign previous_page = docs[previous] | prepend:"/docs/" | append:"/" %}
                   {% assign previous_doc = site.docs | where:"url", previous_page | first %}
                     <h5>{{previous_doc.title}}</h5>
-                    <div><a class="remove-underline hvr-back" href="{{previous_page}}">&larr; {{ site.data.translation[site.lang].previous | default: "Previous" }}</a></div>
+                    <div><a class="remove-underline hvr-back" href="{{ site.baseurl }}{{previous_page}}">&larr; {{ site.data.translation[site.lang].previous | default: "Previous" }}</a></div>
                 {% endif %}
             </div>
             <div>
@@ -22,7 +22,7 @@
                   {% assign next_page = docs[next] | prepend:"/docs/" | append:"/" %}
                   {% assign next_doc = site.docs | where:"url", next_page | first %}
                     <h5>{{next_doc.title}}</h5>
-                    <div class="uk-text-right"><a class="remove-underline hvr-forward" href="{{next_page}}">{{ site.data.translation[site.lang].next | default: "Next" }} &rarr;</a></div>
+                    <div class="uk-text-right"><a class="remove-underline hvr-forward" href="{{ site.baseurl }}{{next_page}}">{{ site.data.translation[site.lang].next | default: "Next" }} &rarr;</a></div>
                 {% endif %}
             </div>
         </div>
