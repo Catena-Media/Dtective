@@ -12,4 +12,4 @@ hero:
 
 {% include cta.html title="Just want to use our framework?" button_text="Get it" button_url="https://github.com/Catena-Media/Dtective-boilerplate" subtitle="Get started with our boilerplate and check the installation guides, cheet sheets and tutorials" %}
 
-{% include team.html authors="dwane, sofia, matyas, andrea, ilenia, evgenia, sinan" title="We are here to help" subtitle="Our team is just a github issue away ready to answer your questions" %}
+{% include team.html authors="dwane, sofia, matyas, andrea, ilenia" title="We are here to help" subtitle="Our team is just a github issue away ready to answer your questions" %}
