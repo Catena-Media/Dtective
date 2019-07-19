@@ -3,12 +3,12 @@
 - title: Contribution Guide
   desc: Get acquainted with a few contribution guidelines we use
   icon: cog
-  url: https://github.com/Catena-Media/QA-Automation_Runner/blob/master/CONTRIBUTING.md
+  doc: contributing
 
 - title: Open an issue
   desc: Have an issue? a bug? a feature? We want to hear you out
   icon: question
-  url: https://github.com/Catena-Media/QA-Automation_Runner/issues
+  doc: issues
 
 - title: Roadmap
   desc: Check out our plans for the future
