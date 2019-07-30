@@ -2,6 +2,8 @@
 
 # Contributing to Dtective
 
+[![Join the chat at https://gitter.im/Dtective/community](https://badges.gitter.im/Dtective/community.svg)](https://gitter.im/Dtective/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/QA-Automation_Runner/blob/master/CODE_OF_CONDUCT.md).
 
 ## Using our Issue Tracker
