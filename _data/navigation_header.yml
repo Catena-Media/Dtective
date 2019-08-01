@@ -23,7 +23,7 @@ right:
     button: primary-outline
 
   - title: Contribute ❤️
-    url: /contribute/
+    url: /docs/contributing/
     button: success
 
   # - title: Changelog
