@@ -8,7 +8,7 @@ hero:
     search: false
 ---
 
-{% include boxes.html columns="3" title="Get started" subtitle="Be a part of the Dtective community" %}
+{% include boxes.html columns="3" title="Getting started" subtitle="Be a part of the Dtective community" %}
 
 {% include cta.html title="Just want to get started?" button_text="Get the starter code" button_url="https://github.com/Catena-Media/Dtective-boilerplate" subtitle="Get started with our boilerplate and check the installation guides, cheet sheets and tutorials" %}
 
