@@ -5,18 +5,18 @@ tags: [features, featured]
 author: evan
 ---
 
-#Contributing to Dtective
+# Contributing to Dtective
 
 We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/QA-Automation_Runner/blob/master/CODE_OF_CONDUCT.md).
 
-##Using our Issue Tracker
+## Using our Issue Tracker
 We have prepared templates for [bug reports](https://github.com/Catena-Media/QA-Automation_Runner/issues/new?template=BUG.md) and [feature requests](https://github.com/Catena-Media/QA-Automation_Runner/issues/new?template=FEATURE.md) to help you formulate the issue at hand.
 
-###Creating a Pull Request
+### Creating a Pull Request
 
 Good pull requests are always welcomed! But keep in mind that they should remain focused in scope and avoid containing unrelated commits, as well include a test that exercises the added functionality. Before submitting one also consider to look at our Roadmap.
 
-###Commit Format
+### Commit Format
 
 Commit messages matter a lot to us. Before the following instructions, know that sometimes a single line is fine for simple changes.
 The **type** and **subject** are mandatory.
@@ -50,7 +50,7 @@ The **type** and **subject** are mandatory.
 
 
 
-####First timer?
+#### First timer?
 
 We care to mark some few first issues that can be easier to tackle, make sure you take a look at them too.
 Here are some steps we would like you to follow when creating a pull request:
@@ -96,13 +96,13 @@ Please check the Javadocs section below for some guidance.
 
 8. Open a Pull Request with a clear title and description.
 
-####Bumping the version
+#### Bumping the version
 
 The core maintainers will review your pull request and if merged we will bump the version of the framework ourselves
  including the newest changes in the Changelog. It is important to submit pull requests with clear description to make
  our Changelog readers life better.
 
-####Javadocs
+#### Javadocs
 
 We are using [Javadocs](https://www.tutorialspoint.com/java/java_documentation.htm) to generate user-facing documentation.
  This is only mandatory when introducing new features in `src > main > java > com.catena.qa.framework > quality`
