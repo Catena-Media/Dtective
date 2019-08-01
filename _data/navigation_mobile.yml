@@ -3,7 +3,13 @@
 - title: Home
   url: /
 
-- title: Clone Me
+- title: Docs
+  url: /docs/installation/
+
+- title: Blog
+  url: /blog/
+
+- title: Fork Me
   url: /changelog-timeline/
 
 - title: Contribute
