@@ -1,16 +1,16 @@
 # Boxes include navigation
 
 - title: Contribution Guide
-  desc: Get acquainted with a few contribution guidelines we use
+  desc: Get acquainted with a few contribution guidelines we use.
   icon: cog
   doc: contributing
 
-- title: Open an issue
-  desc: Have an issue? a bug? a feature? We want to hear you out
+- title: Quickstart
+  desc: Can't wait to get started? Check here first.
   icon: question
-  doc: issues
+  doc: quickstart
 
-- title: Roadmap
-  desc: Check out our plans for the future
-  icon: future
-  doc: roadmap
+- title: Write Tests
+  desc: Start to write tests in an intuitive and easy way.
+  icon: code
+  doc: bdd
