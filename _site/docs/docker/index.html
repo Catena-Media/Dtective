@@ -6,19 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Feeling Lost - Dtective</title>
-<meta property="og:title" content="Feeling Lost" />
-<meta name="description" content="Powerful automation made easy." />
-<meta property="og:description" content="Powerful automation made easy." />
-<link rel="canonical" href="http://localhost:4000/Dtective/404.html" />
-<meta property="og:url" content="http://localhost:4000/Dtective/404.html" />
+<title>Docker - Dtective</title>
+<meta property="og:title" content="Docker" />
+<meta name="description" content="The project includes docker-compose files which can be used for testing locally:" />
+<meta property="og:description" content="The project includes docker-compose files which can be used for testing locally:" />
+<link rel="canonical" href="http://localhost:4000/Dtective/docs/docker/" />
+<meta property="og:url" content="http://localhost:4000/Dtective/docs/docker/" />
 <meta property="og:site_name" content="Dtective" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-08-07T14:24:58+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
-"@type": "WebPage",
-"headline": "Feeling Lost",
-"description": "Powerful automation made easy.",
-"url": "http://localhost:4000/Dtective/404.html"}</script>
+"@type": "BlogPosting",
+"headline": "Docker",
+"datePublished": "2019-08-07T14:24:58+02:00",
+"description": "The project includes docker-compose files which can be used for testing locally:",
+"url": "http://localhost:4000/Dtective/docs/docker/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="http://localhost:4000/Dtective/uploads/"/>
@@ -245,20 +248,319 @@ function searchResults(form) {
 </div>
     
 
-    
-<div class="uk-section">
-    <div class="uk-container uk-container-small">
+    <div class="uk-section">
+    <div class="uk-container">
+        <div class="uk-grid-large" data-uk-grid>
 
-        <article class="uk-article">
-
-            <h1 class="uk-article-title">Feeling Lost</h1>
-
-            <div class="article-content link-primary">
-                <h2 id="the-page-you-are-looking-for-cannot-be-found-please-navigate-to-homepage">The page you are looking for cannot be found. Please navigate to <a href="http://localhost:4000">homepage</a>.</h2>
-
+            <div class="sidebar-fixed-width uk-visible@m">
+                <div class="sidebar-docs uk-position-fixed uk-margin-top">
+                    
+                    <h5>Getting Started</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/overview/">Feature overview</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/quickstart/">Quickstart</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/installation/">Installation</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/ide/">Editor Configuration</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Configuration</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/environmentproperties/">Environment properties</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/testenvironment/">Test Environment</a></li>
+                    
+                      
+                      
+                      <li class="uk-active"><a href="/Dtective/docs/docker/">Docker</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/allure/">Allure report</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Write Tests</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/bdd/">BDD, Cucumber & Gherkin</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/runtests/">Run tests</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/cheatsheet/">Cheat sheet</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Contribute</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/roadmap/">Roadmap</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Help</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/support/">Contacting support</a></li>
+                    
+                    </ul>
+                    
+                </div>
             </div>
 
-        </article>
+            <div class="uk-width-1-1 uk-width-expand@m">
+
+                <article class="uk-article">
+
+                    <h1 class="uk-article-title">Docker</h1>
+
+                    
+
+                    <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom uk-flex uk-flex-middle">
+                        
+
+
+
+<div>
+  
+  <time datetime="2019-08-07T14:24:58+02:00" itemprop="datePublished">
+    
+    Aug 7, 2019
+  </time>
+</div>
+                    </div>
+
+                    <div class="article-content link-primary">
+                        <p>The project includes docker-compose files which can be used for testing locally:</p>
+
+<p><code class="highlighter-rouge">docker-compose.selenium.yml</code> builds two containers which run a Selenium Grid with Chrome Node and another Node with Firefox.</p>
+
+<h3 id="usage">Usage:</h3>
+
+<p><code class="highlighter-rouge">$ docker-compose -f docker-compose.&lt;name&gt;.yml build</code></p>
+
+<p><code class="highlighter-rouge">$ docker-compose -f docker-compose.&lt;name&gt;.yml up -d</code></p>
+
+<p>after all the test executions</p>
+
+<p><code class="highlighter-rouge">$ docker-compose -f docker-compose.&lt;name&gt;.yml down</code></p>
+
+<p><strong>Note:</strong> Do not forget to adjust the <code class="highlighter-rouge">environment.properties</code> to run the tests with Docker containers.</p>
+
+                        
+                    </div>
+
+                    
+
+                    <hr class="uk-margin-medium">
+
+                    
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="uk-margin-large-top paginate-post">
+        <div class="uk-child-width-expand@s uk-grid-large uk-pagi" data-uk-grid>
+            <div>
+                
+                  
+                  
+                  
+                    <h5>Test Environment</h5>
+                    <div><a class="remove-underline hvr-back" href="/Dtective/docs/testenvironment/">&larr; Previous</a></div>
+                
+            </div>
+            <div>
+                
+                  
+                  
+                  
+                    <h5>Allure report</h5>
+                    <div class="uk-text-right"><a class="remove-underline hvr-forward" href="/Dtective/docs/allure/">Next &rarr;</a></div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+
+                    <div class="uk-margin-large-top">
+    <h3>Related Docs</h3>
+
+    
+    
+    
+
+    <ul class="uk-list link-secondary">
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/allure/">Allure report</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/contributing/">Contributing</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/environmentproperties/">Environment properties</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/issues/">Issues</a></li>
+        
+        
+            
+    </ul>
+</div>
+
+
+                    
+                </article>
+
+                <script>
+                    // Table of contents scroll to
+                    UIkit.scroll('#markdown-toc a', {
+                        duration: 400,
+                        offset: 120
+                    });
+                </script>
+
+            </div>
 
     </div>
 </div>
@@ -304,7 +606,7 @@ function searchResults(form) {
         
           
           
-          <li class=""><a href="/Dtective/docs/docker/">Docker</a></li>
+          <li class="uk-active"><a href="/Dtective/docs/docker/">Docker</a></li>
         
           
           
@@ -451,69 +753,9 @@ function searchResults(form) {
 
 
     
-        <footer class="uk-section uk-text-center uk-text-muted">
-    <div class="uk-container uk-container-small">
-
-        <div>
-            <ul class="uk-subnav uk-flex-center">
-                
-                    
-                    
-                    
-                        <li><a href="/Dtective/" >Home</a></li>
-                    
-                
-                    
-                    
-                    
-                        <li><a href="/Dtective/docs/overview" >Docs</a></li>
-                    
-                
-                    
-                    
-                    
-                        <li><a href="/Dtective/contributing/" >Contribute</a></li>
-                    
-                
-            </ul>
-        </div>
-        <div class="uk-margin-medium">
-            <div data-uk-grid class="uk-child-width-auto uk-grid-small uk-flex-center uk-grid">
-                
-
-<div>
-    <a href="https://www.facebook.com/catenamedia/" data-uk-icon="icon: facebook" class="uk-icon-link uk-icon" target="_blank"></a>
-</div>
-
-
-
-
-<div>
-    <a href="https://www.instagram.com/catenamedia" data-uk-icon="icon: instagram" class="uk-icon-link uk-icon" target="_blank"></a>
-</div>
-
-
-
-
-
-
-
-<div>
-    <a href="https://github.com/Catena-Media" data-uk-icon="icon: github" class="uk-icon-link uk-icon" target="_blank"></a>
-</div>
-
-
-
-
-            </div>
-        </div>
-        <div class="uk-margin-medium uk-text-small copyright link-secondary">We're a bunch of human maintainers at <a href="https://www.catenamedia.com/">Catena Media</a>.</div>
-
-    </div>
-</footer>
 
     
-
+        
     
 
     

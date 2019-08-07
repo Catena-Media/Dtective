@@ -6,19 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Feeling Lost - Dtective</title>
-<meta property="og:title" content="Feeling Lost" />
-<meta name="description" content="Powerful automation made easy." />
-<meta property="og:description" content="Powerful automation made easy." />
-<link rel="canonical" href="http://localhost:4000/Dtective/404.html" />
-<meta property="og:url" content="http://localhost:4000/Dtective/404.html" />
+<title>Run tests - Dtective</title>
+<meta property="og:title" content="Run tests" />
+<meta name="description" content="You put great effort developing your set of automated tests and now is the moment to let them work their magic. A few couple of things:" />
+<meta property="og:description" content="You put great effort developing your set of automated tests and now is the moment to let them work their magic. A few couple of things:" />
+<link rel="canonical" href="http://localhost:4000/Dtective/docs/runtests/" />
+<meta property="og:url" content="http://localhost:4000/Dtective/docs/runtests/" />
 <meta property="og:site_name" content="Dtective" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-08-07T14:24:58+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
-"@type": "WebPage",
-"headline": "Feeling Lost",
-"description": "Powerful automation made easy.",
-"url": "http://localhost:4000/Dtective/404.html"}</script>
+"@type": "BlogPosting",
+"headline": "Run tests",
+"datePublished": "2019-08-07T14:24:58+02:00",
+"description": "You put great effort developing your set of automated tests and now is the moment to let them work their magic. A few couple of things:",
+"url": "http://localhost:4000/Dtective/docs/runtests/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="http://localhost:4000/Dtective/uploads/"/>
@@ -245,20 +248,419 @@ function searchResults(form) {
 </div>
     
 
-    
-<div class="uk-section">
-    <div class="uk-container uk-container-small">
+    <div class="uk-section">
+    <div class="uk-container">
+        <div class="uk-grid-large" data-uk-grid>
 
-        <article class="uk-article">
-
-            <h1 class="uk-article-title">Feeling Lost</h1>
-
-            <div class="article-content link-primary">
-                <h2 id="the-page-you-are-looking-for-cannot-be-found-please-navigate-to-homepage">The page you are looking for cannot be found. Please navigate to <a href="http://localhost:4000">homepage</a>.</h2>
-
+            <div class="sidebar-fixed-width uk-visible@m">
+                <div class="sidebar-docs uk-position-fixed uk-margin-top">
+                    
+                    <h5>Getting Started</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/overview/">Feature overview</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/quickstart/">Quickstart</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/installation/">Installation</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/ide/">Editor Configuration</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Configuration</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/environmentproperties/">Environment properties</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/testenvironment/">Test Environment</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/docker/">Docker</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/allure/">Allure report</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Write Tests</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/bdd/">BDD, Cucumber & Gherkin</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+                    
+                      
+                      
+                      <li class="uk-active"><a href="/Dtective/docs/runtests/">Run tests</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/cheatsheet/">Cheat sheet</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Contribute</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/roadmap/">Roadmap</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Help</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/Dtective/docs/support/">Contacting support</a></li>
+                    
+                    </ul>
+                    
+                </div>
             </div>
 
-        </article>
+            <div class="uk-width-1-1 uk-width-expand@m">
+
+                <article class="uk-article">
+
+                    <h1 class="uk-article-title">Run tests</h1>
+
+                    <p class="uk-text-lead uk-text-muted">Let those tests run!</p>
+
+                    <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom uk-flex uk-flex-middle">
+                        
+
+
+
+<div>
+  
+  <time datetime="2019-08-07T14:24:58+02:00" itemprop="datePublished">
+    
+    Aug 7, 2019
+  </time>
+</div>
+                    </div>
+
+                    <div class="article-content link-primary">
+                        <p>You put great effort developing your set of automated tests and now is the moment
+to let them work their magic. A few couple of things:</p>
+
+<ol>
+  <li>Make sure the drivers for Chrome and Firefox are on the root folder of the project</li>
+  <li>If not using Maven integrated with IntelliJ, please install Maven first</li>
+</ol>
+
+<p>We <strong>highly recommend</strong> you to read the following guide on <a href="https://cucumber.io/docs/cucumber/api/#tags">tags</a>
+ for organising and running a specific subset of scenarios.</p>
+
+<p>To run the tests simply execute at the project root <code class="highlighter-rouge">mvn test</code>. This will run all
+the tests available. It is possible to run the tests with more control over the options.</p>
+
+<p>Some examples:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">mvn clean test "-Dcucumber.options=--tags @DEV" -DBrowserType=chrome -DIsRemoteInstance=false</code>
+ <strong>cleans</strong> previous results and runs only the <strong>test</strong> scenarios annotated with the <code class="highlighter-rouge">@DEV</code> tag on a <code class="highlighter-rouge">chrome</code> browser, locally.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">mvn test "-Dcucumber.options=--tags @smoke @perf" -DBrowserType=firefox -DTestEnvironment=my-env</code>
+runs the <strong>test</strong> scenarios annotated with <code class="highlighter-rouge">@smoke</code> and <code class="highlighter-rouge">@perf</code> on a <code class="highlighter-rouge">firefox</code> browser using the <code class="highlighter-rouge">my-env</code> parameters that
+ are set on the <code class="highlighter-rouge">testEnvironment.json</code> file</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">mvn test "-Dcucumber.options=--tags @Regression" -DSeleniumHubUrl=http://localhost:4444/wd/hub -DIsRemoteInstance=true</code>
+run the <strong>tests</strong> scenarios annotated with <code class="highlighter-rouge">@Regression</code> on a <strong>remote</strong> Selenium Grid that is running on <code class="highlighter-rouge">localhost:4444</code></p>
+  </li>
+</ul>
+
+<p>The parameters <code class="highlighter-rouge">-D&lt;Parameter&gt;=</code> being passed on the command are overriding the existing configuration set
+on the <code class="highlighter-rouge">environment.properties</code> file.</p>
+
+<p>####For IntelliJ users</p>
+
+<p>Simply with the right click to run your feature files or when right clicking over a specific scenario to just run that particular one:</p>
+
+<p>[create GIF and paste here]</p>
+
+                        
+                    </div>
+
+                    
+
+                    <hr class="uk-margin-medium">
+
+                    
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="uk-margin-large-top paginate-post">
+        <div class="uk-child-width-expand@s uk-grid-large uk-pagi" data-uk-grid>
+            <div>
+                
+                  
+                  
+                  
+                    <h5>Steps implementation</h5>
+                    <div><a class="remove-underline hvr-back" href="/Dtective/docs/steps/">&larr; Previous</a></div>
+                
+            </div>
+            <div>
+                
+                  
+                  
+                  
+                    <h5>Cheat sheet</h5>
+                    <div class="uk-text-right"><a class="remove-underline hvr-forward" href="/Dtective/docs/cheatsheet/">Next &rarr;</a></div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+
+                    <div class="uk-margin-large-top">
+    <h3>Related Docs</h3>
+
+    
+    
+    
+
+    <ul class="uk-list link-secondary">
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/bdd/">BDD, Cucumber & Gherkin</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/cheatsheet/">Cheat sheet</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/support/">Contacting support</a></li>
+        
+        
+            
+    </ul>
+</div>
+
+
+                    
+                </article>
+
+                <script>
+                    // Table of contents scroll to
+                    UIkit.scroll('#markdown-toc a', {
+                        duration: 400,
+                        offset: 120
+                    });
+                </script>
+
+            </div>
 
     </div>
 </div>
@@ -325,7 +727,7 @@ function searchResults(form) {
         
           
           
-          <li class=""><a href="/Dtective/docs/runtests/">Run tests</a></li>
+          <li class="uk-active"><a href="/Dtective/docs/runtests/">Run tests</a></li>
         
           
           
@@ -451,69 +853,9 @@ function searchResults(form) {
 
 
     
-        <footer class="uk-section uk-text-center uk-text-muted">
-    <div class="uk-container uk-container-small">
-
-        <div>
-            <ul class="uk-subnav uk-flex-center">
-                
-                    
-                    
-                    
-                        <li><a href="/Dtective/" >Home</a></li>
-                    
-                
-                    
-                    
-                    
-                        <li><a href="/Dtective/docs/overview" >Docs</a></li>
-                    
-                
-                    
-                    
-                    
-                        <li><a href="/Dtective/contributing/" >Contribute</a></li>
-                    
-                
-            </ul>
-        </div>
-        <div class="uk-margin-medium">
-            <div data-uk-grid class="uk-child-width-auto uk-grid-small uk-flex-center uk-grid">
-                
-
-<div>
-    <a href="https://www.facebook.com/catenamedia/" data-uk-icon="icon: facebook" class="uk-icon-link uk-icon" target="_blank"></a>
-</div>
-
-
-
-
-<div>
-    <a href="https://www.instagram.com/catenamedia" data-uk-icon="icon: instagram" class="uk-icon-link uk-icon" target="_blank"></a>
-</div>
-
-
-
-
-
-
-
-<div>
-    <a href="https://github.com/Catena-Media" data-uk-icon="icon: github" class="uk-icon-link uk-icon" target="_blank"></a>
-</div>
-
-
-
-
-            </div>
-        </div>
-        <div class="uk-margin-medium uk-text-small copyright link-secondary">We're a bunch of human maintainers at <a href="https://www.catenamedia.com/">Catena Media</a>.</div>
-
-    </div>
-</footer>
 
     
-
+        
     
 
     
