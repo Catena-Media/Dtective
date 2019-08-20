@@ -76,6 +76,7 @@ $margin-xlarge-margin-l:                                $global-xlarge-margin !d
 * + .uk-margin-large { margin-top: $margin-large-margin !important; }
 
 .uk-margin-large-top { margin-top: $margin-large-margin !important; }
+.uk-margin-large-top.paginate-post { margin-top: $margin-large-margin !important; text-align-last: center;}
 .uk-margin-large-bottom { margin-bottom: $margin-large-margin !important; }
 .uk-margin-large-left { margin-left: $margin-large-margin !important; }
 .uk-margin-large-right { margin-right: $margin-large-margin !important; }
@@ -87,6 +88,7 @@ $margin-xlarge-margin-l:                                $global-xlarge-margin !d
     * + .uk-margin-large { margin-top: $margin-large-margin-l !important; }
 
     .uk-margin-large-top { margin-top: $margin-large-margin-l !important; }
+    .uk-margin-large-top.paginate-post { margin-top: $margin-large-margin-l !important; text-align-last: center; }
     .uk-margin-large-bottom { margin-bottom: $margin-large-margin-l !important; }
     .uk-margin-large-left { margin-left: $margin-large-margin-l !important; }
     .uk-margin-large-right { margin-right: $margin-large-margin-l !important; }
