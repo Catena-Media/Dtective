@@ -29,6 +29,7 @@ $width-xxlarge-width:                            750px !default;
 [class*='uk-child-width'] > * {
     box-sizing: border-box;
     width: 100%;
+    text-align: center;
 }
 
 .uk-child-width-1-2 > * { width: 50%; }
