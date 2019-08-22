@@ -27,4 +27,3 @@ Dtective-boilerplate
 │ │
 └── pom.xml
 ```
-Hello World!
