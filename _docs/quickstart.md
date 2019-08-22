@@ -1,12 +1,11 @@
 ---
 title: Quickstart
-subtitle:
-author: sara
 tags: [setup]
 ---
 
-This repository has the boilerplate necessary to start writing tests as fast as possible.
-To get the boilerplate please [fork](https://jira.catena.media/browse/SA-9328) the repository.
+
+Get the boilerplate to start writing tests as fast as possible, by [forking](https://jira.catena.media/browse/SA-9328)
+the Dtective-boilerplate repository.
 
 
 
