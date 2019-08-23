@@ -4,7 +4,7 @@ tags: [setup]
 ---
  You have the boilerplate code from the [Dtective-boilerplate](https://github.com/Catena-Media/Dtective-boilerplate) repository.
 
- Now let's add just a few more things to our misterious case:
+ Now let's add just a few more things to our mysterious case:
 
 
 * [Java JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
@@ -14,4 +14,4 @@ tags: [setup]
 * If you use another editor that is not IntelliJ please install [Maven](https://maven.apache.org/install.html)
 * To use the provided docker related files please consider to install [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce) according to your OS
 
-Got everything? Great. Let's now [configure your editor]().
+Got everything? Great. Let's now [configure your editor](https://catena-media.github.io/Dtective/docs/ide/).
