@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/XDOC/2.0"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+    <properties>
+        <title>Welcome</title>
+        <author email="matyas.banszki@catenamedia.com">Team 42 - Mátyás Bánszki</author>
+    </properties>
+
+    <body>
+        <section name="Environmental Requirements">
+            <subsection name="Java">
+                <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+                    http://www.oracle.com/technetwork/java/javase/downloads/index.html
+                </a>
+            </subsection>
+            <subsection name="Maven">
+                <a href="http://maven.apache.org/">http://maven.apache.org/</a>
+            </subsection>
+            <subsection name="Git">
+                <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>
+            </subsection>
+            <subsection name="Docker">
+                <a href="https://www.docker.com/">https://www.docker.com/</a>
+            </subsection>
+            <subsection name="Docker Hub - Selenium Hub, Chrome and Firefox Web-Driver nodes">
+                <a href="https://github.com/SeleniumHQ/docker-selenium">https://github.com/SeleniumHQ/docker-selenium
+                </a>
+            </subsection>
+            <subsection name="Local Chrome Web-Driver">
+                <a href="https://sites.google.com/a/chromium.org/chromedriver/">
+                    https://sites.google.com/a/chromium.org/chromedriver/
+                </a>
+            </subsection>
+            <subsection name="Local Firefox Web-Driver">
+                <a href="https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver">
+                    https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver
+                </a>
+            </subsection>
+            <subsection name="Chrome Browser">
+                <a href="https://www.google.com/chrome/">https://www.google.com/chrome/</a>
+            </subsection>
+            <subsection name="Firefox Browser">
+                <a href="https://www.mozilla.org/en-US/firefox/quality.products/">
+                    https://www.mozilla.org/en-US/firefox/quality.products/
+                </a>
+            </subsection>
+        </section>
+    </body>
+</document>
+

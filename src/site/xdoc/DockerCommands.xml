@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/XDOC/2.0"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+    <properties>
+        <title>Welcome</title>
+        <author email="matyas.banszki@catenamedia.com">Team 42 - Mátyás Bánszki</author>
+    </properties>
+    <body>
+        <section name="Test Framework - Docker Integration">
+            <subsection name="Execution Under Docker">
+                <div>
+                    <strong>Step : 1 - Create a Docker Container according to the Dependencies</strong>
+                    <div>.</div>
+                    <a href="dependencies.html">Project Dependencies</a>
+                    <a href="https://hub.docker.com/_/maven/">Docker Hub Maven Repository</a>
+                </div>
+                <div>-</div>
+                <div>
+                    <strong>Step : 2 - Clone the repository</strong>
+                    <div>.</div>
+                    <strong>Https</strong>
+                    <div>.</div>
+                    <code>https://github.com/Catena-Media/QA-Automation_FE.git</code>
+                    <div>.</div>
+                    <strong>SSH</strong>
+                    <div>.</div>
+                    <code>git@github.com:Catena-Media/QA-Automation_FE.git</code>
+                </div>
+                <div>-</div>
+                <div>
+                    <strong>Step : 3 - Execute Command in Docker - Project root directory</strong>
+                    <div>.</div>
+                    <a href="frameworkdocs/framework/configuration/ParameterMap.html">Reference to Framework Execution
+                        Parameters
+                    </a>
+                    <div>.</div>
+                    <code>clean compile site -l Console.log "-Dcucumber.options=--tags @InternalTest "
+                        -DchromeHubUrl=http://core:8050
+                    </code>
+                </div>
+                <div>-</div>
+                <div>
+                    <strong>Step : 4 - Browse target/site/index.html</strong>
+                </div>
+                <div>-</div>
+            </subsection>
+
+        </section>
+
+        <section name="Selenium Test Framework - Docker Integration">
+
+            <subsection name="Selenium Hub - Chrome">
+                <strong>Remote Chrome Driver Start Command</strong>
+                <div>-</div>
+                <code>
+                    docker run --privileged --name="chromehub" -p 8050:4444 selenium/standalone-chrome:latest
+                </code>
+            </subsection>
+            <subsection name="Selenium Hub - Firefox">
+                <strong>Remote Firefox Hub Start Command</strong>
+                <div>-</div>
+                <code>
+                    docker run -v ~/SeleniumLogs:/tmp/SeleniumLogs --privileged --name="firefoxhub" -p 8051:4444
+                    selenium/standalone-firefox:3.0.1-dysprosium
+                </code>
+            </subsection>
+            <subsection name="Docker Selenium - Driver Not Reachable Fix">
+                <strong>// Execute the following commands on the nodes</strong>
+                <div>-</div>
+                <code>docker exec //DockerID// sudo umount /dev/shm</code>
+                <div>---</div>
+                <code>docker exec //DockerID// sudo mount -t tmpfs -o rw,nosuid,nodev,noexec,relatime,size=512M tmpfs
+                    /dev/shmshm
+                </code>
+                <div>-</div>
+            </subsection>
+        </section>
+        <section name="Maven Framework - Publish website on server">
+            <a href="https://maven.apache.org/plugins/maven-site-plugin/run-mojo.html">Link to Maven Site Run home</a>
+            <strong>// Execute the following in Docker - Project root</strong>
+            <div>-</div>
+            <code>docker exec //DockerID// site:run -Dport=8055</code>
+            <div>-</div>
+        </section>
+    </body>
+</document>
+

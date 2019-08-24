@@ -1,0 +1,24 @@
+version: '3'
+
+# https://github.com/SeleniumHQ/docker-selenium
+
+services:
+  chrome-hub:
+    image: selenium/standalone-chrome:3.14.0-europium
+    container_name: chrome-hub
+    volumes:
+      - "/dev/shm:/dev/shm"
+    ports:
+      - 4444:4444
+    network_mode: bridge
+    restart: always
+
+  firefox-hub:
+    image: selenium/standalone-firefox:3.14.0-europium
+    container_name: firefox-hub
+    volumes:
+      - "/dev/shm:/dev/shm"
+    ports:
+      - 4445:4444
+    network_mode: bridge
+    restart: always

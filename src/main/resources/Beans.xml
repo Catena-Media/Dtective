@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+    <!-- bean definitions here -->
+    <bean id="localDataService" class="com.dtective.framework.data.LocalInMemoryDataService"/>
+    <bean id="globalDataService" class="com.dtective.framework.data.GlobalInMemoryDataService"/>
+    <bean id="configDataService" class="com.dtective.framework.data.GlobalInMemoryDataService"/>
+
+    <bean id="DataProvider" class="com.dtective.framework.data.DataProvider">
+        <constructor-arg type="com.dtective.framework.data.interfaces.IDataProviderService" index="0"
+                         ref="localDataService"/>
+        <constructor-arg type="com.dtective.framework.data.interfaces.IDataProviderService" index="1"
+                         ref="globalDataService"/>
+        <constructor-arg type="com.dtective.framework.data.interfaces.IDataProviderService" index="2"
+                         ref="configDataService"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/XDOC/2.0"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+    <properties>
+        <title>Welcome</title>
+        <author email="matyas.banszki@catenamedia.com">Team 42 - Mátyás Bánszki</author>
+    </properties>
+
+    <body>
+        <section name="GIT Strategy">
+            <table class="table">
+                <tr class="warning">
+                    <th>1</th>
+                    <td>FEATURE branch created from MASTER</td>
+                </tr>
+                <tr class="warning">
+                    <th>2</th>
+                    <td>Integration and validations pass</td>
+                </tr>
+                <tr class="warning">
+                    <th>3</th>
+                    <td>Create Pull-Request</td>
+                </tr>
+                <tr class="warning">
+                    <th>4</th>
+                    <td>JIRA Update : GIT Branch, Pull-Request, Execution HTML Report</td>
+                </tr>
+                <tr class="warning">
+                    <th>5</th>
+                    <td>Approved by reviewer, Pull-Request merged</td>
+                </tr>
+                <tr class="warning">
+                    <th>6</th>
+                    <td>Test is deployed and executed in staging</td>
+                </tr>
+            </table>
+            <div>---</div>
+        </section>
+        <section name="Methodologies">
+            <subsection name="Page-Object Modelling">
+                <table class="table">
+                    <tr class="warning">
+                        <th>Process Abstraction</th>
+                        <td>Processes and Entry-Point-Web-Elements of web pages are stored in the *Page class</td>
+                    </tr>
+                    <tr class="warning">
+                        <th>Data Abstraction</th>
+                        <td>Data is modelled by a class, comparison supported</td>
+                    </tr>
+                </table>
+            </subsection>
+            <subsection name="User Screen Play">
+                <table class="table">
+                    <tr>
+                        <td>Actions intended to be executed by a user or a web browser are stored in the User Profile
+                            class
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Single and batch data reading / entry is performed through a WebPage design</td>
+                    </tr>
+                </table>
+            </subsection>
+            <subsection name="Web Page Minimal Expected Functionalities">
+                <ul>
+                    <li>Provide the Selector of a WebElement</li>
+                    <li>Implement the BaseWebPage class</li>
+                    <li>Implement the <strong>ParseDataModel</strong> method
+                    </li>
+                    <li>Implement the <strong>SearchForRecord</strong> method
+                    </li>
+                </ul>
+            </subsection>
+            <div>---</div>
+        </section>
+        <section name="JavaDoc Standards">
+
+            <subsection name="JavaDoc Resources" class="navbar-brand">
+                <a href="https://maven.apache.org/plugins/maven-javadoc-plugin/">
+                    https://maven.apache.org/plugins/maven-javadoc-plugin/
+                </a>
+            </subsection>
+            <div>---</div>
+            <subsection name="JavaDoc Requirements" class="navbar-brand">
+                <table class="table">
+                    <tr>
+                        <th>1</th>
+                        <td>All properties are covered</td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td>All methods are covered</td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td>All parameters and return values are covered</td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td>JavaDoc warning and error messages are resolved</td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td>JavaDoc displays as expected in the report HTML</td>
+                    </tr>
+                </table>
+            </subsection>
+            <div>---</div>
+        </section>
+        <section name="Logging Standards">
+
+            <subsection name="Console Log">
+                <div>Contains all messages</div>
+            </subsection>
+            <div>---</div>
+            <subsection name="Log4J2 Framework">
+                <ul>
+                    <li>Test Initialization logged with test instance identifier</li>
+                    <li>All Data values and Methods are logged</li>
+                </ul>
+            </subsection>
+            <div>---</div>
+        </section>
+        <section name="JIRA Task Updates">
+
+            <subsection name="Prior to Code Review">
+                <strong>JIRA Task contains:</strong>
+                <ul>
+                    <li>Link to the feature branch</li>
+                    <li>Link to the pull request</li>
+                </ul>
+            </subsection>
+            <div>---</div>
+            <subsection name="Log4J2 Framework">
+                <ul>
+                    <li>Test Initialization logged with test instance identifier</li>
+                    <li>All Data values and Methods are logged</li>
+                </ul>
+            </subsection>
+            <div>---</div>
+        </section>
+
+
+        <section name="Code Review Guideline">
+
+            <subsection name="Javadoc Console Log Warnings">
+
+            </subsection>
+            <subsection name="Web Driver - Non-HTML-ID selection warnings">
+
+            </subsection>
+            <subsection name="IDEA Code Analysis tool warnings">
+
+            </subsection>
+            <subsection name="Code layers respect the responsibility layering guideline">
+
+            </subsection>
+            <subsection name="Feature branch tested in docker container">
+
+            </subsection>
+            <subsection name="Everything is uploaded and referenced in JIRA">
+
+            </subsection>
+            <subsection name="Approve, merge to master">
+
+            </subsection>
+
+        </section>
+    </body>
+</document>
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Internal Server Error</title>
+    <style>
+            body {
+    font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
+    font-size: .813em;
+    line-height: 1.4em;
+    color: #222;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 100;
+}
+
+h1 {
+    color: #44525e;
+    margin: 15px 0 15px 0;
+}
+
+h2 {
+    margin: 10px 5px 0 0;
+}
+
+h3 {
+    color: #363636;
+    margin: 5px 5px 0 0;
+}
+
+code {
+    font-family: Consolas, "Courier New", courier, monospace;
+}
+
+a {
+    color: #1ba1e2;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #13709e;
+        text-decoration: underline;
+    }
+
+hr {
+    border: 1px #ddd solid;
+}
+
+body .titleerror {
+    padding: 3px;
+}
+
+#applyMigrations {
+    font-size: 14px;
+    background: #44c5f2;
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+    #applyMigrations:disabled {
+        background-color: #a9e4f9;
+        border-color: #44c5f2;
+    }
+
+.error {
+    color: red;
+}
+
+.expanded {
+    display: block;
+}
+
+.collapsed {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <h1>A database operation failed while processing the request.</h1>
+    <p>
+            <span>PostgresException: 3D000: database &quot;qatest&quot; does not exist</span>
+            <br />
+    </p>
+    <hr />
+
+        <div>
+            <h2>Applying existing migrations for ApplicationDbContext may resolve this issue</h2>
+            <p>There are migrations for ApplicationDbContext that have not been applied to the database</p>
+
+            <ul>
+                    <li>20180925084611_postgres_initialization</li>
+                    <li>20180928124335_category update</li>
+            </ul>
+
+            <p>
+                <button id="applyMigrations" onclick="ApplyMigrations()">Apply Migrations</button>
+                <span id="applyMigrationsError" class="error"></span>
+                <span id="applyMigrationsSuccess"></span>
+            </p>
+            <script>
+                function ApplyMigrations() {
+                    applyMigrations.disabled = true;
+                    applyMigrationsError.innerHTML = "";
+                    applyMigrations.innerHTML = "Applying Migrations...";
+
+                    var req = new XMLHttpRequest();
+
+                    req.onload = function (e) {
+                        if (req.status === 204) {
+                            applyMigrations.innerHTML = "Migrations Applied";
+                            applyMigrationsSuccess.innerHTML = "Try refreshing the page";
+                        } else {
+                            ErrorApplyingMigrations();
+                        }
+                    };
+
+                    req.onerror = function (e) {
+                        ErrorApplyingMigrations();
+                    };
+
+                    var formBody = "context=TestWebsite.Data.ApplicationDbContext,%20TestWebsite,%20Version%3D1.0.0.0,%20Culture%3Dneutral,%20PublicKeyToken%3Dnull";
+                    req.open("POST", "\/ApplyDatabaseMigrations", true);
+                    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    req.setRequestHeader("Content-length", formBody.length);
+                    req.setRequestHeader("Connection", "close");
+                    req.send(formBody);
+                }
+
+                function ErrorApplyingMigrations() {
+                    applyMigrations.innerHTML = "Apply Migrations";
+                    applyMigrationsError.innerHTML = "An error occurred applying migrations, try applying them from the command line";
+                    applyMigrations.disabled = false;
+                }
+            </script>
+
+            <p>In Visual Studio, you can use the Package Manager Console to apply pending migrations to the database:</p>
+            <code>PM&gt; Update-Database</code>
+            <p>Alternatively, you can apply pending migrations from a command prompt at your project directory:</p>
+            <code>&gt; dotnet ef database update</code>
+            <hr />
+        </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "PersonName": "Tester",
+    "PhoneNumber": "1234567890",
+    "isProfilePublic": "false",
+    "isFreeAccount": "true",
+    "age": "0"
+}

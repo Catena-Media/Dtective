@@ -1,0 +1,32 @@
+# Build directory
+target/
+
+#Docker build directory
+build/allure-results/
+
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+
+.idea/
+.allure/
+
+chromedriver.exe
+chromedriver
+geckodriver.exe
+geckodriver
+
+*.iml
+!.gitkeep
+docker-compose.override.yml
+.env
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+
+build/environment/testEnvironment.json
+
+build/environment/environment.properties
+
+build/site/

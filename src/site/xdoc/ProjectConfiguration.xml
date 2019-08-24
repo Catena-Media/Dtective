@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/XDOC/2.0"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+    <properties>
+        <title>Welcome</title>
+        <author email="matyas.banszki@catenamedia.com">Team 42 - Mátyás Bánszki</author>
+    </properties>
+
+    <body>
+        <section name="Test Framework Configuration">
+            <subsection name="Parameter Mapping">
+                <a href="frameworkdocs/framework/configuration/ParameterMap.html">Source Code Documentation Reference
+                </a>
+                <div>---</div>
+            </subsection>
+            <subsection name="Execution Profiles">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Development</th>
+                            <td>
+                                <div>Default - Test development build profile</div>
+                                <div>---</div>
+                                <div class="warning">*Requires downloaded web-driver, place it in project root</div>
+                                <div>---</div>
+                                <table class="table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Web Application</th>
+                                            <td>http://react-boilerplate-dev.catena.media/</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Remote Web-Browser</th>
+                                            <td>false</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Browser Type</th>
+                                            <td>Chrome</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>---</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Production</th>
+                            <td>
+                                <div>Catena Connect Validation build profile</div>
+                                <div>---</div>
+                                <code>*Requires remote web-driver hub to be online</code>
+                                <div>---</div>
+                                <table class="table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Web Application</th>
+                                            <td>http://qaserver.catena.media/</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Remote Web-Browser</th>
+                                            <td>true</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Selenium Chrome Hub Url</th>
+                                            <td>http:/qaserver.catena.media:8050</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Browser Type</th>
+                                            <td>Chrome</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>---</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>InternalTest</th>
+                            <td>
+                                <div>Catena Connect Internal and Environmental Integrity build profile</div>
+                                <div>---</div>
+                                <code>*Requires remote web-driver hub to be online</code>
+                                <div>---</div>
+                                <table class="table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Web Application</th>
+                                            <td>http://qaserver.catena.media/</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Remote Web-Browser</th>
+                                            <td>true</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Selenium Chrome Hub Url</th>
+                                            <td>http:/qaserver.catena.media:8050</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Browser Type</th>
+                                            <td>Chrome</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>---</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>---</div>
+            </subsection>
+
+        </section>
+        <section name="Test Automation Project Configuration">
+            <subsection name="Maven - Pom.xml">
+                <strong>maven-compiler-plugin</strong>
+                <blockquote>Responsibility : Compiles Java Code</blockquote>
+                <blockquote>Responsibility : Controls Java Runtime Versioning</blockquote>
+
+                <strong>maven-surefire-plugin</strong>
+                <blockquote>Responsibility : Test Execution Management</blockquote>
+
+                <strong>maven-surefire-report-plugin</strong>
+                <blockquote>Responsibility : Surefire HTML Report addition to the site</blockquote>
+
+                <strong>maven-site-plugin</strong>
+                <blockquote>Responsibility : Maven Base HTML site</blockquote>
+
+                <strong>copy-rename-maven-plugin</strong>
+                <blockquote>Responsibility : Site Style deployment</blockquote>
+
+                <strong>maven-javadoc-plugin</strong>
+                <blockquote>Responsibility : Generated Code Documentation</blockquote>
+
+                <strong>org.seleniumhq.selenium</strong>
+                <blockquote>Responsibility : Selenium Web Driver Library</blockquote>
+
+                <strong>cucumber-junit</strong>
+                <blockquote>Responsibility : BDD Technology integration to JUnit</blockquote>
+
+                <strong>cucumber-java</strong>
+                <blockquote>Responsibility : BDD Technology Java Library</blockquote>
+
+                <strong>org.apache.httpcomponents</strong>
+                <blockquote>Responsibility : HTTP Communication Library</blockquote>
+
+                <strong>org.apache.logging.log4j</strong>
+                <blockquote>Responsibility : Log Management Framework</blockquote>
+
+                <strong>com.google.code.gson</strong>
+                <blockquote>Responsibility : Serialization Helper</blockquote>
+
+                <strong>com.coderplus.maven.plugins</strong>
+                <strong>xml-apis</strong>
+                <blockquote>Responsibility : Helper Libraries</blockquote>
+            </subsection>
+        </section>
+    </body>
+</document>
+

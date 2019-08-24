@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <!--<File name="File" fileName="target/site/logs/Console.log" bufferedIO="true"-->
+        <!--advertiseURI="target/site/Logs/ExecutionOutput.log" advertise="true">-->
+        <!--<PatternLayout pattern="%d{HH:mm:ss.SSS} jvm-%pid %-5level %logger{36} - %msg%n"/>-->
+        <!--</File>-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} jvm-%pid [%t] %-5level %msg%n"/>
+        </Console>
+
+        <File name="RollingFile" fileName="target/site/logs/jsonlogger.json"
+              bufferedIO="true" advertiseURI="target/site/logs/jsonlogger.json">
+            <PatternLayout>
+                <pattern>%m%n</pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console" level="INFO"/>
+            <!--<AppenderRef ref="File" level="DEBUG"/>-->
+        </Root>
+        <!--        <Logger name="JSONLogger" level="debug" additivity="false">-->
+        <!--            <AppenderRef ref="RollingFile"/>-->
+        <!--        </Logger>-->
+    </Loggers>
+</Configuration>

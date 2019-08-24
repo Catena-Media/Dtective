@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/XDOC/2.0"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+    <properties>
+        <title>Welcome</title>
+        <author email="matyas.banszki@catenamedia.com">Team 42 - Mátyás Bánszki</author>
+    </properties>
+
+    <body>
+        <section name="Code Review Guideline">
+
+            <subsection name="Console Log Warning Example">
+                <p>
+                    <code>
+                        7 warnings
+                        [WARNING] Javadoc Warnings
+                        [WARNING] E:\Source\Repos\finalconnectvalidation\src\main\java\framework\commons\Zip.java:46:
+                        warning: no description for @throws
+                        [WARNING] * @throws IOException
+                        [WARNING] ^
+                        [WARNING]
+                        E:\Source\Repos\finalconnectvalidation\src\main\java\framework\configuration\ParameterMap.java:18:
+                        warning: empty tag
+                        [WARNING] *
+                        [WARNING] ^
+                        [WARNING]
+                        E:\Source\Repos\finalconnectvalidation\src\main\java\WebDesign\Domains\DataModels\PaymentMethodsDataModel.java:74:
+                        warning: no description for @param
+                        [WARNING] * @param paymentType
+                        [WARNING] ^
+                        [WARNING]
+                        E:\Source\Repos\finalconnectvalidation\src\main\java\WebDesign\Domains\DataModels\PaymentMethodsDataModel.java:75:
+                        warning: no description for @param
+                        [WARNING] * @param description
+                    </code>
+                </p>
+            </subsection>
+            <subsection name="Selenium Hub - Firefox">
+                <p>
+                    // Create a Selenium Hub - Firefox Driver Node
+                    docker run -v ~/SeleniumLogs:/tmp/SeleniumLogs --privileged --name="firefoxhub" -p 8051:4444
+                    selenium/standalone-firefox:3.0.1-dysprosium
+                </p>
+            </subsection>
+
+
+        </section>
+    </body>
+</document>
+

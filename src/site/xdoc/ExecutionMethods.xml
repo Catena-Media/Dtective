@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/XDOC/2.0"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+    <properties>
+        <title>Welcome</title>
+        <author email="matyas.banszki@catenamedia.com">Team 42 - Mátyás Bánszki</author>
+    </properties>
+
+    <body>
+        <section name="Code Review Guideline">
+
+            <source><![CDATA[
+
+            try (Stream<String> stream = Files.lines(Paths.get("Console.log"))) {
+
+			stream.forEach(System.out::println);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            ]]></source>
+
+            <subsection name="Javadoc Console Log Warnings">
+
+                <!--wget -N https://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip -P ${WORKSPACE}
+                 && unzip ${WORKSPACE}/chromedriver_linux64.zip -d ${WORKSPACE}
+                 && chmod +x ${WORKSPACE}/chromedriver
+-->
+
+            </subsection>
+            <subsection name="Web Driver - Non-HTML-ID selection warnings">
+
+            </subsection>
+            <subsection name="IDEA Code Analysis tool warnings">
+
+            </subsection>
+            <subsection name="Code layers respect the responsibility layering guideline">
+
+            </subsection>
+            <subsection name="Feature branch tested in docker container">
+
+            </subsection>
+            <subsection name="Everything is uploaded and referenced in JIRA">
+
+            </subsection>
+            <subsection name="Approve, merge to master">
+
+            </subsection>
+
+        </section>
+    </body>
+</document>
+

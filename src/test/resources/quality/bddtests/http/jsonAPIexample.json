@@ -1,0 +1,8 @@
+{
+  "personName": "string",
+  "phoneNumber": 9986454678,
+  "age": 0,
+  "address": "string",
+  "isProfilePublic": true,
+  "isFreeAccount": true
+}
