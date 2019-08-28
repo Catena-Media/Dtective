@@ -14,12 +14,12 @@
 <meta property="og:url" content="http://localhost:4000/Dtective/docs/contributing/" />
 <meta property="og:site_name" content="Dtective" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-23T13:31:23+02:00" />
+<meta property="article:published_time" content="2019-08-27T11:19:45+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "Contributing",
-"datePublished": "2019-08-23T13:31:23+02:00",
+"datePublished": "2019-08-27T11:19:45+02:00",
 "description": "Contributing to Dtective",
 "url": "http://localhost:4000/Dtective/docs/contributing/"}</script>
 <!-- End Jekyll SEO tag -->
@@ -306,7 +306,7 @@ function searchResults(form) {
                     
                       
                       
-                      <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+                      <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
                     
                       
                       
@@ -329,10 +329,6 @@ function searchResults(form) {
                       
                       <li class="uk-active"><a href="/Dtective/docs/contributing/">Contributing</a></li>
                     
-                      
-                      
-                      <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
-                    
                     </ul>
                     
                     <h5>Help</h5>
@@ -353,7 +349,7 @@ function searchResults(form) {
 
                     <h1 class="uk-article-title">Contributing</h1>
 
-                    <p class="uk-text-lead uk-text-muted">Take a look at what we have in the crystal ball for Dtective.</p>
+                    
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom uk-flex uk-flex-middle">
                         
@@ -362,9 +358,9 @@ function searchResults(form) {
 
 <div>
   
-  <time datetime="2019-08-23T13:31:23+02:00" itemprop="datePublished">
+  <time datetime="2019-08-27T11:19:45+02:00" itemprop="datePublished">
     
-    Aug 23, 2019
+    Aug 27, 2019
   </time>
 </div>
                     </div>
@@ -372,10 +368,10 @@ function searchResults(form) {
                     <div class="article-content link-primary">
                         <h1 id="contributing-to-dtective">Contributing to Dtective</h1>
 
-<p>We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our <a href="https://github.com/Catena-Media/QA-Automation_Runner/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
+<p>We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our <a href="https://github.com/Catena-Media/Dtective/blob/gh-pages/CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
 
 <h2 id="using-our-issue-tracker">Using our Issue Tracker</h2>
-<p>We have prepared templates for <a href="https://github.com/Catena-Media/QA-Automation_Runner/issues/new?template=BUG.md">bug reports</a> and <a href="https://github.com/Catena-Media/QA-Automation_Runner/issues/new?template=FEATURE.md">feature requests</a> to help you formulate the issue at hand.</p>
+<p>We have prepared templates for <a href="https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md">bug reports</a> and <a href="https://github.com/Catena-Media/Dtective/issues/new?template=FEATURE.md">feature requests</a> to help you formulate the issue at hand.</p>
 
 <h3 id="creating-a-pull-request">Creating a Pull Request</h3>
 
@@ -436,7 +432,7 @@ git clone https://github.com/&lt;your-username&gt;/&lt;repo-name&gt;
 <span class="c"># Navigate to the newly cloned directory</span>
 <span class="nb">cd</span> &lt;repo-name&gt;
 <span class="c"># Assign the original repo to a remote called "upstream"</span>
-git remote add upstream https://github.com/Catena-Media/dtective/&lt;repo-name&gt;
+git remote add upstream https://github.com/Catena-Media/Dtective/&lt;repo-name&gt;
 </code></pre>
     </div>
   </li>
@@ -485,7 +481,7 @@ Please check the Javadocs section below for some guidance.</p>
 <h4 id="javadocs">Javadocs</h4>
 
 <p>We are using <a href="https://www.tutorialspoint.com/java/java_documentation.htm">Javadocs</a> to generate user-facing documentation.
- This is only mandatory when introducing new features in <code class="highlighter-rouge">src &gt; main &gt; java &gt; com.catena.qa.framework &gt; quality</code></p>
+ This is only mandatory when introducing new features in <code class="highlighter-rouge">src &gt; main &gt; java &gt; com.dtective.framework &gt; quality</code></p>
 
 <p>The current standards are:</p>
 
@@ -493,14 +489,14 @@ Please check the Javadocs section below for some guidance.</p>
   <li>for methods:</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/<span class="k">**</span>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
 brief explanation of the method.
 
 @param - what argument is expected
-.. <span class="o">(</span>list all @param <span class="k">if </span>more than one<span class="o">)</span>
+.. (list all @param if more than one)
 @return - what the method returns
-@since <span class="o">[</span>the version which this method will be introduced <span class="k">in</span><span class="o">]</span>
-<span class="k">*</span>/
+@since [the version which this method will be introduced in]
+*/</span>
 </code></pre>
 </div>
 
@@ -508,62 +504,35 @@ brief explanation of the method.
   <li>for classes:</li>
 </ul>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/<span class="k">**</span>
-<span class="k">*</span> Brief explanation of the class
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+* Brief explanation of the class
 
-@since <span class="o">[</span>the version which this class will be introduced <span class="k">in</span><span class="o">]</span>
-<span class="k">*</span>/
+@since [the version which this class will be introduced in]
+*/</span>
 </code></pre>
 </div>
 
-<p>##Setting Up the Code for Local Development</p>
+<h2 id="setting-up-the-code-for-local-development">Setting Up the Code for Local Development</h2>
 
-<p>General Prerequesites</p>
-<ul>
-  <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html">Java 11</a></li>
-</ul>
+<p>Please refer to the <a href="https://github.com/Catena-Media/Dtective/docs/installation">installation</a> and
+<a href="https://github.com/Catena-Media/Dtective/docs/installation/ide">editor configuration</a> section in this site.</p>
 
-<p>The <a href="http://chromedriver.chromium.org/downloads">Chrome</a> and <a href="https://github.com/mozilla/geckodriver/releases">Firefox</a> drivers are provided at the root level of the project.
-We prefer using <a href="https://www.jetbrains.com/idea/download/#section=mac">IntelliJ</a> since, for us, it speeds up the development with useful plugins, easy Maven integration and code completion (particularly handy for the BDD steps) but it is possible too to use your editor of choice as long as you take some extra commands.</p>
-
-<p>####With IntelliJ</p>
-
-<ul>
-  <li>[x] Import Project</li>
-  <li>[ ] Select the QA-Automation_Runner project folder and click Open</li>
-  <li>[ ] Select to import project form Maven external model and click to proceed</li>
-  <li>[ ] Leave root directory and settings as is and click Next</li>
-  <li>[ ] Select to import the select Maven project and click Next</li>
-  <li>[ ] Ensure the selected SDK is 11 and the JDK home path is correct and click Next</li>
-  <li>[ ] On the pop up select Import Changes</li>
-</ul>
-
-<p>####Using another editor</p>
-
-<p>Prerequesites</p>
-<ul>
-  <li><a href="https://maven.apache.org/install.html">Maven</a></li>
-</ul>
-
-<p>(coming soon)</p>
-
-<p>###Structure</p>
+<h3 id="structure">Structure</h3>
 
 <p>There is plenty of material out there that explains thoroughly the concept of Behavior Driven Development.
 In a nutshell, the goal of BDD is a business readable and domain-specific language that allows you to describe easily
 how a system is supposed to be behaving without explaining how that behavior is implemented.</p>
 
 <p>The implementation which supports the BDD layer (so called Step Definitions) can be found in
-<code class="highlighter-rouge">src &gt; java &gt; com.catena.qa.framework</code>. We attempt to
-keep functionality grouped in a logical way.</p>
+<code class="highlighter-rouge">src &gt; java &gt; com.dtective.framework</code>. We attempt to keep functionality grouped in a logical way.</p>
 
-<p>Under <code class="highlighter-rouge">test &gt; resources &gt; quality</code> we have a set of sample tests that cover the functionality implemented. It is <strong>highly</strong>
-recommended that if you plan adding/modifying functionality you add/modify those to maintain the quality of the framework.
-This is also a good starting point to understand how and what steps are available currently.</p>
+<p>Under <code class="highlighter-rouge">test &gt; resources &gt; quality</code> we have a set of sample tests that cover the functionality implemented which support the BDD steps. It is <strong>highly</strong> recommended that if you plan adding/modifying functionality you add/modify those tests to maintain the quality of the framework.</p>
+
+<p>This is also a good starting point to understand how and what steps are available currently.</p>
 
 <p>The magic hooks for JUnit live in <code class="highlighter-rouge">test &gt; java &gt; quality</code>.</p>
 
-<p>###Testing</p>
+<h3 id="testing">Testing</h3>
 
 <p>It is fundamental that fixes and new features pass our existing set of tests. This keeps the quality standards of the
  framework. To run the tests keep in mind the following:</p>
@@ -575,31 +544,8 @@ This is also a good starting point to understand how and what steps are availabl
   <li>To run all the tests run the Maven command <code class="highlighter-rouge">mvn test</code></li>
 </ul>
 
-<p><strong>Note:</strong> the <code class="highlighter-rouge">environment.properties.example</code> should be renamed to <code class="highlighter-rouge">environment.properties</code></p>
-
-<h3 id="docker">Docker</h3>
-
-<p>Prerequesites</p>
-<ul>
-  <li><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce">Docker</a></li>
-</ul>
-
-<p>The project includes docker-compose files which can be used for testing locally:</p>
-<ul>
-  <li><code class="highlighter-rouge">docker-compose.selenium.yml</code> builds two containers which run a Selenium Grid with chrome and another one with firefox.</li>
-</ul>
-
-<p>To make use of</p>
-
-<p><code class="highlighter-rouge">$ docker-compose -f docker-compose.&lt;name&gt;.yml build</code></p>
-
-<p><code class="highlighter-rouge">$ docker-compose -f docker-compose.&lt;name&gt;.yml up -d</code></p>
-
-<p>after all the test executions</p>
-
-<p><code class="highlighter-rouge">$ docker-compose -f docker-compose.&lt;name&gt;.yml down</code></p>
-
-<p>Note: Do not forget to adjust the <code class="highlighter-rouge">environment.properties</code> to run the tests with Docker containers.</p>
+<p><strong>Note:</strong> If experiencing difficulties, check documentation on <a href="https://github.com/Catena-Media/Dtective/docs/environmentproperties/">environment properties</a>
+  and <a href="https://github.com/Catena-Media/Dtective/docs/testenvironment/">test environment</a> files.</p>
 
                         
                     </div>
@@ -668,8 +614,8 @@ This is also a good starting point to understand how and what steps are availabl
                   
                   
                   
-                    <h5>Issues</h5>
-                    <div class="uk-text-center"><a class="remove-underline hvr-forward" href="/Dtective/docs/issues/">Next &rarr;</a></div>
+                    <h5>Contacting support</h5>
+                    <div class="uk-text-center"><a class="remove-underline hvr-forward" href="/Dtective/docs/support/">Next &rarr;</a></div>
                 
             </div>
         </div>
@@ -693,7 +639,97 @@ This is also a good starting point to understand how and what steps are availabl
     
 
     
-        <li><a href="/Dtective/docs/allure/">Allure report</a></li>
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/roadmap/">Roadmap</a></li>
         
         
     
@@ -733,54 +769,8 @@ This is also a good starting point to understand how and what steps are availabl
     
 
     
-        <li><a href="/Dtective/docs/docker/">Docker</a></li>
-        
-        
-    
 
     
-
-    
-    
-
-    
-
-    
-        <li><a href="/Dtective/docs/environmentproperties/">Environment properties</a></li>
-        
-        
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-        <li><a href="/Dtective/docs/issues/">Issues</a></li>
-        
-        
-            
     </ul>
 </div>
 
@@ -859,7 +849,7 @@ This is also a good starting point to understand how and what steps are availabl
         
           
           
-          <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+          <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
         
           
           
@@ -881,10 +871,6 @@ This is also a good starting point to understand how and what steps are availabl
           
           
           <li class="uk-active"><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-          
-          
-          <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
         
         </ul>
         

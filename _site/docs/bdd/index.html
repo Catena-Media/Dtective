@@ -8,19 +8,19 @@
   <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>BDD, Cucumber &amp; Gherkin - Dtective</title>
 <meta property="og:title" content="BDD, Cucumber &amp; Gherkin" />
-<meta name="description" content="" />
-<meta property="og:description" content="" />
+<meta name="description" content="Enter BDD" />
+<meta property="og:description" content="Enter BDD" />
 <link rel="canonical" href="http://localhost:4000/Dtective/docs/bdd/" />
 <meta property="og:url" content="http://localhost:4000/Dtective/docs/bdd/" />
 <meta property="og:site_name" content="Dtective" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-23T13:31:23+02:00" />
+<meta property="article:published_time" content="2019-08-27T11:19:45+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "BDD, Cucumber &amp; Gherkin",
-"datePublished": "2019-08-23T13:31:23+02:00",
-"description": "",
+"datePublished": "2019-08-27T11:19:45+02:00",
+"description": "Enter BDD",
 "url": "http://localhost:4000/Dtective/docs/bdd/"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -306,7 +306,7 @@ function searchResults(form) {
                     
                       
                       
-                      <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+                      <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
                     
                       
                       
@@ -329,10 +329,6 @@ function searchResults(form) {
                       
                       <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
                     
-                      
-                      
-                      <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
-                    
                     </ul>
                     
                     <h5>Help</h5>
@@ -353,7 +349,7 @@ function searchResults(form) {
 
                     <h1 class="uk-article-title">BDD, Cucumber &amp; Gherkin</h1>
 
-                    <p class="uk-text-lead uk-text-muted">Get familiar with the concepts of BDD, the power of Cucumber and the structure of Gherkin</p>
+                    
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom uk-flex uk-flex-middle">
                         
@@ -362,15 +358,71 @@ function searchResults(form) {
 
 <div>
   
-  <time datetime="2019-08-23T13:31:23+02:00" itemprop="datePublished">
+  <time datetime="2019-08-27T11:19:45+02:00" itemprop="datePublished">
     
-    Aug 23, 2019
+    Aug 27, 2019
   </time>
 </div>
                     </div>
 
                     <div class="article-content link-primary">
-                        
+                        <h3 id="enter-bdd">Enter BDD</h3>
+
+<p>BDD, which stands for Behaviour Driven Development, is one of the most popular approaches to test automation. This technique
+has derived from TDD (Test Driven Development) which defines that before any functionality is implemented, tests should be created first.
+TDD has focused more on the unit test side of things, useful for short term iterations when you need to keep your functionality safe from regression for a single unit that is under development.</p>
+
+<p>When it comes to integration and end to end testing, we don’t focus on a single unit but the application (or bigger parts of the application) as a whole, and therefore our tests increase in complexity and time spent designing them. The modeling of the behaviour is an effective approach to business requirements. BDD was created to involve business stakeholders, product owners, QAs and developers in a way where all parts can identify and align the flows of a user interacting with a feature.</p>
+
+<p>Sounds great? It is great, and the folks at <strong>Cucumber</strong> implemented this technique, explaining the behaviour of the application in a simple English text using Gherkin language.</p>
+
+<h3 id="cucumber">Cucumber</h3>
+
+<p>Cucumber makes it easy to read and to understand the application flow. This is Cucumber in action:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="nl">Feature:</span>   <span class="n">User</span> <span class="n">authorization</span> <span class="n">and</span> <span class="n">authorization</span>
+<span class="nl">Scenario:</span>  <span class="n">The</span> <span class="n">user</span> <span class="n">can</span> <span class="n">log</span> <span class="n">into</span> <span class="n">the</span> <span class="n">system</span>
+<span class="n">Given</span>  <span class="n">The</span> <span class="n">user</span> <span class="n">is</span> <span class="n">registered</span> <span class="n">in</span> <span class="n">the</span> <span class="n">system</span>
+<span class="n">When</span>  <span class="n">The</span> <span class="n">user</span> <span class="n">enters</span> <span class="n">a</span> <span class="n">login</span>
+<span class="n">And</span>  <span class="n">enters</span> <span class="n">a</span> <span class="n">password</span>
+<span class="n">Then</span>  <span class="n">the</span> <span class="n">user</span> <span class="n">is</span> <span class="n">logged</span> <span class="n">in</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><code class="highlighter-rouge">Feature</code>  — describes which part of the functionality scenarios are being created for.</li>
+  <li><code class="highlighter-rouge">Scenario</code>  — is used to describe the test case title.</li>
+  <li><code class="highlighter-rouge">Given</code>  — describes pre-conditions required to complete the scenario.</li>
+  <li><code class="highlighter-rouge">When</code>  — is used to describe the scenario’s steps.</li>
+  <li><code class="highlighter-rouge">Then</code>  — describes the expected result of the scenario.</li>
+  <li><code class="highlighter-rouge">And</code>  — can be used for Given, When and Then keywords to describe additional steps.</li>
+</ul>
+
+<p>The user can understand the application code as it uses Gherkin language which is in plain text and which makes anyone in the organization able understand the behavior of the software and collaborate in designing the scenarios.</p>
+
+<h4 id="cucumber-and-selenium">Cucumber and Selenium</h4>
+
+<p>Selenium is an extremely popular browser automation testing tool which is capable of interacting with the HTML elements of a web application to simulate user activity. It is the implementation layer behind the Cucumber steps. You give Cucumber a set of step definitions, which map the business-readable language of each step into code to carry out whatever action is being described by the step.</p>
+
+<p>🔍 In Dtective, we build many many steps so you don’t have to implement them - they are ready to go! Checkout the <a href="https://catena-media.github.io/Dtective/docs/cheatsheet/">cheatsheet</a> to get started.</p>
+
+<p>It is possible to add your own custom step definitions as well - take a look at <a href="https://catena-media.github.io/Dtective/docs/steps/">Extending steps</a>.</p>
+
+<p>We recommend to explore cucumber.io <a href="https://cucumber.io/docs/cucumber/">documentation</a> for some deeper understanding on how Gherkin steps are connected to code.</p>
+
+<h3 id="gherkin">Gherkin</h3>
+
+<p>Gherkin uses, special keywords to give structure and meaning to executable specifications, like we have seen above in the Cucumber section. Each keyword is translated to many spoken languages but in Dtective we are using English.</p>
+
+<h4 id="gherkin-and-cucumber">Gherkin and Cucumber</h4>
+
+<p>Translating Gherkin scenarios to code uses a technology called Regular Expressions, or as it’s commonly referred to, regex. Cucumber uses Regex to scan the scenarios that we define for Gherkin’s keywords (rembember <code class="highlighter-rouge">Scenario</code>, <code class="highlighter-rouge">Given</code>, <code class="highlighter-rouge">When</code>, <code class="highlighter-rouge">Then</code>, and <code class="highlighter-rouge">And</code>?) and the phrases that after them.</p>
+
+<p>When Cucumber finds a phrase that it recognises in one of our scenarios using regex, it translates that phrase into code by using <strong>step definitions</strong> .</p>
+
+<p>Please take a look of the <a href="https://cucumber.io/docs/gherkin/reference/">Gherkin Syntax Reference</a> for tips on using <code class="highlighter-rouge">Background</code> and <code class="highlighter-rouge">Data Tables</code>.</p>
+
+<p>We encourage you to check the set of tests we use for Dtective framework itself to gather some inspiration.</p>
 
                         
                     </div>
@@ -424,7 +476,7 @@ function searchResults(form) {
                   
                   
                   
-                    <h5>Steps implementation</h5>
+                    <h5>Extending steps</h5>
                     <div class="uk-text-center"><a class="remove-underline hvr-forward" href="/Dtective/docs/steps/">Next &rarr;</a></div>
                 
             </div>
@@ -552,24 +604,6 @@ function searchResults(form) {
     
 
     
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
         <li><a href="/Dtective/docs/runtests/">Run tests</a></li>
         
         
@@ -583,7 +617,7 @@ function searchResults(form) {
     
 
     
-        <li><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+        <li><a href="/Dtective/docs/steps/">Extending steps</a></li>
         
         
     
@@ -596,10 +630,17 @@ function searchResults(form) {
     
 
     
-        <li><a href="/Dtective/docs/support/">Contacting support</a></li>
-        
-        
-            
+
+    
+
+    
+    
+
+    
+
+    
+
+    
     </ul>
 </div>
 
@@ -678,7 +719,7 @@ function searchResults(form) {
         
           
           
-          <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+          <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
         
           
           
@@ -700,10 +741,6 @@ function searchResults(form) {
           
           
           <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-          
-          
-          <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
         
         </ul>
         

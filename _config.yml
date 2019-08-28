@@ -26,10 +26,7 @@ navbar:
     search:         true
 
 # Default author settings
-author:
-    name:           Pete Seth
-    title:          Lead Developer
-    avatar:         avatar-tom.png
+
 
 # Author settings, displayed on post and doc pages if front matter references author name e.g. author: peter
 authors:

@@ -8,19 +8,19 @@
   <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>Allure report - Dtective</title>
 <meta property="og:title" content="Allure report" />
-<meta name="description" content="" />
-<meta property="og:description" content="" />
+<meta name="description" content="Allure is not mandatory. Yet, we know it is important to have straightforward results. We have integrated Dtective with Allure to make beautiful reports for your automation test suite." />
+<meta property="og:description" content="Allure is not mandatory. Yet, we know it is important to have straightforward results. We have integrated Dtective with Allure to make beautiful reports for your automation test suite." />
 <link rel="canonical" href="http://localhost:4000/Dtective/docs/allure/" />
 <meta property="og:url" content="http://localhost:4000/Dtective/docs/allure/" />
 <meta property="og:site_name" content="Dtective" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-23T13:31:23+02:00" />
+<meta property="article:published_time" content="2019-08-27T11:19:45+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "Allure report",
-"datePublished": "2019-08-23T13:31:23+02:00",
-"description": "",
+"datePublished": "2019-08-27T11:19:45+02:00",
+"description": "Allure is not mandatory. Yet, we know it is important to have straightforward results. We have integrated Dtective with Allure to make beautiful reports for your automation test suite.",
 "url": "http://localhost:4000/Dtective/docs/allure/"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -306,7 +306,7 @@ function searchResults(form) {
                     
                       
                       
-                      <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+                      <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
                     
                       
                       
@@ -329,10 +329,6 @@ function searchResults(form) {
                       
                       <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
                     
-                      
-                      
-                      <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
-                    
                     </ul>
                     
                     <h5>Help</h5>
@@ -353,7 +349,7 @@ function searchResults(form) {
 
                     <h1 class="uk-article-title">Allure report</h1>
 
-                    <p class="uk-text-lead uk-text-muted">Let's setup some beautiful reports for your automated tests, shall we?</p>
+                    <p class="uk-text-lead uk-text-muted">Not mandatory. Yet, a beautiful report.</p>
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom uk-flex uk-flex-middle">
                         
@@ -362,15 +358,17 @@ function searchResults(form) {
 
 <div>
   
-  <time datetime="2019-08-23T13:31:23+02:00" itemprop="datePublished">
+  <time datetime="2019-08-27T11:19:45+02:00" itemprop="datePublished">
     
-    Aug 23, 2019
+    Aug 27, 2019
   </time>
 </div>
                     </div>
 
                     <div class="article-content link-primary">
-                        
+                        <p>Allure is not mandatory. Yet, we know it is important to have straightforward results. We have integrated Dtective with
+Allure to make beautiful reports for your automation test suite.</p>
+
 <figure data-uk-lightbox="animation: slide">
     <a class="uk-inline" href="http://localhost:4000/Dtective/uploads/allure.png">
         <img src="http://localhost:4000/Dtective/uploads/allure.png" alt="Alt for image" />
@@ -381,34 +379,11 @@ function searchResults(form) {
     
 </figure>
 
-<p>After a test run which has been executed with Maven, either by clicking on
- <code class="highlighter-rouge">Maven &gt; site</code> the right panel on the Lifecycle shown below</p>
+<p>Allure can be easily set up with Maven. After a test run, on the right side panel of IntelliJ, expand the Maven tab.
+Under Lifecycle press <code class="highlighter-rouge">site</code>. This generates a site with a report of the latest test run. The site file is found in
+<code class="highlighter-rouge">target &gt; site &gt; allure-maven-plugin &gt; index.html</code> right click on <code class="highlighter-rouge">index.html</code> to open the file with the browser of your preference.</p>
 
-<figure data-uk-lightbox="animation: slide">
-    <a class="uk-inline" href="http://localhost:4000/Dtective/uploads/site-allure.png">
-        <img src="http://localhost:4000/Dtective/uploads/site-allure.png" alt="Alt for image" />
-        <div class="uk-position-center">
-            <span data-uk-overlay-icon=""></span>
-        </div>
-    </a>
-    
-</figure>
-
-<p>Or if using another editor by running the command <code class="highlighter-rouge">mvn site</code> on the command line
-on the root of the project, after a test run.</p>
-
-<p>The results will be stored in <code class="highlighter-rouge">index.html</code> ready to be open on the browser of your choice.</p>
-
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Dtective</span><span class="o">-</span><span class="n">boilerplate</span>
-<span class="err">├─┬</span> <span class="n">src</span>
-<span class="err">├─┬</span> <span class="n">target</span>
-<span class="err">│</span> <span class="err">└────</span> <span class="n">site</span>
-<span class="err">│</span> <span class="err">└────────</span> <span class="n">allure</span><span class="o">-</span><span class="n">maven</span><span class="o">-</span><span class="n">plugin</span>
-<span class="err">│</span> <span class="err">└───────────</span> <span class="n">index</span><span class="o">.</span><span class="na">html</span>
-<span class="err">│</span> <span class="err">│</span>
-<span class="err">└──</span> <span class="n">pom</span><span class="o">.</span><span class="na">xml</span>
-</code></pre>
-</div>
+<p>If using another editor, it is necessary to have Maven <a href="https://catena-media.github.io/Dtective/docs/installation/">installed</a> and accessible from the command line. On the root of the project, run the command <code class="highlighter-rouge">mvn site</code>. Results are stored in the directory specified above.</p>
 
                         
                     </div>
@@ -511,10 +486,6 @@ on the root of the project, after a test run.</p>
     
 
     
-        <li><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-        
-    
 
     
 
@@ -523,10 +494,6 @@ on the root of the project, after a test run.</p>
 
     
 
-    
-        <li><a href="/Dtective/docs/docker/">Docker</a></li>
-        
-        
     
 
     
@@ -568,10 +535,66 @@ on the root of the project, after a test run.</p>
     
 
     
-        <li><a href="/Dtective/docs/issues/">Issues</a></li>
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/testenvironment/">Test Environment</a></li>
         
         
-            
+    
+
+    
     </ul>
 </div>
 
@@ -650,7 +673,7 @@ on the root of the project, after a test run.</p>
         
           
           
-          <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+          <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
         
           
           
@@ -672,10 +695,6 @@ on the root of the project, after a test run.</p>
           
           
           <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-          
-          
-          <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
         
         </ul>
         

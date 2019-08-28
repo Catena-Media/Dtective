@@ -8,19 +8,19 @@
   <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>Docker - Dtective</title>
 <meta property="og:title" content="Docker" />
-<meta name="description" content="The project includes docker-compose files which can be used for testing locally:" />
-<meta property="og:description" content="The project includes docker-compose files which can be used for testing locally:" />
+<meta name="description" content="For basic configuration that is it. You don’t need Docker to start right now (and if you want it now now, we advise you to jump to the cheatsheet)." />
+<meta property="og:description" content="For basic configuration that is it. You don’t need Docker to start right now (and if you want it now now, we advise you to jump to the cheatsheet)." />
 <link rel="canonical" href="http://localhost:4000/Dtective/docs/docker/" />
 <meta property="og:url" content="http://localhost:4000/Dtective/docs/docker/" />
 <meta property="og:site_name" content="Dtective" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-23T13:31:23+02:00" />
+<meta property="article:published_time" content="2019-08-27T11:19:45+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "Docker",
-"datePublished": "2019-08-23T13:31:23+02:00",
-"description": "The project includes docker-compose files which can be used for testing locally:",
+"datePublished": "2019-08-27T11:19:45+02:00",
+"description": "For basic configuration that is it. You don’t need Docker to start right now (and if you want it now now, we advise you to jump to the cheatsheet).",
 "url": "http://localhost:4000/Dtective/docs/docker/"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -306,7 +306,7 @@ function searchResults(form) {
                     
                       
                       
-                      <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+                      <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
                     
                       
                       
@@ -328,10 +328,6 @@ function searchResults(form) {
                       
                       
                       <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
-                    
-                      
-                      
-                      <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
                     
                     </ul>
                     
@@ -362,17 +358,21 @@ function searchResults(form) {
 
 <div>
   
-  <time datetime="2019-08-23T13:31:23+02:00" itemprop="datePublished">
+  <time datetime="2019-08-27T11:19:45+02:00" itemprop="datePublished">
     
-    Aug 23, 2019
+    Aug 27, 2019
   </time>
 </div>
                     </div>
 
                     <div class="article-content link-primary">
-                        <p>The project includes docker-compose files which can be used for testing locally:</p>
+                        <p>For basic configuration that is it. You don’t need Docker to start right now (and if you want it now now, we advise you to jump to the <a href="https://catena-media.github.io/Dtective/docs/cheatsheet/">cheatsheet</a>).</p>
 
-<p><code class="highlighter-rouge">docker-compose.selenium.yml</code> builds two containers which run a Selenium Grid with Chrome Node and another Node with Firefox.</p>
+<p>The boilerplate includes docker-compose files which can be used for testing locally.</p>
+
+<p>The <code class="highlighter-rouge">docker-compose.selenium.yml</code> builds two containers which run a Selenium Grid with Chrome Node and another Node with Firefox.</p>
+
+<p>The <code class="highlighter-rouge">docker-compose.testwebsite.yml</code> builds the image stored in <a href="https://hub.docker.com/r/catenaqa/examplesite">Docker Hub</a> of a test site we use to run our tests internally. This can be useful as a playground of automation experiments!</p>
 
 <h3 id="usage">Usage:</h3>
 
@@ -384,7 +384,10 @@ function searchResults(form) {
 
 <p><code class="highlighter-rouge">$ docker-compose -f docker-compose.&lt;name&gt;.yml down</code></p>
 
-<p><strong>Note:</strong> Do not forget to adjust the <code class="highlighter-rouge">environment.properties</code> to run the tests with Docker containers.</p>
+<p><strong>Note:</strong> Do not forget to adjust the <code class="highlighter-rouge">environment.properties</code> to run the tests with Docker containers.
+Usually is necessary to set the <code class="highlighter-rouge">IsRemoteInstance</code> to <code class="highlighter-rouge">true</code> so it attempts to find the Selenium Hub.</p>
+
+<p>We have applied a similar approach as it is described in this <a href="https://techblog.dotdash.com/setting-up-a-selenium-grid-with-docker-containers-for-running-automation-tests-c43aceccd5d9">blog post</a>.</p>
 
                         
                     </div>
@@ -457,7 +460,79 @@ function searchResults(form) {
     
 
     
-        <li><a href="/Dtective/docs/allure/">Allure report</a></li>
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/overview/">Feature overview</a></li>
         
         
     
@@ -488,32 +563,6 @@ function searchResults(form) {
     
 
     
-        <li><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-        
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-        <li><a href="/Dtective/docs/environmentproperties/">Environment properties</a></li>
-        
-        
-    
 
     
 
@@ -541,10 +590,8 @@ function searchResults(form) {
     
 
     
-        <li><a href="/Dtective/docs/issues/">Issues</a></li>
-        
-        
-            
+
+    
     </ul>
 </div>
 
@@ -623,7 +670,7 @@ function searchResults(form) {
         
           
           
-          <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+          <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
         
           
           
@@ -645,10 +692,6 @@ function searchResults(form) {
           
           
           <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-          
-          
-          <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
         
         </ul>
         

@@ -8,19 +8,19 @@
   <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>Test Environment - Dtective</title>
 <meta property="og:title" content="Test Environment" />
-<meta name="description" content="The format of this file follows the current structure:" />
-<meta property="og:description" content="The format of this file follows the current structure:" />
+<meta name="description" content="After adjusting the environment.properties it is now time to consider the use of testEnvironment.json." />
+<meta property="og:description" content="After adjusting the environment.properties it is now time to consider the use of testEnvironment.json." />
 <link rel="canonical" href="http://localhost:4000/Dtective/docs/testenvironment/" />
 <meta property="og:url" content="http://localhost:4000/Dtective/docs/testenvironment/" />
 <meta property="og:site_name" content="Dtective" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-23T13:31:23+02:00" />
+<meta property="article:published_time" content="2019-08-27T11:19:45+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "Test Environment",
-"datePublished": "2019-08-23T13:31:23+02:00",
-"description": "The format of this file follows the current structure:",
+"datePublished": "2019-08-27T11:19:45+02:00",
+"description": "After adjusting the environment.properties it is now time to consider the use of testEnvironment.json.",
 "url": "http://localhost:4000/Dtective/docs/testenvironment/"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -306,7 +306,7 @@ function searchResults(form) {
                     
                       
                       
-                      <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+                      <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
                     
                       
                       
@@ -329,10 +329,6 @@ function searchResults(form) {
                       
                       <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
                     
-                      
-                      
-                      <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
-                    
                     </ul>
                     
                     <h5>Help</h5>
@@ -353,7 +349,7 @@ function searchResults(form) {
 
                     <h1 class="uk-article-title">Test Environment</h1>
 
-                    <p class="uk-text-lead uk-text-muted">How to use testEnvironment.json</p>
+                    
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom uk-flex uk-flex-middle">
                         
@@ -362,15 +358,17 @@ function searchResults(form) {
 
 <div>
   
-  <time datetime="2019-08-23T13:31:23+02:00" itemprop="datePublished">
+  <time datetime="2019-08-27T11:19:45+02:00" itemprop="datePublished">
     
-    Aug 23, 2019
+    Aug 27, 2019
   </time>
 </div>
                     </div>
 
                     <div class="article-content link-primary">
-                        <p>The format of this file follows the current structure:</p>
+                        <p>After adjusting the <code class="highlighter-rouge">environment.properties</code> it is now time to consider the use of <code class="highlighter-rouge">testEnvironment.json</code>.</p>
+
+<p>The format of this file follows the current structure:</p>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nt">"local-environment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -381,12 +379,10 @@ function searchResults(form) {
 </span></code></pre>
 </div>
 
-<p>Where key (for example: local-environment) is the reference to the environment
-And the value should be a JSON object containing one or more key value pairs with its key being the reference
-to a site/microservice and its value  the URL itself to access.</p>
+<p>Where key (for example: local-environment) is the reference to the environment where the variables <code class="highlighter-rouge">Service_1</code> and <code class="highlighter-rouge">Service_2</code> will be used.</p>
 
-<p>In /build/environment/environment.properties set the key ‘TestEnvironment’ to correspond to the environment against
- which you want to run the tests (example: local-environment) such as:</p>
+<p>In <code class="highlighter-rouge">/build/environment/environment.properties</code> set the key <code class="highlighter-rouge">TestEnvironment</code> to correspond to the environment against
+ which you want to run the tests. In this case, we would have:</p>
 
 <p><code class="highlighter-rouge">TestEnvironment=local-environment</code></p>
 
@@ -394,13 +390,13 @@ to a site/microservice and its value  the URL itself to access.</p>
 will be converted into stored data. So, in the above case, two data stores will be created:</p>
 
 <ul>
-  <li>“Service_1” containing value “http://localhost:63001”</li>
-  <li>“Service_2” containing value “http://localhost:63002”</li>
+  <li><code class="highlighter-rouge">Service_1</code> containing value “http://localhost:63001”</li>
+  <li><code class="highlighter-rouge">Service_2</code> containing value “http://localhost:63002”</li>
 </ul>
 
 <p>This means that you can then use these stored data within the Feature steps such as:</p>
 
-<p><code class="highlighter-rouge">Given I open website "{Service_1}"</code></p>
+<p><code class="highlighter-rouge">Given I open website "{Service_1}"</code> or <code class="highlighter-rouge">Then url contains string "{Service_2}"</code></p>
 
                         
                     </div>
@@ -501,10 +497,6 @@ will be converted into stored data. So, in the above case, two data stores will 
     
 
     
-        <li><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-        
-    
 
     
 
@@ -513,10 +505,6 @@ will be converted into stored data. So, in the above case, two data stores will 
 
     
 
-    
-        <li><a href="/Dtective/docs/docker/">Docker</a></li>
-        
-        
     
 
     
@@ -530,7 +518,90 @@ will be converted into stored data. So, in the above case, two data stores will 
         <li><a href="/Dtective/docs/environmentproperties/">Environment properties</a></li>
         
         
-            
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
     </ul>
 </div>
 
@@ -609,7 +680,7 @@ will be converted into stored data. So, in the above case, two data stores will 
         
           
           
-          <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+          <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
         
           
           
@@ -631,10 +702,6 @@ will be converted into stored data. So, in the above case, two data stores will 
           
           
           <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-          
-          
-          <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
         
         </ul>
         

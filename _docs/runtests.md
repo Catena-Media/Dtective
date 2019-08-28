@@ -1,15 +1,10 @@
 ---
 title: Run tests
-subtitle: Let those tests run!
-tags: [customize]
-author: evan
+tags: [test]
 ---
 
-You put great effort developing your set of automated tests and now is the moment
-to let them work their magic. A few couple of things:
-
-1. Make sure the drivers for Chrome and Firefox are on the root folder of the project
-2. If not using Maven integrated with IntelliJ, please install Maven first
+You have put great effort developing your set of automated tests and now is the moment
+to let them work their magic.
 
 We **highly recommend** you to read the following guide on [tags](https://cucumber.io/docs/cucumber/api/#tags)
  for organising and running a specific subset of scenarios.
@@ -29,11 +24,10 @@ runs the **test** scenarios annotated with `@smoke` and `@perf` on a `firefox` b
 * `mvn test "-Dcucumber.options=--tags @Regression" -DSeleniumHubUrl=http://localhost:4444/wd/hub -DIsRemoteInstance=true`
 run the **tests** scenarios annotated with `@Regression` on a **remote** Selenium Grid that is running on `localhost:4444`
 
-The parameters `-D<Parameter>=` being passed on the command are overriding the existing configuration set
+The parameters `-D<Parameter>=` being passed on the command line are overriding the existing configuration set
 on the `environment.properties` file.
 
-####For IntelliJ users
+#### For IntelliJ users
 
-Simply with the right click to run your feature files or when right clicking over a specific scenario to just run that particular one:
-
-[create GIF and paste here]
+Simply with the right click to run your feature files or right clicking over a scenario to just run that specific one.
+This runs the tests with the setup described in `environment.properties`.

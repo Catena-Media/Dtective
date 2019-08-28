@@ -1,8 +1,8 @@
 ---
 title: Cheat sheet
-subtitle: Keep it at hand while you discover the first steps of your automation tests.
-tags: [customize]
-author: evan
+tags: [test]
 ---
 
-{% include image.html img="cheatsheet.png" style="wide" lightbox="true" alt="Alt for image" %}
+{% include image.html img="cheatsheet1.png" style="wide" lightbox="true" alt="Alt for image" %}
+
+{% include image.html img="cheatsheet2.png" style="wide" lightbox="true" alt="Alt for image" %}

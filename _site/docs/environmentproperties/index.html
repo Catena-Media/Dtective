@@ -8,19 +8,19 @@
   <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>Environment properties - Dtective</title>
 <meta property="og:title" content="Environment properties" />
-<meta name="description" content="The environment.properties file found in build &gt; environment is the configuration starter point. You can specify in this file the desired setup to run your automated test suite." />
-<meta property="og:description" content="The environment.properties file found in build &gt; environment is the configuration starter point. You can specify in this file the desired setup to run your automated test suite." />
+<meta name="description" content="The environment.properties file found in build &gt; environment is the configuration starter point. If the file is named environment.properties.example please rename it to environment.properties otherwise there may be some problems when running the tests. You can specify in this file the desired setup to run your automated test suite." />
+<meta property="og:description" content="The environment.properties file found in build &gt; environment is the configuration starter point. If the file is named environment.properties.example please rename it to environment.properties otherwise there may be some problems when running the tests. You can specify in this file the desired setup to run your automated test suite." />
 <link rel="canonical" href="http://localhost:4000/Dtective/docs/environmentproperties/" />
 <meta property="og:url" content="http://localhost:4000/Dtective/docs/environmentproperties/" />
 <meta property="og:site_name" content="Dtective" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-23T13:31:23+02:00" />
+<meta property="article:published_time" content="2019-08-27T11:19:45+02:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "Environment properties",
-"datePublished": "2019-08-23T13:31:23+02:00",
-"description": "The environment.properties file found in build &gt; environment is the configuration starter point. You can specify in this file the desired setup to run your automated test suite.",
+"datePublished": "2019-08-27T11:19:45+02:00",
+"description": "The environment.properties file found in build &gt; environment is the configuration starter point. If the file is named environment.properties.example please rename it to environment.properties otherwise there may be some problems when running the tests. You can specify in this file the desired setup to run your automated test suite.",
 "url": "http://localhost:4000/Dtective/docs/environmentproperties/"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -306,7 +306,7 @@ function searchResults(form) {
                     
                       
                       
-                      <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+                      <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
                     
                       
                       
@@ -329,10 +329,6 @@ function searchResults(form) {
                       
                       <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
                     
-                      
-                      
-                      <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
-                    
                     </ul>
                     
                     <h5>Help</h5>
@@ -353,7 +349,7 @@ function searchResults(form) {
 
                     <h1 class="uk-article-title">Environment properties</h1>
 
-                    <p class="uk-text-lead uk-text-muted">Most relevant environment.properties explained</p>
+                    
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom uk-flex uk-flex-middle">
                         
@@ -362,15 +358,15 @@ function searchResults(form) {
 
 <div>
   
-  <time datetime="2019-08-23T13:31:23+02:00" itemprop="datePublished">
+  <time datetime="2019-08-27T11:19:45+02:00" itemprop="datePublished">
     
-    Aug 23, 2019
+    Aug 27, 2019
   </time>
 </div>
                     </div>
 
                     <div class="article-content link-primary">
-                        <p>The <code class="highlighter-rouge">environment.properties</code> file found in <code class="highlighter-rouge">build &gt; environment</code> is the configuration starter point.
+                        <p>The <code class="highlighter-rouge">environment.properties</code> file found in <code class="highlighter-rouge">build &gt; environment</code> is the configuration starter point. If the file is named <code class="highlighter-rouge">environment.properties.example</code> please rename it to <code class="highlighter-rouge">environment.properties</code> otherwise there may be some problems when running the tests.
 You can specify in this file the desired setup to run your automated test suite.</p>
 
 <ul>
@@ -378,8 +374,8 @@ You can specify in this file the desired setup to run your automated test suite.
   <li><code class="highlighter-rouge">WebDriverTimeout</code></li>
   <li><code class="highlighter-rouge">WebDriverDelayMS</code></li>
   <li><code class="highlighter-rouge">IsSingleInstance</code> when set to <code class="highlighter-rouge">true</code> runs without a browser teardown in between the test scenarios of a feature file</li>
-  <li><code class="highlighter-rouge">IsRemoteInstance</code> when set to <code class="highlighter-rouge">false</code> runs the tests on the local machine; setting it to <code class="highlighter-rouge">true</code> with attempt to run in a Selenium Grid specified on the <code class="highlighter-rouge">SeleniumHubUrl</code></li>
-  <li><code class="highlighter-rouge">BrowserType</code> can be set to the browsers we currently support (confirm the support)</li>
+  <li><code class="highlighter-rouge">IsRemoteInstance</code> when set to <code class="highlighter-rouge">false</code> runs the tests on the local machine; setting it to <code class="highlighter-rouge">true</code> will attempt to run in a Selenium Grid specified on the <code class="highlighter-rouge">SeleniumHubUrl</code></li>
+  <li><code class="highlighter-rouge">BrowserType</code> can be set to the browsers we currently support</li>
   <li><code class="highlighter-rouge">BrowserWidth</code> is the width of the browser window</li>
   <li><code class="highlighter-rouge">BrowserHeight</code> is the height of the browser window</li>
   <li><code class="highlighter-rouge">RecordSeleniumBrowserLogs</code></li>
@@ -389,8 +385,10 @@ You can specify in this file the desired setup to run your automated test suite.
   <li><code class="highlighter-rouge">RecordSeleniumClientLogs</code></li>
   <li><code class="highlighter-rouge">RecordScreenshots</code></li>
   <li><code class="highlighter-rouge">BrowsermobProxy</code> when set to <code class="highlighter-rouge">true</code> captures the traffic to be analysed using using <a href="https://github.com/lightbody/browsermob-proxy">Browsermob</a></li>
-  <li><code class="highlighter-rouge">TestEnvironment</code> points to the key-value from the <code class="highlighter-rouge">testEnvironment.json</code> file</li>
+  <li><code class="highlighter-rouge">TestEnvironment</code> points to the key-value structure specified on the <code class="highlighter-rouge">testEnvironment.json</code> file. This is useful when running against different test environments such as staging or in a CI server.</li>
 </ul>
+
+<p>Please leave as is the properties for <code class="highlighter-rouge">WebAppUrl</code>, <code class="highlighter-rouge">TestServer</code>, <code class="highlighter-rouge">TestProject</code>, <code class="highlighter-rouge">UseTestServer</code>, <code class="highlighter-rouge">WebAppUser</code> and <code class="highlighter-rouge">WebAppPass</code>. We will deprecate such properties from the open source project soon.</p>
 
 <h3 id="an-example">An example:</h3>
 
@@ -403,9 +401,12 @@ You can specify in this file the desired setup to run your automated test suite.
 <span class="n">BrowserWidth</span><span class="o">=</span><span class="mi">1920</span>                               
 <span class="n">BrowserHeight</span><span class="o">=</span><span class="mi">1080</span>                              
 <span class="n">BrowsermobProxy</span><span class="o">=</span><span class="kc">false</span>                           
-<span class="n">TestEnvironment</span><span class="o">=</span><span class="n">env</span><span class="o">-</span><span class="n">ci</span>                          
+<span class="n">TestEnvironment</span><span class="o">=</span><span class="n">env</span><span class="o">-</span><span class="n">local</span>                          
 </code></pre>
 </div>
+
+<p>With the above example, the tests will be running locally, since the property <code class="highlighter-rouge">IsRemoteInstance</code> is set to <code class="highlighter-rouge">false</code>. The browser where tests will be running would be <code class="highlighter-rouge">chrome</code> with no teardown of browser sessions in between the tests, with <code class="highlighter-rouge">IsSingleInstance</code> set to <code class="highlighter-rouge">true</code>.
+The context of variables for the test run will be using the <code class="highlighter-rouge">env-local</code> structure stated in <code class="highlighter-rouge">testEnvironment.json</code> file.</p>
 
                         
                     </div>
@@ -503,63 +504,111 @@ You can specify in this file the desired setup to run your automated test suite.
     
 
     
-        <li><a href="/Dtective/docs/contributing/">Contributing</a></li>
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/Dtective/docs/testenvironment/">Test Environment</a></li>
         
         
     
 
     
-
-    
-    
-
-    
-
-    
-        <li><a href="/Dtective/docs/docker/">Docker</a></li>
-        
-        
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-        <li><a href="/Dtective/docs/issues/">Issues</a></li>
-        
-        
-            
     </ul>
 </div>
 
@@ -638,7 +687,7 @@ You can specify in this file the desired setup to run your automated test suite.
         
           
           
-          <li class=""><a href="/Dtective/docs/steps/">Steps implementation</a></li>
+          <li class=""><a href="/Dtective/docs/steps/">Extending steps</a></li>
         
           
           
@@ -660,10 +709,6 @@ You can specify in this file the desired setup to run your automated test suite.
           
           
           <li class=""><a href="/Dtective/docs/contributing/">Contributing</a></li>
-        
-          
-          
-          <li class=""><a href="/Dtective/docs/issues/">Issues</a></li>
         
         </ul>
         

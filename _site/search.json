@@ -3,33 +3,33 @@
     {
       "title"    : "Allure report",
       "category" : "",
-      "tags"     : "features, featured",
+      "tags"     : "configuration",
       "url"      : "/Dtective/docs/allure/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
       "title"    : "BDD, Cucumber &amp; Gherkin",
       "category" : "",
-      "tags"     : "customize",
+      "tags"     : "test",
       "url"      : "/Dtective/docs/bdd/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
       "title"    : "Cheat sheet",
       "category" : "",
-      "tags"     : "customize",
+      "tags"     : "test",
       "url"      : "/Dtective/docs/cheatsheet/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
       "title"    : "Contributing",
       "category" : "",
-      "tags"     : "features, featured",
+      "tags"     : "contribute",
       "url"      : "/Dtective/docs/contributing/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
@@ -37,15 +37,15 @@
       "category" : "",
       "tags"     : "features",
       "url"      : "/Dtective/docs/docker/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
       "title"    : "Environment properties",
       "category" : "",
-      "tags"     : "features",
+      "tags"     : "configuration",
       "url"      : "/Dtective/docs/environmentproperties/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
@@ -53,7 +53,7 @@
       "category" : "",
       "tags"     : "setup",
       "url"      : "/Dtective/docs/ide/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
@@ -61,15 +61,7 @@
       "category" : "",
       "tags"     : "setup",
       "url"      : "/Dtective/docs/installation/",
-      "date"     : "2019-08-23 13:31:23 +0200"
-    } ,
-  
-    {
-      "title"    : "Issues",
-      "category" : "",
-      "tags"     : "features, featured",
-      "url"      : "/Dtective/docs/issues/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
@@ -77,15 +69,7 @@
       "category" : "",
       "tags"     : "features",
       "url"      : "/Dtective/docs/overview/",
-      "date"     : "2019-08-23 13:31:23 +0200"
-    } ,
-  
-    {
-      "title"    : "Updating your billing credit card",
-      "category" : "",
-      "tags"     : "othertag",
-      "url"      : "/Dtective/docs/pages/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
@@ -93,47 +77,47 @@
       "category" : "",
       "tags"     : "setup",
       "url"      : "/Dtective/docs/quickstart/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
       "title"    : "Roadmap",
       "category" : "",
-      "tags"     : "features, featured",
+      "tags"     : "contribute",
       "url"      : "/Dtective/docs/roadmap/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
       "title"    : "Run tests",
       "category" : "",
-      "tags"     : "customize",
+      "tags"     : "test",
       "url"      : "/Dtective/docs/runtests/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
-      "title"    : "Steps implementation",
+      "title"    : "Extending steps",
       "category" : "",
-      "tags"     : "customize",
+      "tags"     : "test",
       "url"      : "/Dtective/docs/steps/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
       "title"    : "Contacting support",
       "category" : "",
-      "tags"     : "help, customize",
+      "tags"     : "help",
       "url"      : "/Dtective/docs/support/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } ,
   
     {
       "title"    : "Test Environment",
       "category" : "",
-      "tags"     : "features",
+      "tags"     : "configuration",
       "url"      : "/Dtective/docs/testenvironment/",
-      "date"     : "2019-08-23 13:31:23 +0200"
+      "date"     : "2019-08-27 11:19:45 +0200"
     } 
   
 ]

@@ -1,29 +1,17 @@
 ---
 title: Allure report
-subtitle: Let's setup some beautiful reports for your automated tests, shall we?
-tags: [features, featured]
-author: evan
+subtitle: Not mandatory. Yet, a beautiful report.
+tags: [configuration]
 ---
+
+Allure is not mandatory. Yet, we know it is important to have straightforward results. We have integrated Dtective with
+Allure to make beautiful reports for your automation test suite.
 
 {% include image.html img="allure.png" style="wide" lightbox="true" alt="Alt for image" %}
 
-After a test run which has been executed with Maven, either by clicking on
- `Maven > site` the right panel on the Lifecycle shown below
+Allure can be easily set up with Maven. After a test run, on the right side panel of IntelliJ, expand the Maven tab.
+Under Lifecycle press `site`. This generates a site with a report of the latest test run. The site file is found in
+`target > site > allure-maven-plugin > index.html` right click on `index.html` to open the file with the browser of your preference.
 
-{% include image.html img="site-allure.png" style="wide" lightbox="true" alt="Alt for image" %}
 
-Or if using another editor by running the command `mvn site` on the command line
-on the root of the project, after a test run.
-
-The results will be stored in `index.html` ready to be open on the browser of your choice.
-
-```java
-Dtective-boilerplate
-├─┬ src
-├─┬ target
-│ └──── site
-│ └──────── allure-maven-plugin
-│ └─────────── index.html
-│ │
-└── pom.xml
-```
+If using another editor, it is necessary to have Maven [installed](https://catena-media.github.io/Dtective/docs/installation/) and accessible from the command line. On the root of the project, run the command `mvn site`. Results are stored in the directory specified above.

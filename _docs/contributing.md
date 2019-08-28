@@ -1,16 +1,14 @@
 ---
 title: Contributing
-subtitle: Take a look at what we have in the crystal ball for Dtective.
-tags: [features, featured]
-author: evan
+tags: [contribute]
 ---
 
 # Contributing to Dtective
 
-We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/QA-Automation_Runner/blob/master/CODE_OF_CONDUCT.md).
+We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/Dtective/blob/gh-pages/CODE_OF_CONDUCT.md).
 
 ## Using our Issue Tracker
-We have prepared templates for [bug reports](https://github.com/Catena-Media/QA-Automation_Runner/issues/new?template=BUG.md) and [feature requests](https://github.com/Catena-Media/QA-Automation_Runner/issues/new?template=FEATURE.md) to help you formulate the issue at hand.
+We have prepared templates for [bug reports](https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md) and [feature requests](https://github.com/Catena-Media/Dtective/issues/new?template=FEATURE.md) to help you formulate the issue at hand.
 
 ### Creating a Pull Request
 
@@ -64,7 +62,7 @@ Here are some steps we would like you to follow when creating a pull request:
    # Navigate to the newly cloned directory
    cd <repo-name>
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/Catena-Media/dtective/<repo-name>
+   git remote add upstream https://github.com/Catena-Media/Dtective/<repo-name>
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:
@@ -105,13 +103,13 @@ The core maintainers will review your pull request and if merged we will bump th
 #### Javadocs
 
 We are using [Javadocs](https://www.tutorialspoint.com/java/java_documentation.htm) to generate user-facing documentation.
- This is only mandatory when introducing new features in `src > main > java > com.catena.qa.framework > quality`
+ This is only mandatory when introducing new features in `src > main > java > com.dtective.framework > quality`
 
 The current standards are:
 
 * for methods:
 
-```bash
+```java
 /**
 brief explanation of the method.
 
@@ -124,7 +122,7 @@ brief explanation of the method.
 
 * for classes:
 
-```bash
+```java
 /**
 * Brief explanation of the class
 
@@ -132,48 +130,28 @@ brief explanation of the method.
 */
 ```
 
-##Setting Up the Code for Local Development
+## Setting Up the Code for Local Development
 
-General Prerequesites
-* [Java 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+Please refer to the [installation](https://github.com/Catena-Media/Dtective/docs/installation) and
+[editor configuration](https://github.com/Catena-Media/Dtective/docs/installation/ide) section in this site.
 
-The [Chrome](http://chromedriver.chromium.org/downloads) and [Firefox](https://github.com/mozilla/geckodriver/releases) drivers are provided at the root level of the project.
-We prefer using [IntelliJ](https://www.jetbrains.com/idea/download/#section=mac) since, for us, it speeds up the development with useful plugins, easy Maven integration and code completion (particularly handy for the BDD steps) but it is possible too to use your editor of choice as long as you take some extra commands.
 
-####With IntelliJ
-
-- [x] Import Project
-- [ ] Select the QA-Automation_Runner project folder and click Open
-- [ ] Select to import project form Maven external model and click to proceed
-- [ ] Leave root directory and settings as is and click Next
-- [ ] Select to import the select Maven project and click Next
-- [ ] Ensure the selected SDK is 11 and the JDK home path is correct and click Next
-- [ ] On the pop up select Import Changes
-
-####Using another editor
-
-Prerequesites
-* [Maven](https://maven.apache.org/install.html)
-
-(coming soon)
-
-###Structure
+### Structure
 
 There is plenty of material out there that explains thoroughly the concept of Behavior Driven Development.
 In a nutshell, the goal of BDD is a business readable and domain-specific language that allows you to describe easily
 how a system is supposed to be behaving without explaining how that behavior is implemented.
 
 The implementation which supports the BDD layer (so called Step Definitions) can be found in
-`src > java > com.catena.qa.framework`. We attempt to
-keep functionality grouped in a logical way.
+`src > java > com.dtective.framework`. We attempt to keep functionality grouped in a logical way.
 
-Under `test > resources > quality` we have a set of sample tests that cover the functionality implemented. It is **highly**
-recommended that if you plan adding/modifying functionality you add/modify those to maintain the quality of the framework.
+Under `test > resources > quality` we have a set of sample tests that cover the functionality implemented which support the BDD steps. It is **highly** recommended that if you plan adding/modifying functionality you add/modify those tests to maintain the quality of the framework.
+
 This is also a good starting point to understand how and what steps are available currently.
 
 The magic hooks for JUnit live in `test > java > quality`.
 
-###Testing
+### Testing
 
 It is fundamental that fixes and new features pass our existing set of tests. This keeps the quality standards of the
  framework. To run the tests keep in mind the following:
@@ -183,25 +161,5 @@ It is fundamental that fixes and new features pass our existing set of tests. Th
   `true`
  * To run all the tests run the Maven command `mvn test`
 
- **Note:** the `environment.properties.example` should be renamed to `environment.properties`
-
-### Docker
-
-Prerequesites
-* [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce)
-
-The project includes docker-compose files which can be used for testing locally:
- * `docker-compose.selenium.yml` builds two containers which run a Selenium Grid with chrome and another one with firefox.
-
-
-To make use of
-
- `$ docker-compose -f docker-compose.<name>.yml build`
-
- `$ docker-compose -f docker-compose.<name>.yml up -d`
-
- after all the test executions
-
- `$ docker-compose -f docker-compose.<name>.yml down`
-
- Note: Do not forget to adjust the `environment.properties` to run the tests with Docker containers.
+ **Note:** If experiencing difficulties, check documentation on [environment properties](https://github.com/Catena-Media/Dtective/docs/environmentproperties/)
+  and [test environment](https://github.com/Catena-Media/Dtective/docs/testenvironment/) files.
