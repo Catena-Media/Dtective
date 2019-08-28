@@ -1,0 +1,19 @@
+language: java
+sudo: required
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - "$HOME/.m2"
+
+
+script:
+  - docker-compose -f docker-compose.testwebsite.yml up -d
+  - mvn test "-Dcucumber.options=--tags @MySite" -f pom.xml
+  - mvn io.qameta.allure:allure-maven:report

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/XDOC/2.0"
+          xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+    <properties>
+        <title>Welcome</title>
+        <author email="qa@catenamedia.com">Dtective Team</author>
+    </properties>
+
+    <body>
+
+        <section name="Welcome to Dtective">
+            <h4>The behaviorally driven automation framework</h4>
+        </section>
+
+        <hr/>
+        <img alt="Dtective Logo" src="images/logos/logo.png"/>
+        <hr/>
+
+        <table border="0" class="table table-striped">
+            <tr class="a">
+                <th>Document</th>
+                <th>Description</th>
+            </tr>
+            <tr class="b">
+                <td>
+                    <a href="allure-maven.html">Allure</a>
+                </td>
+                <td>Extended report on the test results of the project.</td>
+            </tr>
+            <tr class="a">
+                <td>
+                    <a href="checkstyle.html">Checkstyle</a>
+                </td>
+                <td>Report on coding style conventions.</td>
+            </tr>
+            <tr class="b">
+                <td>
+                    <a href="javadoc/index.html">Javadoc</a>
+                </td>
+                <td>Javadoc API documentation.</td>
+            </tr>
+        </table>
+
+    </body>
+</document>
+

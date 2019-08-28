@@ -1,0 +1,17 @@
+{
+  "data": {
+    "items": [
+      {
+        "latitude": 35.8981,
+        "state": {
+          "code": null
+        },
+        "country": {
+          "code": "mt",
+          "title": "malta"
+        }
+      }
+    ]
+  },
+  "status": "success"
+}

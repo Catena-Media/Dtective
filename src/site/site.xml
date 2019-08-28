@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/DECORATION/1.7.0"
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.7.0 http://maven.apache.org/xsd/decoration-1.7.0.xsd"
+         name="Maven">
+    <bannerLeft>
+        <name>Dtective Test Automation</name>
+        <title>Dtective</title>
+        <href>https://github.com/Catena-Media/Dtective</href>
+    </bannerLeft>
+
+    <skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>1.6</version>
+    </skin>
+    <custom>
+        <fluidoSkin>
+            <sideBarEnabled>true</sideBarEnabled>
+            <googlePlusOne/>
+        </fluidoSkin>
+    </custom>
+
+    <body>
+        <links>
+            <item name="Catena Media" href="http://www.catenamedia.com"/>
+            <item name="Source Code" href="https://github.com/Catena-Media/Dtective"/>
+            <item name="Documentation" href="https://catena-media.github.io/Dtective"/>
+        </links>
+        <menu name="JavaDoc">
+            <item name="Framework Javadocs" href="javadoc/index.html"/>
+            <item name="Test Javadocs" href="test-javadoc/index.html"/>
+        </menu>
+        <menu ref="reports"/>
+        <footer>
+            Dtective Test Automation Framework - https://github.com/Catena-Media/Dtective
+        </footer>
+    </body>
+</project>

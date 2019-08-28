@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  runner-chrome:
+    volumes:
+      - ./build/allure-results:/tmp/qarunner/target/allure-results
+      - ./build/site:/tmp/qarunner/target/site
+      - ./build/cucumber-report:/tmp/qarunner/target/cucumber-report
+  runner-api:
+      volumes:
+        - ./build/allure-results:/tmp/qarunner/target/allure-results
+        - ./build/site:/tmp/qarunner/target/site
+        - ./build/cucumber-report:/tmp/qarunner/target/cucumber-report

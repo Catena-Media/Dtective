@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.dtective</groupId>
+    <artifactId>dtective-core</artifactId>
+
+    <version>1.0.0</version>
+
+    <!--Project Organization-->
+    <organization>
+        <name>Catena Media</name>
+        <url>https://www.catenamedia.com</url>
+    </organization>
+
+    <packaging>jar</packaging>
+
+    <!--Project Name-->
+    <name>DTective</name>
+
+    <!--Source Code Repository-->
+    <url>https://github.com/Catena-Media/Dtective/</url>
+    <inceptionYear>2017</inceptionYear>
+
+    <!--Development Team-->
+    <developers>
+        <developer>
+            <name>Matyas Banszki</name>
+            <email>matyas.banszki@catenamedia.com</email>
+            <roles>
+                <role>Software Development Engineer in Test</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Dwane Debono</name>
+            <email>dwane.debono@catenamedia.com</email>
+            <roles>
+                <role>Software Development Engineer in Test</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Andrea Borg</name>
+            <email>andrea.borg@catenamedia.com</email>
+            <roles>
+                <role>Software Development Engineer in Test</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Sofia Vistas</name>
+            <email>sofia.vistas@catenamedia.com</email>
+            <roles>
+                <role>Software Development Engineer in Test</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Ilenia Castellana</name>
+            <email>ilenia.castellana@catenamedia.com</email>
+            <roles>
+                <role>Software Development Engineer in Test</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <!--Test Execution Properties-->
+        <maven-surefire-plugin.forkCount>0</maven-surefire-plugin.forkCount>
+        <maven-surefire-plugin.rerunFailingTestsCount>0</maven-surefire-plugin.rerunFailingTestsCount>
+        <maven-surefire-plugin.skipAfterFailureCount>40</maven-surefire-plugin.skipAfterFailureCount>
+
+        <!--Maven Properties-->
+        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!--Maven Local Properties-->
+        <maven.checkstyle.version>3.1.0</maven.checkstyle.version>
+        <maven.site.version>3.7.1</maven.site.version>
+        <maven.site.port>9000</maven.site.port>
+        <maven.jar.version>3.1.1</maven.jar.version>
+        <maven.versions.version>2.7</maven.versions.version>
+        <maven-project-info-reports.version>3.0.0</maven-project-info-reports.version>
+        <maven-javadoc.version>3.1.0</maven-javadoc.version>
+        <maven-enforcer.version>3.0.0-M2</maven-enforcer.version>
+
+        <!--Testing Framework Integrations-->
+        <selenium.version>3.141.59</selenium.version>
+        <httpclient.version>4.5.9</httpclient.version>
+        <slf4j.version>1.8.0-beta4</slf4j.version>
+        <slf4j-json-logger.version>2.0.2</slf4j-json-logger.version>
+        <log4j.version>2.11.2</log4j.version>
+        <xml.apis.version>1.0.b2</xml.apis.version>
+        <common.langs3.version>3.9</common.langs3.version>
+        <commons.io.version>2.6</commons.io.version>
+        <apache.httpcomponents.version>4.5.9</apache.httpcomponents.version>
+        <aspectj.version>1.9.3.RC1</aspectj.version>
+        <cucumber.version>4.2.6</cucumber.version>
+        <junit.version>4.13-beta-2</junit.version>
+        <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
+        <jackson-databind.version>2.9.9</jackson-databind.version>
+        <json.version>20180813</json.version>
+        <guava.version>27.1-jre</guava.version>
+        <ashot.version>1.5.4</ashot.version>
+        <bson.version>3.10.1</bson.version>
+        <gson.version>2.8.5</gson.version>
+        <browsermob.version>2.1.5</browsermob.version>
+        <jaxb-api.version>2.4.0-b180830.0359</jaxb-api.version>
+        <javax.activation.version>1.1.1</javax.activation.version>
+        <jaxb-runtime.version>2.4.0-b180830.0438</jaxb-runtime.version>
+        <java-client.version>7.0.0</java-client.version>
+        <json-path.version>2.4.0</json-path.version>
+        <org.springframework.version>5.1.5.RELEASE</org.springframework.version>
+
+        <!--Allure Integration-->
+        <allure.version>2.10.0</allure.version>
+        <allure.cucumber4.jvm.version>2.12.1</allure.cucumber4.jvm.version>
+        <allure.results.directory.output>${project.build.directory}/allure-results</allure.results.directory.output>
+
+    </properties>
+
+    <build>
+        <plugins>
+            <!--                           -->
+            <!--Maven Enforcer Plugin      -->
+            <!--                           -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven-enforcer.version}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.1.1</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--                           -->
+            <!--Maven Compiler Build Plugin-->
+            <!--                           -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <!--                    <release>${maven.compiler.source}</release>-->
+                </configuration>
+                <goals>
+                    <scope>compile</scope>
+                </goals>
+            </plugin>
+
+
+            <!--                             -->
+            <!--Maven SureFire Testing Plugin-->
+            <!--                             -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+
+                <configuration>
+                    <argLine>
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+                    </argLine>
+                    <forkCount>${maven-surefire-plugin.forkCount}</forkCount>
+                    <rerunFailingTestsCount>${maven-surefire-plugin.rerunFailingTestsCount}</rerunFailingTestsCount>
+                    <reuseForks>true</reuseForks>
+                    <skipAfterFailureCount>${maven-surefire-plugin.skipAfterFailureCount}</skipAfterFailureCount>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${allure.results.directory.output}</allure.results.directory>
+                    </systemPropertyVariables>
+                    <testFailureIgnore>false</testFailureIgnore>
+                    <trimStackTrace>false</trimStackTrace>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                    <useUnlimitedThreads>false</useUnlimitedThreads>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven.resources.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources-allure-features</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${allure.results.directory.output}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}</directory>
+                                    <filtering>true</filtering>
+                                    <includes>
+                                        <include>environment.properties</include>
+                                        <include>categories.json</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-resources-allure-history</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${allure.results.directory.output}/history</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/site/allure-maven-plugin/history</directory>
+                                    <filtering>true</filtering>
+                                    <includes>
+                                        <include>*.json</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--                           -->
+            <!--Maven Checkstyle Plugin    -->
+            <!--                           -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven.checkstyle.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>8.23</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <configLocation>src/main/resources/checkstyle/sun_checks.xml</configLocation>
+                </configuration>
+            </plugin>
+
+            <!--                           -->
+            <!--Maven Website Report Plugin-->
+            <!--                           -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven.site.version}</version>
+                <configuration>
+                    <port>${maven.site.port}</port>
+                    <tempWebappDirectory>${project.build.directory}/site</tempWebappDirectory>
+                    <settings>
+                        <headerBufferSize>16384</headerBufferSize>
+                        <connectors>
+                            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                                <port>8080</port>
+                                <maxIdleTime>60000</maxIdleTime>
+                                <headerBufferSize>16192</headerBufferSize>
+                            </connector>
+                        </connectors>
+                    </settings>
+                </configuration>
+            </plugin>
+
+            <!--                           -->
+            <!--Packaging plugins          -->
+            <!--                           -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven.jar.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.version}</version>
+                <configuration>
+                    <!--<resultsDirectory>${project.build.directory}/surefire-reports</resultsDirectory>-->
+                    <reportVersion>${allure.version}</reportVersion>
+                    <allureDownloadUrl>
+                        http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/%s/allure-commandline-%s.zip
+                    </allureDownloadUrl>
+                </configuration>
+            </plugin>
+
+            <!--                           -->
+            <!--Maven Version plugin       -->
+            <!--                           -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${maven.versions.version}</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>${project.basedir}</directory>
+                <targetPath>${project.build.directory}/allure-results</targetPath>
+                <includes>
+                    <include>environment.properties</include>
+                    <include>categories.json</include>
+                </includes>
+            </resource>
+        </resources>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+    </build>
+
+    <reporting>
+        <plugins>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.version}</version>
+                <configuration>
+                    <!--<resultsDirectory>${project.build.directory}/surefire-reports</resultsDirectory>-->
+                    <reportVersion>${allure.version}</reportVersion>
+                    <allureDownloadUrl>
+                        http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/%s/allure-commandline-%s.zip
+                    </allureDownloadUrl>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven.checkstyle.version}</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>checkstyle</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+                <configuration>
+                    <includeTestResources>true</includeTestResources>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <!--<configLocation>src/main/resources/checkstyle/google_checks.xml</configLocation>-->
+                    <configLocation>src/main/resources/checkstyle/sun_checks.xml</configLocation>
+                </configuration>
+            </plugin>
+
+
+            <!--Project information-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${maven-project-info-reports.version}</version>
+                <reportSets>
+                    <reportSet>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+
+            <!--&lt;!&ndash;                           &ndash;&gt;-->
+            <!--&lt;!&ndash; JavaDoc / TestDoc         &ndash;&gt;-->
+            <!--&lt;!&ndash;                           &ndash;&gt;-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc.version}</version>
+                <configuration>
+                    <additionalOptions>-Xdoclint:none</additionalOptions>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <id>Framework</id>
+                        <configuration>
+                            <reportOutputDirectory>${project.reporting.outputDirectory}</reportOutputDirectory>
+                            <destDir>javadoc</destDir>
+                            <show>public</show>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                        <reports>
+                            <report>javadoc</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Selenium GitHub : https://github.com/SeleniumHQ/selenium -->
+        <!-- Selenium MavenRepo : https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- Cucumber : https://mvnrepository.com/artifact/io.cucumber-->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <!-- /Cucumber -->
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber4-jvm -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber4-jvm</artifactId>
+            <version>${allure.cucumber4.jvm.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient  -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j  -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j  -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <!-- Logger slf4j-json-logger -->
+        <dependency>
+            <groupId>com.savoirtech.logging</groupId>
+            <artifactId>slf4j-json-logger</artifactId>
+            <version>${slf4j-json-logger.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/xml-apis/xml-apis -->
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>${xml.apis.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${common.langs3.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>${apache.httpcomponents.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
+        <dependency>
+            <groupId>ru.yandex.qatools.ashot</groupId>
+            <artifactId>ashot</artifactId>
+            <version>${ashot.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mongodb/bson -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+            <version>${bson.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/net.lightbody.bmp/browsermob-core -->
+        <dependency>
+            <groupId>net.lightbody.bmp</groupId>
+            <artifactId>browsermob-core</artifactId>
+            <version>${browsermob.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>${javax.activation.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>${jaxb-runtime.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>${java-client.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${json-path.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+    </dependencies>
+</project>

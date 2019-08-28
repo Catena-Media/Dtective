@@ -1,0 +1,83 @@
+version: '3'
+
+# Users Guilde
+## docker-compose up -d --build
+## docker exec qarunner mvn test -Dtest=TestSuiteUnitTest
+## docker exec qarunner mvn site site:run
+
+services:
+  runner-chrome:
+    image: qaautomationrunner
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - BrowserType=${BrowserType:-chrome}
+      - SeleniumHubUrl=${SeleniumHubUrl:-http://selenium-hub:4444/wd/hub}
+      - IsRemoteInstance=${IsRemoteInstance:-true}
+      - IsSingleInstance=${IsSingleInstance:-true}
+      - WebAppUrl=${WebAppUrl:-http://qa-server.catena.media}
+      - WebDriverTimeout=${WebDriverTimeout:-3}
+      - WebDriverDelayMS=${WebDriverDelayMS:-0}
+      - WebAppUser=${WebAppUser:-admin@test.com}
+      - WebAppPass=${WebAppPass:-thisisnotapassword}
+      - BrowserWidth=${BrowserWidth:-1920}
+      - BrowserHeight=${BrowserHeight:-1080}
+      - RecordScreenshots=${RecordScreenshots:-false}
+      - TestEnvironment=${TestEnvironment:-env-CI}
+      - ChromeHeadlessMode=${ChromeHeadlessMode:-true}
+      - FirefoxHeadlessMode=${FirefoxHeadlessMode:-true}
+      - HighlightElements=${HighlightElements:-false}
+    entrypoint: /bin/bash
+    stdin_open: true
+    external_links:
+      - selenium-hub:selenium-hub
+    volumes:
+      - /Users/$USER/.m2:/root/.m2
+      - ./src:/tmp/qarunner/src
+    network_mode: bridge
+
+  #  runner-firefox:
+  #      image: qaautomationrunner
+  #      build:
+  #        context: .
+  #        dockerfile: Dockerfile
+  #      environment:
+  #        - BrowserType=${BrowserType:-firefox}
+  #        - SeleniumHubUrl=${SeleniumHubUrl:-http://selenium-hub:4444/wd/hub}
+  #        - IsRemoteInstance=${IsRemoteInstance:-true}
+  #        - IsSingleInstance=${IsSingleInstance:-true}
+  #        - WebAppUrl=${WebAppUrl:-http://qa-server.catena.media}
+  #        - WebDriverTimeout=${WebDriverTimeout:-3}
+  #        - WebDriverDelayMS=${WebDriverDelayMS:-0}
+  #        - WebAppUser=${WebAppUser:-admin@test.com}
+  #        - WebAppPass=${WebAppPass:-thisisnotapassword}
+  #        - BrowserWidth=${BrowserWidth:-1920}
+  #        - BrowserHeight=${BrowserHeight:-1080}
+  #        - RecordScreenshots=${RecordScreenshots:-false}
+  #        - TestEnvironment=${TestEnvironment:-env-CI}
+  #        - ChromeHeadlessMode=${ChromeHeadlessMode:-true}
+  #        - FirefoxHeadlessMode=${FirefoxHeadlessMode:-true}
+  #        - HighlightElements=${HighlightElements:-false}
+  #      entrypoint: /bin/bash
+  #      stdin_open: true
+  #      external_links:
+  #        - firefox-hub:selenium-hub
+  #      volumes:
+  #        - /Users/$USER/.m2:/root/.m2
+  #        - ./src:/tmp/qarunner/src
+  #      network_mode: bridge
+
+  runner-api:
+    image: qaautomationrunner
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TestEnvironment=${TestEnvironment:-env-CI}
+    entrypoint: /bin/bash
+    stdin_open: true
+    volumes:
+      - /Users/$USER/.m2:/root/.m2
+      - ./src:/tmp/qarunner/src
+    network_mode: bridge

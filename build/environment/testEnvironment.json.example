@@ -1,0 +1,14 @@
+{
+  "env-local": {
+    "unitTestSite": "http://localhost:8088",
+    "TestApi": "http://localhost:8088/api"
+  },
+ "env-docker-local": {
+   "unitTestSite": "http://examplesite",
+   "TestApi": "http://examplesite/api"
+ },
+  "env-CI": {
+    "TestApi": "http://qa-server.catena.media/api",
+    "unitTestSite": "http://qa-server.catena.media"
+  }
+}

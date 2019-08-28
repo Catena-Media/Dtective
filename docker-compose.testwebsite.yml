@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  testwebsite:
+    image: catenaqa/examplesite
+    container_name: catenaqa-examplesite
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    links:
+      - postgres
+    ports:
+      - 8088:80
+    network_mode: bridge
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: lantern
+    network_mode: bridge

@@ -1,0 +1,74 @@
+# Selenium / Appium hub urls. E.g.: http://localhost:4723/wd/hub
+SeleniumHubUrl=http://localhost:4444/wd/hub
+
+# Selenium implicit-wait. Polling period is 500 ms.
+# Every 500ms the page is checked for the target element until timeout expires.
+WebDriverTimeout=3
+
+# This enables the timeout functionality. Do not use together with Selenium Expected Conditions Steps
+WebDriverTimeoutEnabled=false
+
+# Forces a wait between each selenium interaction
+WebDriverDelayMS=250
+
+# Safe User / Password setup for accessing secure servers.
+# Usage : "I type FrameworkUser into ..."
+# Usage : "I type FrameworkUserPass into ..."
+WebAppUser=admin@test.com
+WebAppPass=serenity
+
+# (true)    Keeps browser session open between tests
+# (false)   Closes and re-opens the browser between each test
+IsSingleInstance=true
+
+# (false)   Local executable webdriver is used to run tests in an installed browser
+# (true)    SeleniumHubUrl is used to create a browser session on a remote server
+IsRemoteInstance=false
+
+# desktop local : chrome, firefox, safari
+# desktop remote : chrome, firefox
+# mobile remote : android, iPhone
+BrowserType=chrome
+
+# Browser size - only applies to desktop
+BrowserWidth=1920
+BrowserHeight=1080
+
+# Android settings
+AndroidUDID=emulator-5554
+AndroidDeviceName=Pixel 2
+
+# Selenium Webdriver Settings
+RecordSeleniumBrowserLogs=false
+RecordSeleniumDriverLogs=false
+RecordSeleniumServerLogs=false
+RecordSeleniumPerformanceLogs=false
+RecordSeleniumClientLogs=false
+
+# Save screenshots during testing and attach to Allure report
+RecordScreenshots=false
+
+# Wraps target of focus in a red square to be identified on screenshots
+HighlightElements=false
+
+# Headless mode disables UI for the browser session
+ChromeHeadlessMode=true
+FirefoxHeadlessMode=false
+
+# Webdriver Proxy collects information of requests during testing
+BrowsermobProxy=false
+
+# Collection name from testEnvironments.json
+TestEnvironment=env-local
+
+# API settings
+DefaultAuth=
+AuthToken=
+BasicAuthUsername=test@catenamedia.com
+BasicAuthPassword=test
+APILoggingEnabled=true
+APIClearHeadersBeforeScenario=true
+
+## Custom class name for the HTTP manager class.
+## Specify your extension class' fully qualified name to use it instead of the default one
+paramHTTPManagerClassName=HttpManager
