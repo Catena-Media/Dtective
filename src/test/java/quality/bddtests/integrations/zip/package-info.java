@@ -1,5 +1,5 @@
 /**
- * Package quality.framework.common.ziphelper.
+ * Package io.dtective.common.ziphelper.
  * <p>
  * <p>
  * Domain classes used to produce .....

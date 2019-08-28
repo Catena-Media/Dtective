@@ -3,7 +3,7 @@ Feature: Data Setup BDD Test Integration
   Background: Example of modelling a page with BDD
 
   # ----------------------------------------------------------------------------------------------- #
-  # Example of using system variables - quality.framework.bdd
+  # Example of using system variables - io.dtective.bdd
   # ----------------------------------------------------------------------------------------------- #
 
 

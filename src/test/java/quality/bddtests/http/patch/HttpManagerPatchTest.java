@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
  * Hook for JUnit.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(glue = {"quality", "classpath:com.catena.qa.framework.quality"},
+@CucumberOptions(glue = {"quality", "classpath:io.dtective"},
         plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm", "json:target/cucumber-report/report.json"})
 
 public class HttpManagerPatchTest {

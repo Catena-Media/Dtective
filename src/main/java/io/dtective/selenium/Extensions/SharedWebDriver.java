@@ -56,7 +56,11 @@ public class SharedWebDriver extends QAWebDriver implements WebDriver, Javascrip
     }
 
     public static void setInstance(QAWebDriver webDriver) {
-        concurrentMap.put(Thread.currentThread().getName(), webDriver);
+        if (webDriver == null){
+            concurrentMap.remove(Thread.currentThread().getName());
+        }else {
+            concurrentMap.put(Thread.currentThread().getName(), webDriver);
+        }
     }
 
     @Override

@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
  * Hook for JUnit.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(glue = {"quality.framework.webdriver", "quality.framework.data"}
+@CucumberOptions(glue = {"io.dtective.webdriver", "io.dtective.data"}
 )
 
 public class DataSetupBDDTest {

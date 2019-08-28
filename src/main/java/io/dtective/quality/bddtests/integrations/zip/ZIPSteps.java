@@ -52,14 +52,14 @@ public class ZIPSteps extends TestStepsCore {
 
 
     /**
-     * Test Setup - Ensuring there's a single file to be added to com.catena.qa.framework.zip.
+     * Test Setup - Ensuring there's a single file to be added to zip.
      */
     @Given("^I have a file to be zipped$")
     public void iHaveAFileToBeZipped() {
-        classLogger.debug("Adding SINGLE file to com.catena.qa.framework.zip : " + singleFilePath);
+        classLogger.debug("Adding SINGLE file to SingleFileTest.zip : " + singleFilePath);
         currentFile = new File(singleFilePath);
         currentZipTargetFolder = "target/SingleFileZipTest";
-        currentZipFileName = "target/SingleFileTest.com.catena.qa.framework.zip";
+        currentZipFileName = "target/SingleFileTest.zip";
 
         assert currentFile.exists();
     }
@@ -97,7 +97,7 @@ public class ZIPSteps extends TestStepsCore {
     @Given("^I have a folder which only contains files$")
     public void iHaveAFolderWhichOnlyContainsFiles() {
         currentFile = new File(singleFileFolder);
-        currentZipFileName = "target/SingleFileFolder.com.catena.qa.framework.zip";
+        currentZipFileName = "target/SingleFileFolder.zip";
         currentZipTargetFolder = "target/SingleFileFolderZipTest";
 
         if (!currentFile.exists()) {
@@ -107,7 +107,7 @@ public class ZIPSteps extends TestStepsCore {
     }
 
     /**
-     * Test Step - add the folder to a com.catena.qa.framework.zip file.
+     * Test Step - add the folder to a zip file.
      * <p>
      * //     * @throws Throwable - IOException when file handling fails or files do not exist
      */
@@ -124,7 +124,7 @@ public class ZIPSteps extends TestStepsCore {
     public void iHaveAFolderWhichContainsFilesAndFolders() {
         currentFile = new File(multiFolder);
         currentZipTargetFolder = "target/MultiFolderZipTest";
-        currentZipFileName = "target/MultiFolder.com.catena.qa.framework.zip";
+        currentZipFileName = "target/MultiFolder.zip";
 
         if (!currentFile.exists()) {
             classLogger.error("The specified folder does not exist : " + multiFolder);
@@ -132,7 +132,7 @@ public class ZIPSteps extends TestStepsCore {
     }
 
     /**
-     * Test Step - add the folder to a com.catena.qa.framework.zip file.
+     * Test Step - add the folder to a zip file.
      * <p>
      * //     * @throws Throwable - IOException when file handling fails or files do not exist
      */

@@ -90,7 +90,7 @@ public class ParameterMap {
      * --
      * Default : com.catena.qa.framework.web.HttpManager
      */
-    private static String paramHTTPManagerClassName = "com.catena.qa.framework.web.HttpManager";
+    private static String paramHTTPManagerClassName = "io.dtective.web.HttpManager";
 
     /**
      * Method to get the class name for the base
