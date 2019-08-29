@@ -11,18 +11,30 @@
 
     <!--Project Organization-->
     <organization>
-        <name>Catena Media</name>
-        <url>https://www.catenamedia.com</url>
+        <name>Dtective</name>
+        <url>http://dtective.io</url>
     </organization>
 
     <packaging>jar</packaging>
 
     <!--Project Name-->
-    <name>DTective</name>
-
-    <!--Source Code Repository-->
+    <name>Dtective</name>
+    <description>Test Automation Framework</description>
     <url>https://github.com/Catena-Media/Dtective/</url>
-    <inceptionYear>2017</inceptionYear>
+    <inceptionYear>2019</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/Catena-Media/Dtective.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Catena-Media/Dtective.git</developerConnection>
+        <url>http://github.com/Catena-Media/Dtective/tree/master</url>
+    </scm>
 
     <!--Development Team-->
     <developers>
