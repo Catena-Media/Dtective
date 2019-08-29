@@ -96,6 +96,7 @@
         <maven.versions.version>2.7</maven.versions.version>
         <maven-project-info-reports.version>3.0.0</maven-project-info-reports.version>
         <maven-javadoc.version>3.1.0</maven-javadoc.version>
+        <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
         <maven-enforcer.version>3.0.0-M2</maven-enforcer.version>
 
         <!--Testing Framework Integrations-->
@@ -130,7 +131,6 @@
         <allure.version>2.10.0</allure.version>
         <allure.cucumber4.jvm.version>2.12.1</allure.cucumber4.jvm.version>
         <allure.results.directory.output>${project.build.directory}/allure-results</allure.results.directory.output>
-
     </properties>
 
     <build>
@@ -317,6 +317,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -330,6 +331,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
