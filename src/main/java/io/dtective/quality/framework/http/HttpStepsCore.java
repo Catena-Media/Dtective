@@ -633,7 +633,7 @@ public class HttpStepsCore {
 
     }
 
-    private String extractValueFromJson(String key, JsonObject jsonObject){
+    private String extractValueFromJson(String key, JsonObject jsonObject) {
         final int jsonIndentation = 4;
         String actualValue = null;
 
