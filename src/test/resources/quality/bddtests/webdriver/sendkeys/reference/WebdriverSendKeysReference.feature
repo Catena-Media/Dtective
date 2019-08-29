@@ -3,7 +3,7 @@
 Feature: Web-Driver Sendkeys
 
   Background: Setting up configuration for framework user tests
-    And I set configuration "WebAppUser" to value "test@test.com"
+    And I set configuration "WebAppUser" to value "test@test.io"
     And I set configuration "WebAppPass" to value "nothing"
 
   Scenario Outline: Setting up data for the scenario

@@ -12,7 +12,7 @@ Feature: Configuration
       | WebDriverTimeout | 10                           |
       | WebDriverDelayMS | 500                          |
       | WebAppUrl        | http://localhost:8088        |
-      | WebAppUser       | test@test.com                |
+      | WebAppUser       | test@test.eu                |
       | WebAppPass       | 123456                       |
       | BrowserWidth     | 1920                         |
       | BrowserHeight    | 1080                         |

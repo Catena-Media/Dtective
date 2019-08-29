@@ -20,12 +20,12 @@ Feature: Web-Driver Hover
     Given I open website "{unitTestSite}"
     Then I assert that the element with Attribute "href" Value "/Identity/Account/Login" has background colour #"26a69a"
     When I hover over by XPATH "{button-xpath}"
-    And I wait "300" ms
+    And I wait "500" ms
     Then I assert that the element with Attribute "href" Value "/Identity/Account/Login" has background colour #"2bbbad"
 
   Scenario: Hover Test - Using hover with Attribute and Value using local parameter
     Given I open website "{unitTestSite}"
     Then I assert that the element with Attribute "href" Value "/Identity/Account/Login" has background colour #"26a69a"
     When I hover over element with Property "{button-attr}" and Value "{button-attrvalue}"
-    And I wait "300" ms
+    And I wait "500" ms
     Then I assert that the element with Attribute "href" Value "/Identity/Account/Login" has background colour #"2bbbad"

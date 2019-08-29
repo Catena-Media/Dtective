@@ -10,7 +10,7 @@ Feature: Web-Driver Keys
 
   @disabled-iPhone
   Scenario: Keys Test - Using the tab key
-    Given I type "test@test.com" into Attribute "id" Value "Input_Email"
+    Given I type "test@test.eu" into Attribute "id" Value "Input_Email"
     And I press tab
     And I type "test123456"
     And I press enter

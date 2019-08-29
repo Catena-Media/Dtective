@@ -12,5 +12,5 @@ Feature: Web-Driver Hover
     Given I open website "{unitTestSite}"
     Then I assert that the element with Attribute "href" Value "/Identity/Account/Login" has background colour #"26a69a"
     When I hover over by XPATH "//*[@href='/Identity/Account/Login']"
-    And I wait "300" ms
+    And I wait "500" ms
     Then I assert that the element with Attribute "href" Value "/Identity/Account/Login" has background colour #"2bbbad"
