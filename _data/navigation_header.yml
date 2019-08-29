@@ -18,50 +18,10 @@ left:
 
 right:
 
-  - title: Fork Me 👈
-    url: https://github.com/Catena-Media/Dtective
+  - title: Start Here 👈
+    url: /docs/quickstart/
     button: primary-outline
 
   - title: Contribute ❤️
     url: /docs/contributing/
     button: success
-
-  # - title: Changelog
-  #   url: /contact/
-  #   button: default
-
-  # - title: Contact
-  #   url: /contact/
-  #   button: primary
-
-  # - title: Changelog
-  #   url: /contact/
-  #   button: secondary
-
-  # - title: Contact
-  #   url: /contact/
-  #   button: danger
-
-  # - title: Changelog
-  #   url: /contact/
-  #   button: success
-
-  # - title: Contact
-  #   url: /contact/
-  #   button: warning
-
-  # - title: Changelog
-  #   url: /contact/
-  #   button: primary-outline
-
-  # - title: Contact
-  #   url: /contact/
-  #   button: danger-outline
-
-  # - title: Changelog
-  #   url: /contact/
-  #   button: success-outline
-
-  # - title: Contact
-  #   url: /contact/
-  #   button: warning-outline
