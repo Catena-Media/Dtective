@@ -14,6 +14,8 @@ cache:
 
 
 script:
-  - docker-compose -f docker-compose.testwebsite.yml up -d
-  - mvn test "-Dcucumber.options=--tags @MySite" -f pom.xml
+  - docker-compose -f docker-compose.unittest.yml up -d --build
+  - mvn test "-Dcucumber.options=--tags @UnitTest" -f pom.xml
+  - mvn checkstyle:check
   - mvn io.qameta.allure:allure-maven:report
+  - docker-compose -f docker-compose.unittest.yml down

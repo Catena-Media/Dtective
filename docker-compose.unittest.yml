@@ -37,36 +37,6 @@ services:
     ports:
       - 9000:9000
 
-  QA-Automation_Runner-Firefox:
-    image: qaautomationrunner
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - BrowserType=${BrowserType:-firefox}
-      - SeleniumHubUrl=${SeleniumHubUrl:-http://firefox-hub:4444/wd/hub}
-      - IsRemoteInstance=${IsRemoteInstance:-true}
-      - IsSingleInstance=${IsSingleInstance:-true}
-      - WebAppUrl=${WebAppUrl:-http://examplesite}
-      - WebDriverTimeout=${WebDriverTimeout:-3}
-      - WebDriverDelayMS=${WebDriverDelayMS:-100}
-      - WebAppUser=${WebAppUser:-admin@test.com}
-      - WebAppPass=${WebAppPass:-thisisnotapassword}
-      - BrowserWidth=${BrowserWidth:-1920}
-      - BrowserHeight=${BrowserHeight:-1080}
-      - RecordScreenshots=${RecordScreenshots:-true}
-      - TestEnvironment=${TestEnvironment:-env-docker-local}
-      - ChromeHeadlessMode=${ChromeHeadlessMode:-true}
-      - FirefoxHeadlessMode=${FirefoxHeadlessMode:-true}
-      - HighlightElements=${HighlightElements:-true}
-    entrypoint: /bin/bash
-    stdin_open: true
-    links:
-      - firefox-hub:firefox-hub
-      - testwebsite:examplesite
-    network_mode: bridge
-    ports:
-      - 9001:9000
 
   chrome-hub:
     image: selenium/standalone-chrome:3.14.0-europium
@@ -75,17 +45,6 @@ services:
       - "/dev/shm:/dev/shm"
     ports:
       - 4444:4444
-    network_mode: bridge
-    links:
-      - testwebsite:examplesite
-
-  firefox-hub:
-    image: selenium/standalone-firefox:3.14.0-europium
-    container_name: firefox-hub
-    volumes:
-      - "/dev/shm:/dev/shm"
-    ports:
-      - 4445:4444
     network_mode: bridge
     links:
       - testwebsite:examplesite
