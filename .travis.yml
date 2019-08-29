@@ -1,17 +1,14 @@
+if: type = pull_request
+  
 language: java
 sudo: required
 
 services:
   - docker
 
-branches:
-  only:
-    - master
-
 cache:
   directories:
     - "$HOME/.m2"
-
 
 script:
   - docker-compose -f docker-compose.unittest.yml up -d --build
