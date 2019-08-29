@@ -16,6 +16,7 @@ Maybe check our [Quickstart Guide](https://catena-media.github.io/Dtective/docs/
 We welcome you in our [Community Chat](https://gitter.im/Dtective/community) in Gitter and please respect our [Code of Conduct](https://github.com/Catena-Media/Dtective/blob/master/CODE_OF_CONDUCT.md).
 
 
+
 Yours,
 🔍 Sherlock, Watson, Poirot, Dupin & The Core Maintainers 🙌
 
