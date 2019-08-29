@@ -7,8 +7,8 @@ left:
   - title: Docs
     url: /docs/installation/
 
-  - title: Blog
-    url: /blog/
+  - title: Repository
+    url: https://github.com/Catena-Media/Dtective
 
   - title: Changelog
     url: /changelog-timeline/
