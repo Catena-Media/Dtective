@@ -1,4 +1,7 @@
 if: type = pull_request
+branches:
+  only:
+  - master
   
 language: java
 sudo: required
