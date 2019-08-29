@@ -1,13 +1,12 @@
 ---
 title: Docker
 subtitle:
-tags: [features]
-author: evan
+tags: [setup]
 ---
 
 For basic configuration that is it. You don't need Docker to start right now (and if you want it now now, we advise you to jump to the [cheatsheet](https://catena-media.github.io/Dtective/docs/cheatsheet/)).
 
-The boilerplate includes docker-compose files which can be used for testing locally.
+The boilerplate includes docker-compose files which can be used for testing locally with Docker containers.
 
 The `docker-compose.selenium.yml` builds two containers which run a Selenium Grid with Chrome Node and another Node with Firefox.
 

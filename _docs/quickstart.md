@@ -3,19 +3,21 @@ title: Quickstart
 tags: [setup]
 ---
 
+Please [clone](https://github.com/Catena-Media/Dtective-boilerplate) the boilerplate code necessary to start writing tests as fast as possible.
+ 
+Also take a look at the [cheatsheet](https://catena-media.github.io/Dtective/docs/cheatsheet/) to start writing tests right away.
 
-Get the boilerplate to start writing tests as fast as possible, by [forking](https://jira.catena.media/browse/SA-9328)
-the Dtective-boilerplate repository.
+**Important**: The drivers are missing from the boilerplate. Please download them and add them to the project root.
+Check the [installation](https://catena-media.github.io/Dtective/docs/installation/) instructions to find links for the drivers.
 
 
-
-Keep the boilerplate updated with the **Dtective** latest changes by bumping the version in the `pom.xml`.
+Keep the boilerplate updated with  **Dtective** latest changes by bumping the version in the `pom.xml`.
 
 ```java
 <dependency>
-    <groupId>catena.qa</groupId>
-    <artifactId>TestAutomationEngineAllInOne</artifactId>
-    <version>1.2.6</version>
+    <groupId>io.dtective</groupId>
+    <artifactId>dtective-core</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -23,5 +25,7 @@ Keep the boilerplate updated with the **Dtective** latest changes by bumping the
 
 Please open one in our main repository issue tracker:
 
-  * 🐛 I found a bug
-  * 💡 I have a suggestion for a feature
+  * 🐛 [I found a bug](https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md)
+  * 💡 [I have a suggestion for a feature](https://github.com/Catena-Media/Dtective/issues/new?template=FEATURE.md)
+
+### Join us in Gitter @ https://gitter.im/Dtective/community 

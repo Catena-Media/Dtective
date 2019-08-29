@@ -14,4 +14,5 @@ Under Lifecycle press `site`. This generates a site with a report of the latest 
 `target > site > allure-maven-plugin > index.html` right click on `index.html` to open the file with the browser of your preference.
 
 
-If using another editor, it is necessary to have Maven [installed](https://catena-media.github.io/Dtective/docs/installation/) and accessible from the command line. On the root of the project, run the command `mvn site`. Results are stored in the directory specified above.
+If using another editor, it is necessary to have Maven [installed](https://catena-media.github.io/Dtective/docs/installation/) and accessible from the command line.
+ On the root of the project, run the command `mvn site`. Results are stored in the directory specified above.

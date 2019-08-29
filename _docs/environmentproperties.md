@@ -1,6 +1,6 @@
 ---
 title: Environment properties
-tags: [configuration]
+tags: [setup]
 ---
 
 The `environment.properties` file found in `build > environment` is the configuration starter point. If the file is named `environment.properties.example` please rename it to `environment.properties` otherwise there may be some problems when running the tests.

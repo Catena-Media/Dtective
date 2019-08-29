@@ -12,7 +12,7 @@ We have prepared templates for [bug reports](https://github.com/Catena-Media/Dte
 
 ### Creating a Pull Request
 
-Good pull requests are always welcomed! But keep in mind that they should remain focused in scope and avoid containing unrelated commits, as well include a test that exercises the added functionality. Before submitting one also consider to look at our Roadmap.
+Good pull requests are always welcomed! But keep in mind that they should remain focused in scope and avoid containing unrelated commits, as well include a test that exercises the added functionality.
 
 ### Commit Format
 
@@ -44,7 +44,7 @@ The **type** and **subject** are mandatory.
 
  **footer** :
  * For Closed/Resolved issues specifically (the number is from GitHub's Issue Tracker)
- * Example: Resolved #444
+ * Example: Resolved #444 (from the Issue Tracker)
 
 
 
@@ -53,46 +53,38 @@ The **type** and **subject** are mandatory.
 We care to mark some few first issues that can be easier to tackle, make sure you take a look at them too.
 Here are some steps we would like you to follow when creating a pull request:
 
-1. [Fork](http://help.github.com/fork-a-repo/) the project, clone your fork,
-   and configure the remotes:
+1. Clone the project
 
    ```bash
-   # Clone your fork of the repo into the current directory
-   git clone https://github.com/<your-username>/<repo-name>
+   # Clone the project of the repo into the current directory
+   git clone https://github.com/Catena-Media/Dtective
    # Navigate to the newly cloned directory
-   cd <repo-name>
-   # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/Catena-Media/Dtective/<repo-name>
+   cd Dtective
    ```
 
-2. If you cloned a while ago, get the latest changes from upstream:
-
-   ```bash
-   git checkout master
-   git pull upstream master
-   ```
-
-3. Create a new topic branch (off the main project development branch) to
+2. Create a new topic branch (off the main project development branch) to
    contain your feature, change, or fix:
 
    ```bash
    git checkout -b <topic-branch-name>
    ```
 
-4. Make sure to update, or add to the tests when appropriate.
-Features will not be accepted without tests.
+3. Make sure to update, or add to the tests when appropriate.
+Features will not be accepted without tests. 
 
-5. We also like to keep documentation clean and standard.
-Please check the Javadocs section below for some guidance.
+4. We also like to keep code and documentation clean and standard.
+Run the goal named `checkstyle:check` in Maven (on the side panel) to see if you are meeting our code standards.
+If not using IntelliJ run from the command line `mvn checkstyle:check`
+For the Javadocs please check the section below.
 
 
-6. Push your topic branch up to your fork:
+5. Push your topic branch up
 
    ```bash
    git push origin <topic-branch-name>
    ```
 
-8. Open a Pull Request with a clear title and description.
+6. Open a Pull Request in GitHub with a clear title and description.
 
 #### Bumping the version
 
@@ -141,11 +133,13 @@ Please refer to the [installation](https://github.com/Catena-Media/Dtective/docs
 There is plenty of material out there that explains thoroughly the concept of Behavior Driven Development.
 In a nutshell, the goal of BDD is a business readable and domain-specific language that allows you to describe easily
 how a system is supposed to be behaving without explaining how that behavior is implemented.
+For more information check [BDD, Cucumber & Gherkin](https://github.com/Catena-Media/Dtective/docs/bdd) section of the documentation.
 
 The implementation which supports the BDD layer (so called Step Definitions) can be found in
 `src > java > com.dtective.framework`. We attempt to keep functionality grouped in a logical way.
 
-Under `test > resources > quality` we have a set of sample tests that cover the functionality implemented which support the BDD steps. It is **highly** recommended that if you plan adding/modifying functionality you add/modify those tests to maintain the quality of the framework.
+Under `test > resources > quality` we have a set of sample tests that cover the functionality implemented which support the BDD steps.
+ It is **highly** recommended that if you plan adding/modifying functionality you add/modify those tests to maintain the quality of the framework.
 
 This is also a good starting point to understand how and what steps are available currently.
 
@@ -154,12 +148,16 @@ The magic hooks for JUnit live in `test > java > quality`.
 ### Testing
 
 It is fundamental that fixes and new features pass our existing set of tests. This keeps the quality standards of the
- framework. To run the tests keep in mind the following:
+ framework. The pull request once opened will be running the tests on the TravisCI. It is a good practice to run the tests
+locally before submitting the pull request. To do this: 
 
- * In `build > environment.properties` there are several important parameters that can affect the test run. The
- `SeleniumHubUrl` should be pointing to the local Selenium Hub instance in combination with `IsRemoteInstance` set to
-  `true`
- * To run all the tests run the Maven command `mvn test`
+* Make sure you have Docker installed
+* Open the terminal on the root of the Dtective framework
+* As mentioned previously, run `mvn checkstyle:check`
+* Do `docker-compose -f docker-compose.testwebsite.yml up -d`
+* Do `mvn test "-Dcucumber.options=--tags @UnitTest"`
+* Do `docker-compose -f docker-compose.testwebsite.yml down`
+* Do `mvn allure:report`
 
- **Note:** If experiencing difficulties, check documentation on [environment properties](https://github.com/Catena-Media/Dtective/docs/environmentproperties/)
-  and [test environment](https://github.com/Catena-Media/Dtective/docs/testenvironment/) files.
+All is passing? Fabulous! 😍 We are looking forward for your pull request! 🙏
+
