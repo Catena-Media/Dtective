@@ -5,7 +5,7 @@ tags: [contribute]
 
 # Contributing to Dtective
 
-We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/Dtective/blob/gh-pages/CODE_OF_CONDUCT.md).
+We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/Dtective/blob/master/CODE_OF_CONDUCT.md).
 
 ## Using our Issue Tracker
 We have prepared templates for [bug reports](https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md) and [feature requests](https://github.com/Catena-Media/Dtective/issues/new?template=FEATURE.md) to help you formulate the issue at hand.
@@ -70,7 +70,7 @@ Here are some steps we would like you to follow when creating a pull request:
    ```
 
 3. Make sure to update, or add to the tests when appropriate.
-Features will not be accepted without tests. 
+Features will not be accepted without tests.
 
 4. We also like to keep code and documentation clean and standard.
 Run the goal named `checkstyle:check` in Maven (on the side panel) to see if you are meeting our code standards.
@@ -124,8 +124,8 @@ brief explanation of the method.
 
 ## Setting Up the Code for Local Development
 
-Please refer to the [installation](https://github.com/Catena-Media/Dtective/docs/installation) and
-[editor configuration](https://github.com/Catena-Media/Dtective/docs/installation/ide) section in this site.
+Please refer to the [installation](https://catena-media.github.io/Dtective/docs/installation/) and
+[editor configuration](https://catena-media.github.io/Dtective/docs/ide/) section in this site.
 
 
 ### Structure
@@ -133,7 +133,7 @@ Please refer to the [installation](https://github.com/Catena-Media/Dtective/docs
 There is plenty of material out there that explains thoroughly the concept of Behavior Driven Development.
 In a nutshell, the goal of BDD is a business readable and domain-specific language that allows you to describe easily
 how a system is supposed to be behaving without explaining how that behavior is implemented.
-For more information check [BDD, Cucumber & Gherkin](https://github.com/Catena-Media/Dtective/docs/bdd) section of the documentation.
+For more information check [BDD, Cucumber & Gherkin](https://catena-media.github.io/Dtective/docs/bdd/) section of the documentation.
 
 The implementation which supports the BDD layer (so called Step Definitions) can be found in
 `src > java > com.dtective.framework`. We attempt to keep functionality grouped in a logical way.
@@ -149,7 +149,7 @@ The magic hooks for JUnit live in `test > java > quality`.
 
 It is fundamental that fixes and new features pass our existing set of tests. This keeps the quality standards of the
  framework. The pull request once opened will be running the tests on the TravisCI. It is a good practice to run the tests
-locally before submitting the pull request. To do this: 
+locally before submitting the pull request. To do this:
 
 * Make sure you have Docker installed
 * Open the terminal on the root of the Dtective framework
@@ -160,4 +160,3 @@ locally before submitting the pull request. To do this:
 * Do `mvn allure:report`
 
 All is passing? Fabulous! 😍 We are looking forward for your pull request! 🙏
-
