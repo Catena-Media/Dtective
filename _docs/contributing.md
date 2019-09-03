@@ -53,38 +53,45 @@ The **type** and **subject** are mandatory.
 We care to mark some few first issues that can be easier to tackle, make sure you take a look at them too.
 Here are some steps we would like you to follow when creating a pull request:
 
-1. Clone the project
-
+1. [Fork](http://help.github.com/fork-a-repo/) the Dtective project, clone your fork,
+   and configure the remotes:
    ```bash
-   # Clone the project of the repo into the current directory
-   git clone https://github.com/Catena-Media/Dtective
+   # Clone your fork of the repo into the current directory
+   git clone https://github.com/<your-username>/Dtective
    # Navigate to the newly cloned directory
    cd Dtective
+   # Assign the original repo to a remote called "upstream"
+   git remote add upstream https://github.com/Catena-Media/Dtective
    ```
 
-2. Create a new topic branch (off the main project development branch) to
-   contain your feature, change, or fix:
+2. If you cloned a while ago, get the latest changes from upstream:
+   ```bash
+   git checkout master
+   git pull upstream master
+   ```
 
+3. Create a new topic branch (off the main project development branch) to
+   contain your feature, change, or fix:
    ```bash
    git checkout -b <topic-branch-name>
    ```
 
-3. Make sure to update, or add to the tests when appropriate.
+4. Make sure to update, or add to the tests when appropriate.
 Features will not be accepted without tests.
 
-4. We also like to keep code and documentation clean and standard.
+5.  We also like to keep code and documentation clean and standard.
 Run the goal named `checkstyle:check` in Maven (on the side panel) to see if you are meeting our code standards.
-If not using IntelliJ run from the command line `mvn checkstyle:check`
+If not using IntelliJ run from the command line `mvn checkstyle:check`.
 For the Javadocs please check the section below.
 
-
-5. Push your topic branch up
-
+6. Push your topic branch up to your fork:
    ```bash
    git push origin <topic-branch-name>
    ```
+8. Open a Pull Request with a clear title and description.
+ We will review your pull request as soon as possible,
+and we thank you in advance 🙏
 
-6. Open a Pull Request in GitHub with a clear title and description.
 
 #### Bumping the version
 
