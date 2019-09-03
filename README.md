@@ -6,7 +6,7 @@
 ![Github Last Commit](https://img.shields.io/github/last-commit/Catena-Media/Dtective)
 ![logo](resources/logo.png)
 
-# Welcome to Dtective
+# Welcome to Dtective.
 
 We are really happy you are here. Having no clue about where to start? 
 
