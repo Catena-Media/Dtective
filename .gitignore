@@ -13,8 +13,6 @@ pom.xml.next
 .idea/
 .allure/
 
-chromedriver.exe
-chromedriver
 geckodriver.exe
 geckodriver
 
