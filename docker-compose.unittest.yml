@@ -8,6 +8,7 @@ version: '3'
 services:
   QA-Automation_Runner-Chrome:
     image: qaautomationrunner
+    container_name: runner-chrome
     build:
       context: .
       dockerfile: Dockerfile
