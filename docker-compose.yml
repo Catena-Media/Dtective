@@ -37,37 +37,6 @@ services:
       - ./src:/tmp/qarunner/src
     network_mode: bridge
 
-  #  runner-firefox:
-  #      image: qaautomationrunner
-  #      build:
-  #        context: .
-  #        dockerfile: Dockerfile
-  #      environment:
-  #        - BrowserType=${BrowserType:-firefox}
-  #        - SeleniumHubUrl=${SeleniumHubUrl:-http://selenium-hub:4444/wd/hub}
-  #        - IsRemoteInstance=${IsRemoteInstance:-true}
-  #        - IsSingleInstance=${IsSingleInstance:-true}
-  #        - WebAppUrl=${WebAppUrl:-http://qa-server.catena.media}
-  #        - WebDriverTimeout=${WebDriverTimeout:-3}
-  #        - WebDriverDelayMS=${WebDriverDelayMS:-0}
-  #        - WebAppUser=${WebAppUser:-admin@test.com}
-  #        - WebAppPass=${WebAppPass:-thisisnotapassword}
-  #        - BrowserWidth=${BrowserWidth:-1920}
-  #        - BrowserHeight=${BrowserHeight:-1080}
-  #        - RecordScreenshots=${RecordScreenshots:-false}
-  #        - TestEnvironment=${TestEnvironment:-env-CI}
-  #        - ChromeHeadlessMode=${ChromeHeadlessMode:-true}
-  #        - FirefoxHeadlessMode=${FirefoxHeadlessMode:-true}
-  #        - HighlightElements=${HighlightElements:-false}
-  #      entrypoint: /bin/bash
-  #      stdin_open: true
-  #      external_links:
-  #        - firefox-hub:selenium-hub
-  #      volumes:
-  #        - /Users/$USER/.m2:/root/.m2
-  #        - ./src:/tmp/qarunner/src
-  #      network_mode: bridge
-
   runner-api:
     image: qaautomationrunner
     build:
