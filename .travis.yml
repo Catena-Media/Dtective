@@ -14,10 +14,9 @@ cache:
     - "$HOME/.m2"
 
 script:
-  - cp build/environment/environment.properties.example build/environment/environment.properties
   - cp build/environment/testEnvironment.json.example build/environment/testEnvironment.json
   - docker-compose -f docker-compose.unittest.yml up -d --build
-  - docker-compose exec -T runner-chrome mvn checkstyle:check
+  - docker-compose -f docker-compose.unittest.yml exec -T runner-chrome mvn checkstyle:check
   - mvn checkstyle:check
   - docker-compose exec -T runner-chrome mvn compile test "-Dcucumber.options=--tags @UnitTest"
   - docker-compose exec -T runner-chrome mvn io.qameta.allure:allure-maven:report
