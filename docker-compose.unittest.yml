@@ -30,8 +30,8 @@ services:
       - HighlightElements=${HighlightElements:-false}
     entrypoint: /bin/bash
     stdin_open: true
-    external_links:
-      - selenium-hub:selenium-hub
+    links:
+      -  chrome-hub:selenium-hub
     volumes:
       - /Users/$USER/.m2:/root/.m2
       - ./src:/tmp/qarunner/src
