@@ -17,7 +17,9 @@ Feature: Web-Driver Cookies
     When I add cookie "test" with value "yes"
     Then I assert that cookie with name "test" exists
     And I assert that cookie with name "test" has value "yes"
+    And I assert that cookie with name "test" does not have value "no"
     And I delete cookie "test"
+    Then I assert that cookie with name "test" does not exist
 
   @disabled-firefox
   Scenario: Deleting local storage
@@ -30,7 +32,9 @@ Feature: Web-Driver Cookies
     When I add to web local storage "test" with value "yes"
     Then I assert that web local storage key with name "test" exists
     And I assert that web local storage key with name "test" has value "yes"
+    And I assert that web local storage key with name "test" does not have value "no"
     And I delete web local storage key "test"
+    Then I assert that web local storage key with name "test" does not exist
 
   @disabled-firefox
   Scenario: Deleting session storage
@@ -43,5 +47,7 @@ Feature: Web-Driver Cookies
     When I add to web session storage "test" with value "yes"
     Then I assert that web session storage key with name "test" exists
     And I assert that web session storage key with name "test" has value "yes"
+    And I assert that web session storage key with name "test" does not have value "no"
     And I delete web session storage key "test"
+    And I assert that web session storage key with name "test" does not exist
 

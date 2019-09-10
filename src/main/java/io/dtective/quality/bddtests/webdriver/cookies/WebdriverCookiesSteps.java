@@ -46,6 +46,19 @@ public class WebdriverCookiesSteps extends TestStepsCore {
     }
 
     /**
+     * Asserts that the requested cookie does not exist in the current browser session.
+     *
+     * @param cookieName name of the cookie.
+     * @since 1.0
+     */
+
+    @Then("^I assert that cookie with name \"([^\"]*)\" does not exist$")
+    public void assertCookieDoesNotExists(String cookieName) {
+        String listOfCookies = (driver().manage().getCookies()).toString();
+        Assert.assertFalse("Cookie shouldn't exist but found: " + cookieName, listOfCookies.contains(cookieName));
+    }
+
+    /**
      * Asserts that the requested key exists in the local storage within the current browser session.
      *
      * @param key name of the key.
@@ -56,6 +69,19 @@ public class WebdriverCookiesSteps extends TestStepsCore {
     public void assertLocalStorageExists(String key) {
         Set listOfCookies = getStorageDriver().getLocalStorage().keySet();
         Assert.assertTrue("Local storage key not found: " + key, listOfCookies.contains(key));
+    }
+
+    /**
+     * Asserts that the requested key does not exist in the local storage within the current browser session.
+     *
+     * @param key name of the key.
+     * @since 1.0
+     */
+
+    @Then("^I assert that web local storage key with name \"([^\"]*)\" does not exist$")
+    public void assertLocalStorageDoesNotExist(String key) {
+        Set listOfCookies = getStorageDriver().getLocalStorage().keySet();
+        Assert.assertFalse("Local storage key should not exist but found: " + key, listOfCookies.contains(key));
     }
 
     /**
@@ -71,6 +97,18 @@ public class WebdriverCookiesSteps extends TestStepsCore {
         Assert.assertTrue("Session storage key not found: " + key, listOfCookies.contains(key));
     }
 
+    /**
+     * Asserts that the requested key does not exist in the session storage within the current browser session.
+     *
+     * @param key name of the key.
+     * @since 1.0
+     */
+
+    @Then("^I assert that web session storage key with name \"([^\"]*)\" does not exist$")
+    public void assertSessionStorageDoesNotExist(String key) {
+        Set listOfCookies = getStorageDriver().getSessionStorage().keySet();
+        Assert.assertFalse("Session storage shoudl not exist but found: " + key, listOfCookies.contains(key));
+    }
 
     /**
      * Asserts that the cookie exists in the current browser session and
@@ -82,12 +120,24 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @And("^I assert that cookie with name \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void assertCookieExistsWithValue(String cookieName, String value) {
-
         assertCookieExists(cookieName);
-
         String cookievalue = driver().manage().getCookieNamed(cookieName).getValue();
-
         Assert.assertEquals(value, cookievalue);
+    }
+
+    /**
+     * Asserts that the cookie exists in the current browser session and
+     * compares the value to the expected parameter one.
+     *
+     * @param cookieName name of the cookie.
+     * @param value      not expected value for the identified cookie.
+     * @since 1.0
+     */
+    @And("^I assert that cookie with name \"([^\"]*)\" does not have value \"([^\"]*)\"$")
+    public void assertCookieExistsWithNotThisValue(String cookieName, String value) {
+        assertCookieExists(cookieName);
+        String cookievalue = driver().manage().getCookieNamed(cookieName).getValue();
+        Assert.assertNotEquals(value, cookievalue);
     }
 
     /**
@@ -100,12 +150,24 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @And("^I assert that web local storage key with name \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void assertLocalStorageExistsWithValue(String key, String value) {
-
         assertLocalStorageExists(key);
-
         String actualValue = getStorageDriver().getLocalStorage().getItem(key);
-
         Assert.assertEquals(value, actualValue);
+    }
+
+    /**
+     * Asserts that the web local storage key exists in the current browser session and
+     * compares the value to the expected parameter one.
+     *
+     * @param key   name of the key.
+     * @param value not expected value for the identified key.
+     * @since 1.0
+     */
+    @And("^I assert that web local storage key with name \"([^\"]*)\" does not have value \"([^\"]*)\"$")
+    public void assertLocalStorageExistsWithNotThisValue(String key, String value) {
+        assertLocalStorageExists(key);
+        String actualValue = getStorageDriver().getLocalStorage().getItem(key);
+        Assert.assertNotEquals(value, actualValue);
     }
 
     /**
@@ -118,12 +180,24 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @And("^I assert that web session storage key with name \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void assertSessionStorageExistsWithValue(String key, String value) {
-
         assertSessionStorageExists(key);
-
         String actualValue = getStorageDriver().getSessionStorage().getItem(key);
-
         Assert.assertEquals(value, actualValue);
+    }
+
+    /**
+     * Asserts that the web session storage key exists in the current browser session and
+     * compares the value to the expected parameter one.
+     *
+     * @param key   name of the key.
+     * @param value expected value for the identified key.
+     * @since 1.0
+     */
+    @And("^I assert that web session storage key with name \"([^\"]*)\" does not have value \"([^\"]*)\"$")
+    public void assertSessionStorageExistsWithNotThisValue(String key, String value) {
+        assertSessionStorageExists(key);
+        String actualValue = getStorageDriver().getSessionStorage().getItem(key);
+        Assert.assertNotEquals(value, actualValue);
     }
 
     /**
