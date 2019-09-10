@@ -6,38 +6,36 @@ version: '3'
 ## docker exec qarunner mvn site site:run
 
 services:
-  QA-Automation_Runner-Chrome:
-    image: qaautomationrunner
-    container_name: runner-chrome
+  dtective:
+    image: dtective-core
     build:
       context: .
       dockerfile: Dockerfile
     environment:
       - BrowserType=${BrowserType:-chrome}
-      - SeleniumHubUrl=${SeleniumHubUrl:-http://chrome-hub:4444/wd/hub}
+      - SeleniumHubUrl=${SeleniumHubUrl:-http://selenium-hub:4444/wd/hub}
       - IsRemoteInstance=${IsRemoteInstance:-true}
       - IsSingleInstance=${IsSingleInstance:-true}
-      - WebAppUrl=${WebAppUrl:-http://examplesite}
+      - WebAppUrl=${WebAppUrl:-http://qa-server.catena.media}
       - WebDriverTimeout=${WebDriverTimeout:-3}
-      - WebDriverDelayMS=${WebDriverDelayMS:-100}
+      - WebDriverDelayMS=${WebDriverDelayMS:-0}
       - WebAppUser=${WebAppUser:-admin@test.com}
       - WebAppPass=${WebAppPass:-thisisnotapassword}
       - BrowserWidth=${BrowserWidth:-1920}
       - BrowserHeight=${BrowserHeight:-1080}
-      - RecordScreenshots=${RecordScreenshots:-true}
-      - TestEnvironment=${TestEnvironment:-env-docker-local}
+      - RecordScreenshots=${RecordScreenshots:-false}
+      - TestEnvironment=${TestEnvironment:-env-CI}
       - ChromeHeadlessMode=${ChromeHeadlessMode:-true}
       - FirefoxHeadlessMode=${FirefoxHeadlessMode:-true}
-      - HighlightElements=${HighlightElements:-true}
+      - HighlightElements=${HighlightElements:-false}
     entrypoint: /bin/bash
     stdin_open: true
-    links:
-      - chrome-hub:chrome-hub
-      - testwebsite:examplesite
+    external_links:
+      - selenium-hub:selenium-hub
+    volumes:
+      - /Users/$USER/.m2:/root/.m2
+      - ./src:/tmp/qarunner/src
     network_mode: bridge
-    ports:
-      - 9000:9000
-
 
   chrome-hub:
     image: selenium/standalone-chrome:3.14.0-europium
