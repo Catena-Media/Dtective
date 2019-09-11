@@ -16,8 +16,8 @@ cache:
 script:
   - cp build/environment/testEnvironment.json.example build/environment/testEnvironment.json
   - docker-compose -f docker-compose.unittest.yml up -d --build
-  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn clean checkstyle:check
-  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn test "-Dcucumber.options=--tags @testsite-setup"
-  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn test "-Dcucumber.options=--tags @UnitTest"
-  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn io.qameta.allure:allure-maven:report
+  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn clean checkstyle:check -q -B
+  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn test "-Dcucumber.options=--tags @testsite-setup" -q -B
+  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn test "-Dcucumber.options=--tags @UnitTest" -q
+  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn io.qameta.allure:allure-maven:report -q -B
   - docker-compose -f docker-compose.unittest.yml down
