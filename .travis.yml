@@ -19,5 +19,4 @@ script:
   - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn clean checkstyle:check -q -B
   - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn test "-Dcucumber.options=--tags @testsite-setup" -q -B
   - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn test "-Dcucumber.options=--tags @UnitTest" -q
-  - docker-compose -f docker-compose.unittest.yml exec -T dtective mvn io.qameta.allure:allure-maven:report -q -B
   - docker-compose -f docker-compose.unittest.yml down
