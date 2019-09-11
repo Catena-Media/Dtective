@@ -24,7 +24,7 @@ services:
       - BrowserWidth=${BrowserWidth:-1920}
       - BrowserHeight=${BrowserHeight:-1080}
       - RecordScreenshots=${RecordScreenshots:-false}
-      - TestEnvironment=${TestEnvironment:-env-CI}
+      - TestEnvironment=${TestEnvironment:-env-docker-local}
       - ChromeHeadlessMode=${ChromeHeadlessMode:-true}
       - FirefoxHeadlessMode=${FirefoxHeadlessMode:-true}
       - HighlightElements=${HighlightElements:-false}
