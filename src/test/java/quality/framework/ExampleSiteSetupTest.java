@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
  * Hook for JUnit.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(glue = {"io.dtective.http", "quality.bdd"})
+@CucumberOptions(glue = {"quality", "classpath:io.dtective"})
 
 public class ExampleSiteSetupTest {
 }
