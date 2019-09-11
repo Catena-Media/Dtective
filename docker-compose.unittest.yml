@@ -46,7 +46,7 @@ services:
       - 4444:4444
     network_mode: bridge
     links:
-      - testwebsite:examplesite
+      - examplesite:examplesite
 
   examplesite:
     image: catenaqa/examplesite
