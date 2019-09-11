@@ -48,9 +48,9 @@ services:
     links:
       - testwebsite:examplesite
 
-  testwebsite:
+  examplesite:
     image: catenaqa/examplesite
-    container_name: catenaqa-examplesite
+    container_name: examplesite
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     links:
