@@ -430,6 +430,105 @@ public class ParameterMap {
      */
     private static String paramAPIClearHeadersBeforeScenario = "true";
 
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Cloud Provider
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Cloud Provider name
+     */
+    private static String paramCloudProvider = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Enable running test against mobile devices
+     * --
+     * Default : false
+     * --
+     * Expected value - (boolean) Cloud Provider Mobile
+     */
+    private static boolean paramCloudProviderMobile = false;
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Default Cloud Browser Type
+     * --
+     * Default : 'chrome'
+     * --
+     * Expected value - (string) Cloud Browser Type
+     */
+    private static String paramCloudBrowserType = "chrome";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * SauceLabs Username to run tests on cloud
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Saucelabs username
+     */
+    private static String paramSauceUserName = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * SauceLabs Access Key to run tests on cloud
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Saucelabs access key
+     */
+    private static String paramSauceAccessKey = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * SauceLabs Server Address to run tests on cloud
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Saucelabs Server Address
+     */
+    private static String paramSauceLabsServer = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * BrowserStack Username to run tests on cloud
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) BrowserStack username
+     */
+    private static String paramBrowserStackUserName = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * BrowserStack Access Key to run tests on cloud
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) BrowserStack access key
+     */
+    private static String paramBrowserStackAccessKey = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * BrowserStack Server Address to run tests on cloud
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) BrowserStack Server Address
+     */
+    private static String paramBrowserStackServer = "";
+
     public static boolean getParamAPIClearHeadersBeforeScenario() {
         return Boolean.parseBoolean(paramAPIClearHeadersBeforeScenario);
     }
@@ -1115,4 +1214,56 @@ public class ParameterMap {
     public static String getAndroidDeviceName() {
         return paramAndroidDeviceName;
     }
+
+    /**
+     * Cloud Provider settings
+     */
+    public static void setParamCloudProvider(String paramCloudProvider) {
+        ParameterMap.paramCloudProvider = paramCloudProvider;
+    }
+
+    public static void setParamCloudProviderMobile(boolean paramCloudProviderMobile) {
+        ParameterMap.paramCloudProviderMobile = paramCloudProviderMobile;
+    }
+
+    public static void setParamCloudBrowserType(String paramCloudBrowserType) {
+        ParameterMap.paramCloudBrowserType = paramCloudBrowserType;
+    }
+
+    public static String getParamCloudProvider() {
+        return paramCloudProvider;
+    }
+
+    public static boolean getParamCloudProviderMobile() {
+        return paramCloudProviderMobile;
+    }
+
+    public static String getParamCloudBrowserType() {
+        return paramCloudBrowserType;
+    }
+
+    public static String getParamSauceUserName() {
+        return paramSauceUserName;
+    }
+
+    public static String getParamSauceAccessKey() {
+        return paramSauceAccessKey;
+    }
+
+    public static String getParamSauceLabsServer() {
+        return paramSauceLabsServer;
+    }
+
+    public static String getParamBrowserStackUserName() {
+        return paramBrowserStackUserName;
+    }
+
+    public static String getParamBrowserStackAccessKey() {
+        return paramBrowserStackAccessKey;
+    }
+
+    public static String getParamBrowserStackServer() {
+        return paramBrowserStackServer;
+    }
+
 }
