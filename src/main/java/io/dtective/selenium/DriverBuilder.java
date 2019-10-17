@@ -5,6 +5,7 @@ import io.dtective.selenium.Extensions.QAAndroidDriver;
 import io.dtective.selenium.Extensions.QAIOSDriver;
 import io.dtective.selenium.Extensions.QAWebDriver;
 import io.dtective.selenium.Extensions.SharedWebDriver;
+import io.dtective.webdrivers.CloudWebDriverCapabilities;
 import io.dtective.webdrivers.WebDriverCapabilities;
 import com.savoirtech.logging.slf4j.json.LoggerFactory;
 import org.openqa.selenium.Dimension;
@@ -15,6 +16,7 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -126,7 +128,7 @@ public class DriverBuilder {
 
     public static WebDriver getDriver() {
 
-        if (Boolean.parseBoolean(ParameterMap.getParamIsRemoteInstance())) {
+        if (Boolean.parseBoolean(ParameterMap.getParamIsRemoteInstance()) || !ParameterMap.getParamCloudProvider().isEmpty()) {
             return getRemoteDriver(ParameterMap.getParamBrowserType());
         } else {
             return getLocalWebDriver(ParameterMap.getParamBrowserType());
@@ -164,32 +166,44 @@ public class DriverBuilder {
 
         WebDriver driver = null;
 
-        if (ParameterMap.getParamSeleniumHubUrl() == null
-                || ParameterMap.getParamSeleniumHubUrl().isEmpty()
-                || ParameterMap.getParamSeleniumHubUrl().contains("N/A")) {
-            logger.error().message("Selenium Hub URL not set");
-            System.exit(-1);
-        }
+        if (!ParameterMap.getParamCloudProvider().isEmpty()) {
+            logger.debug().message("Creating new remote cloud web-driver - " + ParameterMap.getParamSeleniumHubUrl());
+            try {
+                driver = new RemoteWebDriver(new URL(CloudWebDriverCapabilities.getCloudURL()),
+                        CloudWebDriverCapabilities.getCloudCapabilities());
 
-        try {
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        } else {
 
-            logger.debug().message("Creating new remote web-driver - " + ParameterMap.getParamSeleniumHubUrl());
-
-            if (browserType.equals(BrowserType.ANDROID)) {
-                driver = new QAAndroidDriver(new URL(ParameterMap.getParamSeleniumHubUrl()),
-                        WebDriverCapabilities.getCapabilities(browserType));
-            } else if (browserType.equals(BrowserType.IPHONE)) {
-                driver = new QAIOSDriver(new URL(ParameterMap.getParamSeleniumHubUrl()),
-                        WebDriverCapabilities.getCapabilities(browserType));
-            } else {
-                driver = new RemoteWebDriver(new URL(ParameterMap.getParamSeleniumHubUrl()),
-                        WebDriverCapabilities.getCapabilities(browserType));
+            if (ParameterMap.getParamSeleniumHubUrl() == null
+                    || ParameterMap.getParamSeleniumHubUrl().isEmpty()
+                    || ParameterMap.getParamSeleniumHubUrl().contains("N/A")) {
+                logger.error().message("Selenium Hub URL not set");
+                System.exit(-1);
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            logger.error().message(e.getMessage()).log();
+            try {
 
+                logger.debug().message("Creating new remote web-driver - " + ParameterMap.getParamSeleniumHubUrl());
+
+                if (browserType.equals(BrowserType.ANDROID)) {
+                    driver = new QAAndroidDriver(new URL(ParameterMap.getParamSeleniumHubUrl()),
+                            WebDriverCapabilities.getCapabilities(browserType));
+                } else if (browserType.equals(BrowserType.IPHONE)) {
+                    driver = new QAIOSDriver(new URL(ParameterMap.getParamSeleniumHubUrl()),
+                            WebDriverCapabilities.getCapabilities(browserType));
+                } else {
+                    driver = new RemoteWebDriver(new URL(ParameterMap.getParamSeleniumHubUrl()),
+                            WebDriverCapabilities.getCapabilities(browserType));
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                logger.error().message(e.getMessage()).log();
+
+            }
         }
         return driver;
     }
