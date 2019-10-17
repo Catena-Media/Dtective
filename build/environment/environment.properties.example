@@ -72,3 +72,15 @@ APIClearHeadersBeforeScenario=true
 ## Custom class name for the HTTP manager class.
 ## Specify your extension class' fully qualified name to use it instead of the default one
 paramHTTPManagerClassName=HttpManager
+
+## Cloud Provider settings
+CloudProvider=
+CloudBrowserType=chrome
+
+SauceUserName=
+SauceAccessKey=
+SauceLabsServer=https://ondemand.eu-central-1.saucelabs.com/wd/hub
+
+BrowserStackUserName=
+BrowserStackAccessKey=
+BrowserStackServer=@hub-cloud.browserstack.com/wd/hub
