@@ -8,7 +8,9 @@ tags: [contribute]
 We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/Dtective/blob/master/CODE_OF_CONDUCT.md).
 
 ## Using our Issue Tracker
-We have prepared templates for [bug reports](https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md) and [feature requests](https://github.com/Catena-Media/Dtective/issues/new?template=FEATURE.md) to help you formulate the issue at hand.
+We have prepared templates for [bug reports](https://github.com/Catena-Media/Dtective/issues/ to help you formulate the issue at hand.
+
+*If you would like to suggest a new feature for Dtective please use the [JIRA board](https://dtective.atlassian.net/) where we can make available for everyone to work on the ticket and follow its progress.*
 
 ### Creating a Pull Request
 
@@ -137,9 +139,9 @@ Please refer to the [installation](https://catena-media.github.io/Dtective/docs/
 
 ### Structure
 
-There is plenty of material out there that explains thoroughly the concept of Behavior Driven Development.
+There is plenty of material out there that explains thoroughly the concept of Behaviour Driven Development.
 In a nutshell, the goal of BDD is a business readable and domain-specific language that allows you to describe easily
-how a system is supposed to be behaving without explaining how that behavior is implemented.
+how a system is supposed to be behaving without explaining how that behaviour is implemented.
 For more information check [BDD, Cucumber & Gherkin](https://catena-media.github.io/Dtective/docs/bdd/) section of the documentation.
 
 The implementation which supports the BDD layer (so called Step Definitions) can be found in
