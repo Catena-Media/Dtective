@@ -8,19 +8,19 @@
   <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>Quickstart - Dtective</title>
 <meta property="og:title" content="Quickstart" />
-<meta name="description" content="Get the boilerplate to start writing tests as fast as possible, by forking the Dtective-boilerplate repository." />
-<meta property="og:description" content="Get the boilerplate to start writing tests as fast as possible, by forking the Dtective-boilerplate repository." />
+<meta name="description" content="Please clone the boilerplate code necessary to start writing tests as fast as possible." />
+<meta property="og:description" content="Please clone the boilerplate code necessary to start writing tests as fast as possible." />
 <link rel="canonical" href="http://localhost:4000/Dtective/docs/quickstart/" />
 <meta property="og:url" content="http://localhost:4000/Dtective/docs/quickstart/" />
 <meta property="og:site_name" content="Dtective" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-28T14:49:48+02:00" />
+<meta property="article:published_time" content="2019-11-07T11:38:15+01:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "Quickstart",
-"datePublished": "2019-08-28T14:49:48+02:00",
-"description": "Get the boilerplate to start writing tests as fast as possible, by forking the Dtective-boilerplate repository.",
+"datePublished": "2019-11-07T11:38:15+01:00",
+"description": "Please clone the boilerplate code necessary to start writing tests as fast as possible.",
 "url": "http://localhost:4000/Dtective/docs/quickstart/"}</script>
 <!-- End Jekyll SEO tag -->
 
@@ -172,7 +172,7 @@ function searchResults(form) {
                             
                                 
                                     
-                                        <li><a href="/Dtective/blog/" >Blog</a></li>
+                                        <li><a href="https://github.com/Catena-Media/Dtective" target="_blank" >Repository</a></li>
                                                                                                         
                                 
                             
@@ -223,7 +223,7 @@ function searchResults(form) {
                             
                             
                                 
-                                    <li><div class="uk-navbar-item"><a class="uk-button uk-button-primary-outline" href="https://github.com/Catena-Media/Dtective" target="_blank" >Fork Me 👈</a></div></li>
+                                    <li><div class="uk-navbar-item"><a class="uk-button uk-button-primary-outline" href="/Dtective/docs/quickstart/" >Start Here 👈</a></div></li>
                                 
                             
                         
@@ -358,35 +358,41 @@ function searchResults(form) {
 
 <div>
   
-  <time datetime="2019-08-28T14:49:48+02:00" itemprop="datePublished">
+  <time datetime="2019-11-07T11:38:15+01:00" itemprop="datePublished">
     
-    Aug 28, 2019
+    Nov 7, 2019
   </time>
 </div>
                     </div>
 
                     <div class="article-content link-primary">
-                        <p>Get the boilerplate to start writing tests as fast as possible, by <a href="https://jira.catena.media/browse/SA-9328">forking</a>
-the Dtective-boilerplate repository.</p>
+                        <p>Please <a href="https://github.com/Catena-Media/Dtective-boilerplate">clone</a> the boilerplate code necessary to start writing tests as fast as possible.</p>
 
-<p>Keep the boilerplate updated with the <strong>Dtective</strong> latest changes by bumping the version in the <code class="highlighter-rouge">pom.xml</code>.</p>
+<p>Also take a look at the <a href="https://catena-media.github.io/Dtective/docs/cheatsheet/">cheatsheet</a> to start writing tests right away.</p>
+
+<p><strong>Important</strong>: The drivers are missing from the boilerplate. Please download them and add them to the project root.
+Check the <a href="https://catena-media.github.io/Dtective/docs/installation/">installation</a> instructions to find links for the drivers.</p>
+
+<p>Keep the boilerplate updated with  <strong>Dtective</strong> latest changes by bumping the version in the <code class="highlighter-rouge">pom.xml</code>.</p>
 
 <div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">catena</span><span class="o">.</span><span class="na">qa</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">TestAutomationEngineAllInOne</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">6</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="o">.</span><span class="na">dtective</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">dtective</span><span class="o">-</span><span class="n">core</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </code></pre>
 </div>
 
 <h3 id="do-you-want-to-submit-an-issue-have-an-idea-for-a-feature">Do you want to submit an issue? Have an idea for a feature?</h3>
 
-<p>Please open one in our main repository issue tracker:</p>
-
 <ul>
-  <li>🐛 I found a bug</li>
-  <li>💡 I have a suggestion for a feature</li>
+  <li>🐛 <a href="https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md">I found a bug</a></li>
+  <li>💡 <a href="https://github.com/Catena-Media/Dtective/issues/new?template=FEATURE.md">I have a suggestion for a feature</a></li>
 </ul>
+
+<p>🔮 <em>Take a look at our Roadmap <a href="https://trello.com/b/XujHzvN6">here</a> to see what we have been planning</em> 🔮</p>
+
+<h3 id="join-us-in-gitter-">Join us in <a href="https://gitter.im/Dtective/community">Gitter</a> !</h3>
 
                         
                     </div>
@@ -480,14 +486,22 @@ the Dtective-boilerplate repository.</p>
     
 
     
-
+        <li><a href="/Dtective/docs/docker/">Docker</a></li>
+        
+        
     
 
     
+
+    
     
 
     
 
+    
+        <li><a href="/Dtective/docs/environmentproperties/">Environment properties</a></li>
+        
+        
     
 
     
@@ -514,72 +528,7 @@ the Dtective-boilerplate repository.</p>
         <li><a href="/Dtective/docs/installation/">Installation</a></li>
         
         
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
+            
     </ul>
 </div>
 
@@ -735,7 +684,7 @@ the Dtective-boilerplate repository.</p>
                 
 
                 
-                    <li><a href="/Dtective/changelog-timeline/" >Fork Me</a></li>
+                    <li class="uk-active"><a href="/Dtective/docs/quickstart/" >Start Here</a></li>
                 
             
                 

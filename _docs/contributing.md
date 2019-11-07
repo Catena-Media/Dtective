@@ -8,9 +8,9 @@ tags: [contribute]
 We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our [Code of Conduct](https://github.com/Catena-Media/Dtective/blob/master/CODE_OF_CONDUCT.md).
 
 ## Using our Issue Tracker
-We have prepared templates for [bug reports](https://github.com/Catena-Media/Dtective/issues/ to help you formulate the issue at hand.
+We have prepared templates for [bug reports](https://github.com/Catena-Media/Dtective/issues/) to help you formulate the issue at hand as well as for suggesting [new features](https://github.com/Catena-Media/Dtective/issues/).
 
-*If you would like to suggest a new feature for Dtective please use the [JIRA board](https://dtective.atlassian.net/) where we can make available for everyone to work on the ticket and follow its progress.*
+*If you would like to suggest a new feature for Dtective but also want to be aware what we have currently planned on our Roadmap, please check our public [Trello board](https://trello.com/b/XujHzvN6).*
 
 ### Creating a Pull Request
 

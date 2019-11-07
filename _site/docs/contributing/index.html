@@ -14,12 +14,12 @@
 <meta property="og:url" content="http://localhost:4000/Dtective/docs/contributing/" />
 <meta property="og:site_name" content="Dtective" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-28T14:49:48+02:00" />
+<meta property="article:published_time" content="2019-11-07T11:38:15+01:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "BlogPosting",
 "headline": "Contributing",
-"datePublished": "2019-08-28T14:49:48+02:00",
+"datePublished": "2019-11-07T11:38:15+01:00",
 "description": "Contributing to Dtective",
 "url": "http://localhost:4000/Dtective/docs/contributing/"}</script>
 <!-- End Jekyll SEO tag -->
@@ -172,7 +172,7 @@ function searchResults(form) {
                             
                                 
                                     
-                                        <li><a href="/Dtective/blog/" >Blog</a></li>
+                                        <li><a href="https://github.com/Catena-Media/Dtective" target="_blank" >Repository</a></li>
                                                                                                         
                                 
                             
@@ -223,7 +223,7 @@ function searchResults(form) {
                             
                             
                                 
-                                    <li><div class="uk-navbar-item"><a class="uk-button uk-button-primary-outline" href="https://github.com/Catena-Media/Dtective" target="_blank" >Fork Me 👈</a></div></li>
+                                    <li><div class="uk-navbar-item"><a class="uk-button uk-button-primary-outline" href="/Dtective/docs/quickstart/" >Start Here 👈</a></div></li>
                                 
                             
                         
@@ -358,9 +358,9 @@ function searchResults(form) {
 
 <div>
   
-  <time datetime="2019-08-28T14:49:48+02:00" itemprop="datePublished">
+  <time datetime="2019-11-07T11:38:15+01:00" itemprop="datePublished">
     
-    Aug 28, 2019
+    Nov 7, 2019
   </time>
 </div>
                     </div>
@@ -368,14 +368,16 @@ function searchResults(form) {
                     <div class="article-content link-primary">
                         <h1 id="contributing-to-dtective">Contributing to Dtective</h1>
 
-<p>We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our <a href="https://github.com/Catena-Media/Dtective/blob/gh-pages/CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
+<p>We are glad you are here. We would like you to  take a moment to review this guide so the process is easy and effective for everyone involved. The contributions to Dtective are governed by our <a href="https://github.com/Catena-Media/Dtective/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
 
 <h2 id="using-our-issue-tracker">Using our Issue Tracker</h2>
-<p>We have prepared templates for <a href="https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md">bug reports</a> and <a href="https://github.com/Catena-Media/Dtective/issues/new?template=FEATURE.md">feature requests</a> to help you formulate the issue at hand.</p>
+<p>We have prepared templates for <a href="https://github.com/Catena-Media/Dtective/issues/">bug reports</a> to help you formulate the issue at hand as well as for suggesting <a href="https://github.com/Catena-Media/Dtective/issues/">new features</a>.</p>
+
+<p><em>If you would like to suggest a new feature for Dtective but also want to be aware what we have currently planned on our Roadmap, please check our public <a href="https://trello.com/b/XujHzvN6">Trello board</a>.</em></p>
 
 <h3 id="creating-a-pull-request">Creating a Pull Request</h3>
 
-<p>Good pull requests are always welcomed! But keep in mind that they should remain focused in scope and avoid containing unrelated commits, as well include a test that exercises the added functionality. Before submitting one also consider to look at our Roadmap.</p>
+<p>Good pull requests are always welcomed! But keep in mind that they should remain focused in scope and avoid containing unrelated commits, as well include a test that exercises the added functionality.</p>
 
 <h3 id="commit-format">Commit Format</h3>
 
@@ -414,7 +416,7 @@ The <strong>type</strong> and <strong>subject</strong> are mandatory.</p>
 <p><strong>footer</strong> :</p>
 <ul>
   <li>For Closed/Resolved issues specifically (the number is from GitHub’s Issue Tracker)</li>
-  <li>Example: Resolved #444</li>
+  <li>Example: Resolved #444 (from the Issue Tracker)</li>
 </ul>
 
 <h4 id="first-timer">First timer?</h4>
@@ -423,31 +425,25 @@ The <strong>type</strong> and <strong>subject</strong> are mandatory.</p>
 Here are some steps we would like you to follow when creating a pull request:</p>
 
 <ol>
-  <li>
-    <p><a href="http://help.github.com/fork-a-repo/">Fork</a> the project, clone your fork,
-and configure the remotes:</p>
-
+  <li><a href="http://help.github.com/fork-a-repo/">Fork</a> the Dtective project, clone your fork,
+and configure the remotes:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Clone your fork of the repo into the current directory</span>
-git clone https://github.com/&lt;your-username&gt;/&lt;repo-name&gt;
+git clone https://github.com/&lt;your-username&gt;/Dtective
 <span class="c"># Navigate to the newly cloned directory</span>
-<span class="nb">cd</span> &lt;repo-name&gt;
+<span class="nb">cd </span>Dtective
 <span class="c"># Assign the original repo to a remote called "upstream"</span>
-git remote add upstream https://github.com/Catena-Media/Dtective/&lt;repo-name&gt;
+git remote add upstream https://github.com/Catena-Media/Dtective
 </code></pre>
     </div>
   </li>
-  <li>
-    <p>If you cloned a while ago, get the latest changes from upstream:</p>
-
+  <li>If you cloned a while ago, get the latest changes from upstream:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>git checkout master
 git pull upstream master
 </code></pre>
     </div>
   </li>
-  <li>
-    <p>Create a new topic branch (off the main project development branch) to
-contain your feature, change, or fix:</p>
-
+  <li>Create a new topic branch (off the main project development branch) to
+contain your feature, change, or fix:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>git checkout -b &lt;topic-branch-name&gt;
 </code></pre>
     </div>
@@ -457,19 +453,19 @@ contain your feature, change, or fix:</p>
 Features will not be accepted without tests.</p>
   </li>
   <li>
-    <p>We also like to keep documentation clean and standard.
-Please check the Javadocs section below for some guidance.</p>
+    <p>We also like to keep code and documentation clean and standard.
+Run the goal named <code class="highlighter-rouge">checkstyle:check</code> in Maven (on the side panel) to see if you are meeting our code standards.
+If not using IntelliJ run from the command line <code class="highlighter-rouge">mvn checkstyle:check</code>.
+For the Javadocs please check the section below.</p>
   </li>
-  <li>
-    <p>Push your topic branch up to your fork:</p>
-
+  <li>Push your topic branch up to your fork:
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code>git push origin &lt;topic-branch-name&gt;
 </code></pre>
     </div>
   </li>
-  <li>
-    <p>Open a Pull Request with a clear title and description.</p>
-  </li>
+  <li>Open a Pull Request with a clear title and description.
+ We will review your pull request as soon as possible,
+and we thank you in advance 🙏</li>
 </ol>
 
 <h4 id="bumping-the-version">Bumping the version</h4>
@@ -514,19 +510,21 @@ brief explanation of the method.
 
 <h2 id="setting-up-the-code-for-local-development">Setting Up the Code for Local Development</h2>
 
-<p>Please refer to the <a href="https://github.com/Catena-Media/Dtective/docs/installation">installation</a> and
-<a href="https://github.com/Catena-Media/Dtective/docs/installation/ide">editor configuration</a> section in this site.</p>
+<p>Please refer to the <a href="https://catena-media.github.io/Dtective/docs/installation/">installation</a> and
+<a href="https://catena-media.github.io/Dtective/docs/ide/">editor configuration</a> section in this site.</p>
 
 <h3 id="structure">Structure</h3>
 
-<p>There is plenty of material out there that explains thoroughly the concept of Behavior Driven Development.
+<p>There is plenty of material out there that explains thoroughly the concept of Behaviour Driven Development.
 In a nutshell, the goal of BDD is a business readable and domain-specific language that allows you to describe easily
-how a system is supposed to be behaving without explaining how that behavior is implemented.</p>
+how a system is supposed to be behaving without explaining how that behaviour is implemented.
+For more information check <a href="https://catena-media.github.io/Dtective/docs/bdd/">BDD, Cucumber &amp; Gherkin</a> section of the documentation.</p>
 
 <p>The implementation which supports the BDD layer (so called Step Definitions) can be found in
 <code class="highlighter-rouge">src &gt; java &gt; com.dtective.framework</code>. We attempt to keep functionality grouped in a logical way.</p>
 
-<p>Under <code class="highlighter-rouge">test &gt; resources &gt; quality</code> we have a set of sample tests that cover the functionality implemented which support the BDD steps. It is <strong>highly</strong> recommended that if you plan adding/modifying functionality you add/modify those tests to maintain the quality of the framework.</p>
+<p>Under <code class="highlighter-rouge">test &gt; resources &gt; quality</code> we have a set of sample tests that cover the functionality implemented which support the BDD steps.
+ It is <strong>highly</strong> recommended that if you plan adding/modifying functionality you add/modify those tests to maintain the quality of the framework.</p>
 
 <p>This is also a good starting point to understand how and what steps are available currently.</p>
 
@@ -535,17 +533,20 @@ how a system is supposed to be behaving without explaining how that behavior is 
 <h3 id="testing">Testing</h3>
 
 <p>It is fundamental that fixes and new features pass our existing set of tests. This keeps the quality standards of the
- framework. To run the tests keep in mind the following:</p>
+ framework. The pull request once opened will be running the tests on the TravisCI. It is a good practice to run the tests
+locally before submitting the pull request. To do this:</p>
 
 <ul>
-  <li>In <code class="highlighter-rouge">build &gt; environment.properties</code> there are several important parameters that can affect the test run. The
- <code class="highlighter-rouge">SeleniumHubUrl</code> should be pointing to the local Selenium Hub instance in combination with <code class="highlighter-rouge">IsRemoteInstance</code> set to
-  <code class="highlighter-rouge">true</code></li>
-  <li>To run all the tests run the Maven command <code class="highlighter-rouge">mvn test</code></li>
+  <li>Make sure you have Docker installed</li>
+  <li>Open the terminal on the root of the Dtective framework</li>
+  <li>As mentioned previously, run <code class="highlighter-rouge">mvn checkstyle:check</code></li>
+  <li>Do <code class="highlighter-rouge">docker-compose -f docker-compose.testwebsite.yml up -d</code></li>
+  <li>Do <code class="highlighter-rouge">mvn test "-Dcucumber.options=--tags @UnitTest"</code></li>
+  <li>Do <code class="highlighter-rouge">docker-compose -f docker-compose.testwebsite.yml down</code></li>
+  <li>Do <code class="highlighter-rouge">mvn allure:report</code></li>
 </ul>
 
-<p><strong>Note:</strong> If experiencing difficulties, check documentation on <a href="https://github.com/Catena-Media/Dtective/docs/environmentproperties/">environment properties</a>
-  and <a href="https://github.com/Catena-Media/Dtective/docs/testenvironment/">test environment</a> files.</p>
+<p>All is passing? Fabulous! 😍 We are looking forward for your pull request! 🙏</p>
 
                         
                     </div>
@@ -926,7 +927,7 @@ how a system is supposed to be behaving without explaining how that behavior is 
                 
 
                 
-                    <li><a href="/Dtective/changelog-timeline/" >Fork Me</a></li>
+                    <li><a href="/Dtective/docs/quickstart/" >Start Here</a></li>
                 
             
                 

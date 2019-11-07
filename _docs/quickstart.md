@@ -23,10 +23,9 @@ Keep the boilerplate updated with  **Dtective** latest changes by bumping the ve
 
 ### Do you want to submit an issue? Have an idea for a feature?
 
-  * 🐛 [I found a bug](https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md) - We are using GitHub Issue Tracker to follow up.
-  * 💡 [I have a suggestion for a feature](https://dtective.atlassian.net/) - Come and be a part of our Roadmap, leaving your suggestion @ Dtective's JIRA board.
+  * 🐛 [I found a bug](https://github.com/Catena-Media/Dtective/issues/new?template=BUG.md)
+  * 💡 [I have a suggestion for a feature](https://github.com/Catena-Media/Dtective/issues/new?template=FEATURE.md)
 
-🦄 *JIRA is not allowing completely public boards anymore, even for open source projects, so creating an account is necessary for security reasons.* 🦄
+  🔮 *Take a look at our Roadmap [here](https://trello.com/b/XujHzvN6) to see what we have been planning* 🔮
 
-
-### Join us in Gitter @ https://gitter.im/Dtective/community
+### Join us in [Gitter](https://gitter.im/Dtective/community) !
