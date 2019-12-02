@@ -138,7 +138,8 @@ public class ExpectedConditionsSteps extends TestStepsCore {
      */
     @Then("^I assert that the text \"([^\"]*)\" displays by Attribute \"([^\"]*)\" and Value \"([^\"]*)\" within (\\d+) seconds$")
     public void textMatches(String text, String attribute, String value, int seconds) {
-        getProfile().textMatches(XpathHelper.findByPropAndValue(placeholders(attribute), placeholders(value)), Pattern.compile(placeholders(text)), seconds);
+        getProfile().textMatches(XpathHelper.findByPropAndValue(placeholders(attribute),
+                placeholders(value)), Pattern.compile(placeholders(text)), seconds);
     }
 
     /**
