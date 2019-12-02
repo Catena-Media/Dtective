@@ -31,7 +31,7 @@ public class WebdriverTabsSteps extends TestStepsCore {
      */
     @And("^I open link by XPATH \"([^\"]*)\" in a new Tab$")
     public void iOpenTabs(String xpath) {
-        getProfile().openTab(By.xpath(xpath));
+        getProfile().openTab(By.xpath(placeholders(xpath)));
     }
 
     /**

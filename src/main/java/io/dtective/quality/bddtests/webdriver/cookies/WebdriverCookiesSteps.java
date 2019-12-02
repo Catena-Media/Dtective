@@ -42,7 +42,7 @@ public class WebdriverCookiesSteps extends TestStepsCore {
     @Then("^I assert that cookie with name \"([^\"]*)\" exists$")
     public void assertCookieExists(String cookieName) {
         String listOfCookies = (driver().manage().getCookies()).toString();
-        Assert.assertTrue("Cookie not found: " + cookieName, listOfCookies.contains(cookieName));
+        Assert.assertTrue("Cookie not found: " + placeholders(cookieName), listOfCookies.contains(placeholders(cookieName)));
     }
 
     /**
@@ -55,7 +55,7 @@ public class WebdriverCookiesSteps extends TestStepsCore {
     @Then("^I assert that web local storage key with name \"([^\"]*)\" exists$")
     public void assertLocalStorageExists(String key) {
         Set listOfCookies = getStorageDriver().getLocalStorage().keySet();
-        Assert.assertTrue("Local storage key not found: " + key, listOfCookies.contains(key));
+        Assert.assertTrue("Local storage key not found: " + placeholders(key), listOfCookies.contains(placeholders(key)));
     }
 
     /**
@@ -68,7 +68,7 @@ public class WebdriverCookiesSteps extends TestStepsCore {
     @Then("^I assert that web session storage key with name \"([^\"]*)\" exists$")
     public void assertSessionStorageExists(String key) {
         Set listOfCookies = getStorageDriver().getSessionStorage().keySet();
-        Assert.assertTrue("Session storage key not found: " + key, listOfCookies.contains(key));
+        Assert.assertTrue("Session storage key not found: " + placeholders(key), listOfCookies.contains(placeholders(key)));
     }
 
 
@@ -82,6 +82,9 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @And("^I assert that cookie with name \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void assertCookieExistsWithValue(String cookieName, String value) {
+
+        cookieName = placeholders(cookieName);
+        value = placeholders(value);
 
         assertCookieExists(cookieName);
 
@@ -101,6 +104,9 @@ public class WebdriverCookiesSteps extends TestStepsCore {
     @And("^I assert that web local storage key with name \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void assertLocalStorageExistsWithValue(String key, String value) {
 
+        key = placeholders(key);
+        value = placeholders(value);
+
         assertLocalStorageExists(key);
 
         String actualValue = getStorageDriver().getLocalStorage().getItem(key);
@@ -119,6 +125,9 @@ public class WebdriverCookiesSteps extends TestStepsCore {
     @And("^I assert that web session storage key with name \"([^\"]*)\" has value \"([^\"]*)\"$")
     public void assertSessionStorageExistsWithValue(String key, String value) {
 
+        key = placeholders(key);
+        value = placeholders(value);
+
         assertSessionStorageExists(key);
 
         String actualValue = getStorageDriver().getSessionStorage().getItem(key);
@@ -135,6 +144,9 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @Given("^I add cookie \"([^\"]*)\" with value \"([^\"]*)\"$")
     public void addCookieWithValue(String cookiename, String value) {
+        cookiename = placeholders(cookiename);
+        value = placeholders(value);
+
         driver().manage().addCookie(new Cookie(cookiename, value));
     }
 
@@ -167,7 +179,7 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @When("I add to web local storage \"([^\"]*)\" with value \"([^\"]*)\"")
     public void iAddToWebLocalStorageWithValue(String key, String value) {
-        getStorageDriver().getLocalStorage().setItem(key, value);
+        getStorageDriver().getLocalStorage().setItem(placeholders(key), placeholders(value));
     }
 
     /**
@@ -179,7 +191,7 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @When("I add to web session storage \"([^\"]*)\" with value \"([^\"]*)\"")
     public void iAddToWebSessionStorageWithValue(String key, String value) {
-        getStorageDriver().getSessionStorage().setItem(key, value);
+        getStorageDriver().getSessionStorage().setItem(placeholders(key), placeholders(value));
     }
 
     /**
@@ -207,7 +219,7 @@ public class WebdriverCookiesSteps extends TestStepsCore {
     @And("I delete cookie \"([^\"]*)\"")
     public void iDeleteCookie(String key) {
 
-        Cookie cookie = driver().manage().getCookieNamed(key);
+        Cookie cookie = driver().manage().getCookieNamed(placeholders(key));
         if (cookie != null) {
             driver().manage().deleteCookie(cookie);
         }
@@ -222,7 +234,7 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @And("I delete web local storage key \"([^\"]*)\"")
     public void iDeleteWebLocalStorageKey(String key) {
-        getStorageDriver().getLocalStorage().removeItem(key);
+        getStorageDriver().getLocalStorage().removeItem(placeholders(key));
     }
 
     /**
@@ -233,6 +245,6 @@ public class WebdriverCookiesSteps extends TestStepsCore {
      */
     @And("I delete web session storage key \"([^\"]*)\"")
     public void iDeleteWebSessionStorageKey(String key) {
-        getStorageDriver().getSessionStorage().removeItem(key);
+        getStorageDriver().getSessionStorage().removeItem(placeholders(key));
     }
 }

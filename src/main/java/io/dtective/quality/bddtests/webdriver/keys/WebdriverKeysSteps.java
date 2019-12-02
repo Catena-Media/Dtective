@@ -31,7 +31,7 @@ public class WebdriverKeysSteps extends TestStepsCore {
     @And("^I press enter into \"([^\"]*)\"$")
     public void iPressEnterInto(String designField) {
 
-        getProfile().sendKeys(XpathHelper.findByPropAndValue(designField), Keys.ENTER);
+        getProfile().sendKeys(XpathHelper.findByPropAndValue(placeholders(designField)), Keys.ENTER);
     }
 
     /**
@@ -43,7 +43,7 @@ public class WebdriverKeysSteps extends TestStepsCore {
      */
     @And("^I press enter into \"([^\"]*)\" \"([^\"]*)\"$")
     public void iPressEnterInto(String property, String value) {
-        getProfile().sendKeys(XpathHelper.findByPropAndValue(property, value), Keys.ENTER);
+        getProfile().sendKeys(XpathHelper.findByPropAndValue(placeholders(property), placeholders(value)), Keys.ENTER);
     }
 
     /**

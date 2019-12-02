@@ -1,5 +1,6 @@
 package io.dtective.quality.bddtests.http.post;
 
+import io.dtective.placeholders.BDDPlaceholders;
 import io.dtective.test.TestDataCore;
 import io.dtective.web.HttpManager;
 import cucumber.api.java.en.And;
@@ -66,7 +67,8 @@ public class HttpManagerPostSteps {
      */
     @When("^I send a POST to URL \"([^\"]*)\" and route \"([^\"]*)\" with the JSON request body$")
     public void iSendAPOSTToURLAndRouteWithTheJSONRequestBody(String url, String route) throws IOException {
-        HttpManager.sendHTTPMethod("post", url, route, new String[]{"dataStore", "requestBody"});
+        HttpManager.sendHTTPMethod("post", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route),
+                new String[]{"dataStore", "requestBody"});
     }
 
 
@@ -83,7 +85,7 @@ public class HttpManagerPostSteps {
         HashMap formData = (HashMap) TestDataCore.getDataStore("form");
         TestDataCore.addToDataStore("postFormData", formData);
 
-        HttpManager.sendHTTPMethod("post", url, "", new String[]{"dataStore", "postFormData"});
+        HttpManager.sendHTTPMethod("post", BDDPlaceholders.replace(url), "", new String[]{"dataStore", "postFormData"});
     }
 
     /**
@@ -100,7 +102,8 @@ public class HttpManagerPostSteps {
         HashMap formData = (HashMap) TestDataCore.getDataStore("form");
         TestDataCore.addToDataStore("postFormData", formData);
 
-        HttpManager.sendHTTPMethod("post", url, route, new String[]{"dataStore", "postFormData"});
+        HttpManager.sendHTTPMethod("post", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route),
+                new String[]{"dataStore", "postFormData"});
     }
 
     /**
@@ -114,7 +117,7 @@ public class HttpManagerPostSteps {
      */
     @And("^I send a POST to URL \"([^\"]*)\" with request body from file \"([^\"]*)\"$")
     public void iSendAPOSTToURLWithJSONRequestBodyFromFile(String url, String file) throws IOException {
-        HttpManager.sendHTTPMethod("post", url, "", new String[]{"file", file});
+        HttpManager.sendHTTPMethod("post", BDDPlaceholders.replace(url), "", new String[]{"file", BDDPlaceholders.replace(file)});
     }
 
     /**
@@ -129,7 +132,8 @@ public class HttpManagerPostSteps {
      */
     @And("^I send a POST to URL \"([^\"]*)\" and route \"([^\"]*)\" with request body from file \"([^\"]*)\"$")
     public void iSendAPOSTToURLAndRouteWithJSONRequestBodyFromFile(String url, String route, String file) throws IOException {
-        HttpManager.sendHTTPMethod("post", url, route, new String[]{"file", file});
+        HttpManager.sendHTTPMethod("post", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route),
+                new String[]{"file", BDDPlaceholders.replace(file)});
     }
 
     /**
@@ -145,7 +149,8 @@ public class HttpManagerPostSteps {
     @And("^I send a POST to URL \"([^\"]*)\" with request body from data-store \"([^\"]*)\"$")
     public void iSendAPOSTToURLWithBodyFromDataStore(String url, String dataStore) throws
             IOException {
-        HttpManager.sendHTTPMethod("post", url, "", new String[]{"dataStore", dataStore});
+        HttpManager.sendHTTPMethod("post", BDDPlaceholders.replace(url), "", new String[]{"dataStore",
+                BDDPlaceholders.replace(dataStore)});
     }
 
     /**
@@ -162,6 +167,7 @@ public class HttpManagerPostSteps {
     @And("^I send a POST to URL \"([^\"]*)\" and route \"([^\"]*)\" with request body from data-store \"([^\"]*)\"$")
     public void iSendAPOSTToURLWithBodyFromDataStore(String url, String route, String dataStore) throws
             IOException {
-        HttpManager.sendHTTPMethod("post", url, route, new String[]{"dataStore", dataStore});
+        HttpManager.sendHTTPMethod("post", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route),
+                new String[]{"dataStore", BDDPlaceholders.replace(dataStore)});
     }
 }

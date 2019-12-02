@@ -25,7 +25,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
     @And("^I type \"([^\"]*)\" into Reference \"([^\"]*)\"$")
     public void sendKeysByXpathFromMemory(String text, String designField) {
 
-        By by = XpathHelper.findByPropAndValue(designField);
+        By by = XpathHelper.findByPropAndValue(placeholders(designField));
 
         driver().findElement(by).sendKeys(placeholders(text));
     }
@@ -61,7 +61,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @And("^I clear the field by Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void clearField(String attr, String value) {
-        getProfile().clearField(XpathHelper.findByPropAndValue(attr, value));
+        getProfile().clearField(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)));
     }
 
     /**
@@ -72,7 +72,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @And("^I clear the field by XPath \"([^\"]*)\"$")
     public void clearField(String xpath) {
-        getProfile().clearField(By.xpath(xpath));
+        getProfile().clearField(By.xpath(placeholders(xpath)));
     }
 
     /**
@@ -86,7 +86,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type \"([^\"]*)\" into Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void sendKeys(String text, String attr, String value) {
-        getProfile().sendKeys(XpathHelper.findByPropAndValue(attr, value), text);
+        getProfile().sendKeys(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)), placeholders(text));
     }
 
     /**
@@ -99,7 +99,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type \"([^\"]*)\" into xpath \"([^\"]*)\"$")
     public void sendKeys(String text, String xpath) {
-        getProfile().sendKeys(By.xpath(xpath), text);
+        getProfile().sendKeys(By.xpath(placeholders(xpath)), placeholders(text));
     }
 
     /**
@@ -112,7 +112,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type \"([^\"]*)\" into field with Attribute and Value using data-store \"([^\"]*)\"$")
     public void sendKeysReferenceAttributeValue(String text, String param) {
-        getProfile().sendKeys(XpathHelper.findByPropAndValue(param), text);
+        getProfile().sendKeys(XpathHelper.findByPropAndValue(placeholders(param)), placeholders(text));
     }
 
     /**
@@ -125,7 +125,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type \"([^\"]*)\" into field with xpath using data-store \"([^\"]*)\"$")
     public void iTypeIntoFieldWithXpathUsingLocalParameter(String text, String param) {
-        getProfile().sendKeys(XpathHelper.findByXpathValue(param), text);
+        getProfile().sendKeys(XpathHelper.findByXpathValue(placeholders(param)), placeholders(text));
     }
 
     /**
@@ -143,7 +143,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type FrameworkUser into Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void sendKeysFrameworkUser(String attr, String value) {
-        getProfile().sendKeys(XpathHelper.findByPropAndValue(attr, value), ParameterMap.getParamWebAppUser());
+        getProfile().sendKeys(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)), ParameterMap.getParamWebAppUser());
     }
 
     /**
@@ -161,7 +161,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type FrameworkUserPass into Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void sendKeysFrameworkPassword(String attr, String value) {
-        getProfile().sendKeys(XpathHelper.findByPropAndValue(attr, value), ParameterMap.getParamWebAppPass());
+        getProfile().sendKeys(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)), ParameterMap.getParamWebAppPass());
     }
 
     /**
@@ -178,7 +178,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type FrameworkUser into xpath \"([^\"]*)\"$")
     public void sendKeysFrameworkUser(String xpath) {
-        getProfile().sendKeys(By.xpath(xpath), ParameterMap.getParamWebAppUser());
+        getProfile().sendKeys(By.xpath(placeholders(xpath)), ParameterMap.getParamWebAppUser());
     }
 
     /**
@@ -195,7 +195,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type FrameworkUserPass into xpath \"([^\"]*)\"$")
     public void sendKeysFrameworkPassword(String xpath) {
-        getProfile().sendKeys(By.xpath(xpath), ParameterMap.getParamWebAppPass());
+        getProfile().sendKeys(By.xpath(placeholders(xpath)), ParameterMap.getParamWebAppPass());
     }
 
     /**
@@ -207,7 +207,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type FrameworkUser into field with Attribute and Value using data-store \"([^\"]*)\"$")
     public void sendKeysFrameworkUserReferenceAttributeValue(String param) {
-        getProfile().sendKeys(XpathHelper.findByPropAndValue(param), ParameterMap.getParamWebAppUser());
+        getProfile().sendKeys(XpathHelper.findByPropAndValue(placeholders(param)), ParameterMap.getParamWebAppUser());
     }
 
     /**
@@ -219,7 +219,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type FrameworkUserPass into field with Attribute and Value using data-store \"([^\"]*)\"$")
     public void sendKeysFrameworkPasswordReferenceAttributeValue(String param) {
-        getProfile().sendKeys(XpathHelper.findByPropAndValue(param), ParameterMap.getParamWebAppPass());
+        getProfile().sendKeys(XpathHelper.findByPropAndValue(placeholders(param)), ParameterMap.getParamWebAppPass());
     }
 
     /**
@@ -231,7 +231,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type FrameworkUser into field with xpath using data-store \"([^\"]*)\"$")
     public void sendKeysFrameworkUserReferenceXpath(String param) {
-        getProfile().sendKeys(XpathHelper.findByXpathValue(param), ParameterMap.getParamWebAppUser());
+        getProfile().sendKeys(XpathHelper.findByXpathValue(placeholders(param)), ParameterMap.getParamWebAppUser());
     }
 
     /**
@@ -243,7 +243,7 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type FrameworkUserPass into field with xpath using data-store \"([^\"]*)\"$")
     public void sendKeysFrameworkPasswordReferenceXpath(String param) {
-        getProfile().sendKeys(XpathHelper.findByXpathValue(param), ParameterMap.getParamWebAppPass());
+        getProfile().sendKeys(XpathHelper.findByXpathValue(placeholders(param)), ParameterMap.getParamWebAppPass());
     }
 
     /**
@@ -255,6 +255,6 @@ public class WebdriverSendkeysSteps extends TestStepsCore {
      */
     @When("^I type \"([^\"]*)\" into field with ID \"([^\"]*)\"$")
     public void iTypeIntoFieldWithID(String text, String id) {
-        getProfile().sendKeys(By.id(id), text);
+        getProfile().sendKeys(By.id(placeholders(id)), placeholders(text));
     }
 }

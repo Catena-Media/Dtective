@@ -1,5 +1,6 @@
 package io.dtective.quality.bddtests.http.get;
 
+import io.dtective.placeholders.BDDPlaceholders;
 import io.dtective.test.TestDataCore;
 import io.dtective.web.HttpManager;
 import cucumber.api.java.en.And;
@@ -26,7 +27,7 @@ public class HttpManagerGetSteps {
      */
     @And("^I send a GET to URL \"([^\"]*)\"$")
     public void sendGETtoUrl(String url) throws IOException {
-        HttpManager.sendHTTPMethod("get", url, "", null, true);
+        HttpManager.sendHTTPMethod("get", BDDPlaceholders.replace(url), "", null, true);
     }
 
     /**
@@ -40,7 +41,7 @@ public class HttpManagerGetSteps {
      */
     @And("^I send a get to URL \"([^\"]*)\" with route \"([^\"]*)\"$")
     public void sendGETtoURLWithRoute(String url, String route) throws IOException {
-        HttpManager.sendHTTPMethod("get", url, route, null, true);
+        HttpManager.sendHTTPMethod("get", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route), null, true);
     }
 
     /**
@@ -52,7 +53,7 @@ public class HttpManagerGetSteps {
      */
     @And("^I send a GET to URL \"([^\"]*)\" without following the redirects$")
     public void sendGETtoURLWithoutFollowingRedirects(String url) throws IOException {
-        HttpManager.sendHTTPMethod("get", url, "", null, false);
+        HttpManager.sendHTTPMethod("get", BDDPlaceholders.replace(url), "", null, false);
     }
 
     /**
@@ -65,7 +66,7 @@ public class HttpManagerGetSteps {
      */
     @And("^I send a GET to URL \"([^\"]*)\" with route \"([^\"]*)\" without following the redirects$")
     public void sendGETtoUrlWithRouteWithoutFollowingRedirects(String url, String route) throws IOException {
-        HttpManager.sendHTTPMethod("get", url, route, null, false);
+        HttpManager.sendHTTPMethod("get", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route), null, false);
     }
 
     /**
@@ -78,8 +79,8 @@ public class HttpManagerGetSteps {
      */
     @When("^I send a GET to URL \"([^\"]*)\" and store response in data-store \"([^\"]*)\"$")
     public void sendGETtoURLSaveToDataStore(String url, String dataStore) throws IOException {
-        HttpManager.sendHTTPMethod("get", url, "", null, true);
-        TestDataCore.addToDataStore(dataStore, TestDataCore.getDataStore("resbody").toString());
+        HttpManager.sendHTTPMethod("get", BDDPlaceholders.replace(url), "", null, true);
+        TestDataCore.addToDataStore(BDDPlaceholders.replace(dataStore), TestDataCore.getDataStore("resbody").toString());
     }
 
     /**
@@ -93,8 +94,8 @@ public class HttpManagerGetSteps {
      */
     @And("^I send a GET to URL \"([^\"]*)\" with route \"([^\"]*)\" and store response in data-store \"([^\"]*)\"$")
     public void sendGETtoURLWithRouteSaveToDataStore(String url, String route, String dataStore) throws IOException {
-        HttpManager.sendHTTPMethod("get", url, route, null, true);
-        TestDataCore.addToDataStore(dataStore, TestDataCore.getDataStore("resbody").toString());
+        HttpManager.sendHTTPMethod("get", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route), null, true);
+        TestDataCore.addToDataStore(BDDPlaceholders.replace(dataStore), TestDataCore.getDataStore("resbody").toString());
     }
 
     /**
@@ -107,8 +108,8 @@ public class HttpManagerGetSteps {
      */
     @When("^I send a GET to URL \"([^\"]*)\" with route from data-store \"([^\"]*)\"$")
     public void sendGETtoURLWithRouteFromDataStore(String url, String dataStore) throws IOException {
-        String route = TestDataCore.getDataStore(dataStore).toString();
-        HttpManager.sendHTTPMethod("get", url, route, null, true);
+        String route = TestDataCore.getDataStore(BDDPlaceholders.replace(dataStore)).toString();
+        HttpManager.sendHTTPMethod("get", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route), null, true);
     }
 }
 

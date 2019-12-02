@@ -1,11 +1,10 @@
 package io.dtective.quality.bddtests.webdriver.displays;
 
-import io.dtective.placeholders.BDDPlaceholders;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import io.dtective.test.TestDataCore;
 import io.dtective.test.TestStepsCore;
 import io.dtective.xpath.XpathHelper;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
@@ -25,7 +24,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^text displays \"([^\"]*)\"$")
     public void textDisplays(String text) {
-        text = BDDPlaceholders.replace(text);
+        text = placeholders(text);
         getProfile().textDisplays(text);
     }
 
@@ -38,7 +37,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^text \"([^\"]*)\" is displayed in XPATH \"([^\"]*)\"$")
     public void textIsDisplayedInXPATH(String text, String xpath) {
-        getProfile().isDisplayed(XpathHelper.findByText(text, xpath));
+        getProfile().isDisplayed(XpathHelper.findByText(placeholders(text), placeholders(xpath)));
     }
 
     /**
@@ -50,7 +49,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^text displays by Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void textDisplays(String property, String value) {
-        getProfile().isDisplayed(XpathHelper.findByPropAndValue(property, value));
+        getProfile().isDisplayed(XpathHelper.findByPropAndValue(placeholders(property), placeholders(value)));
     }
 
     /**
@@ -61,6 +60,8 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^text does not display \"([^\"]*)\"$")
     public void textDoesNotDisplay(String text) {
+        text = placeholders(text);
+
         getProfile().appendScreenshotToScenario(new Object() {
         }.getClass().getEnclosingMethod().getName());
         Assert.assertNull("Error, the text displays on the site - "
@@ -75,7 +76,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is displayed by xpath \"([^\"]*)\"$")
     public void elementDisplayedByXpath(String xpath) {
-        getProfile().isDisplayed(By.xpath(xpath));
+        getProfile().isDisplayed(By.xpath(placeholders(xpath)));
     }
 
     /**
@@ -86,7 +87,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element displays by Reference \"([^\"]*)\"$")
     public void elementDisplays(String ref) {
-        getProfile().isDisplayed(XpathHelper.findByPropAndValue(ref));
+        getProfile().isDisplayed(XpathHelper.findByPropAndValue(placeholders(ref)));
     }
 
     /**
@@ -98,7 +99,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element with id \"([^\"]*)\" contains value of \"([^\"]*)\"$")
     public void elementWithIdContainsValueOf(String id, String text) {
-        getProfile().assertAttributeValueContains(By.id(id), "value", placeholders(text));
+        getProfile().assertAttributeValueContains(By.id(placeholders(id)), "value", placeholders(text));
     }
 
     /**
@@ -110,7 +111,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @And("^element displays \"([^\"]*)\" that contains \"([^\"]*)\"$")
     public void elementDisplaysThatContains(String property, String value) {
-        getProfile().isDisplayed(XpathHelper.findByPropertyValueContains(property, value));
+        getProfile().isDisplayed(XpathHelper.findByPropertyValueContains(placeholders(property), placeholders(value)));
     }
 
     /**
@@ -123,7 +124,8 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element displays inside Xpath \"([^\"]*)\" property \"([^\"]*)\" that contains \"([^\"]*)\"$")
     public void elementDisplaysInsideXpathPropertyThatContains(String xpath, String property, String value) {
-        getProfile().isDisplayed(XpathHelper.findByPropertyValueContainsWithinXpath(xpath, property, value));
+        getProfile().isDisplayed(XpathHelper.findByPropertyValueContainsWithinXpath(placeholders(xpath),
+                placeholders(property), placeholders(value)));
     }
 
     /**
@@ -135,7 +137,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is displayed by Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void elementIsDisplayedByAttributeValue(String attr, String value) {
-        getProfile().isDisplayed(XpathHelper.findByPropAndValue(attr, value));
+        getProfile().isDisplayed(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)));
     }
 
     /**
@@ -147,7 +149,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is not displayed by Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void elementIsNotDisplayedByAttributeValue(String attr, String value) {
-        getProfile().elementDoesNotDisplay(XpathHelper.findByPropAndValue(attr, value));
+        getProfile().elementDoesNotDisplay(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)));
     }
 
     /**
@@ -158,7 +160,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is not displayed by xpath \"([^\"]*)\"$")
     public void elementIsNotDisplayedByXpath(String xpath) {
-        getProfile().elementDoesNotDisplay(By.xpath(xpath));
+        getProfile().elementDoesNotDisplay(By.xpath(placeholders(xpath)));
     }
 
     /**
@@ -169,7 +171,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is displayed by Attribute and Value using parameter \"([^\"]*)\"$")
     public void elementIsDisplayedByAttributeAndValueUsingParameter(String param) {
-        getProfile().isDisplayed(XpathHelper.findByPropAndValue(param));
+        getProfile().isDisplayed(XpathHelper.findByPropAndValue(placeholders(param)));
     }
 
     /**
@@ -180,7 +182,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is not displayed by Attribute and Value using parameter \"([^\"]*)\"$")
     public void elementIsNotDisplayedByAttributeAndValueUsingParameter(String param) {
-        getProfile().elementDoesNotDisplay(XpathHelper.findByPropAndValue(param));
+        getProfile().elementDoesNotDisplay(XpathHelper.findByPropAndValue(placeholders(param)));
     }
 
     /**
@@ -191,7 +193,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is displayed by xpath using parameter \"([^\"]*)\"$")
     public void elementIsDisplayedByXpathUsingParameter(String param) {
-        getProfile().isDisplayed(XpathHelper.findByXpathValue(param));
+        getProfile().isDisplayed(XpathHelper.findByXpathValue(placeholders(param)));
     }
 
     /**
@@ -202,7 +204,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is not displayed by xpath using parameter \"([^\"]*)\"$")
     public void elementIsNotDisplayedByXpathUsingParameter(String param) {
-        getProfile().elementDoesNotDisplay(XpathHelper.findByXpathValue(param));
+        getProfile().elementDoesNotDisplay(XpathHelper.findByXpathValue(placeholders(param)));
     }
 
     /**
@@ -213,7 +215,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is displayed by text using parameter \"([^\"]*)\"$")
     public void elementIsDisplayedByTextUsingParameter(String param) {
-        getProfile().isDisplayed(XpathHelper.findByText((String) TestDataCore.getDataStore(param)));
+        getProfile().isDisplayed(XpathHelper.findByText((String) TestDataCore.getDataStore(placeholders(param))));
     }
 
     /**
@@ -224,7 +226,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^element is not displayed by text using parameter \"([^\"]*)\"$")
     public void elementIsNotDisplayedByTextUsingParameter(String param) {
-        getProfile().elementDoesNotDisplay(XpathHelper.findByText((String) TestDataCore.getDataStore(param)));
+        getProfile().elementDoesNotDisplay(XpathHelper.findByText((String) TestDataCore.getDataStore(placeholders(param))));
     }
 
     /**
@@ -238,7 +240,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^field value equals \"([^\"]*)\" by Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void fieldValueEqualsByAttributeValue(String text, String attr, String value) {
-        getProfile().compareFieldValue(XpathHelper.findByPropAndValue(attr, value), text);
+        getProfile().compareFieldValue(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)), placeholders(text));
     }
 
     /**
@@ -251,7 +253,7 @@ public class WebdriverDisplaysSteps extends TestStepsCore {
      */
     @Then("^field value equals \"([^\"]*)\" by XPATH \"([^\"]*)\"$")
     public void fieldValueEqualsByXPATH(String text, String xpath) {
-        getProfile().compareFieldValue(By.xpath(xpath), text);
+        getProfile().compareFieldValue(By.xpath(placeholders(xpath)), placeholders(text));
     }
 
 }

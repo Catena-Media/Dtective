@@ -1,6 +1,7 @@
 package io.dtective.quality.framework.webdriver;
 
 import io.dtective.configuration.ParameterMap;
+import io.dtective.placeholders.BDDPlaceholders;
 import io.dtective.selenium.Extensions.SharedWebDriver;
 import io.dtective.test.SeleniumCore;
 import io.dtective.test.TestDataCore;
@@ -61,6 +62,8 @@ public class WebdriverStepsCore extends TestStepsCore {
 
     @When("^I switch context to iFrame \"([^\"]*)\"$")
     public void iSwitchToIframe(String name) {
+        name = BDDPlaceholders.replace(name);
+
         driver().switchTo().defaultContent();
         driver().switchTo().frame(name);
     }
@@ -95,6 +98,8 @@ public class WebdriverStepsCore extends TestStepsCore {
      */
     @When("^I check that all buttons using XPATH: \"([^\"]*)\" are clickable$")
     public void iCheckAllButtons(String xpath) {
+
+        xpath = BDDPlaceholders.replace(xpath);
 
         List<WebElement> elementList = driver().getDriver().findElements(By.xpath(xpath));
         Assert.assertNotEquals("Element not found: ", elementList.size(), 0);

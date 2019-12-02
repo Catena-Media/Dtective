@@ -1,5 +1,6 @@
 package io.dtective.quality.bddtests.integrations.browsermobproxy;
 
+import io.dtective.placeholders.BDDPlaceholders;
 import io.dtective.test.TestStepsCore;
 import io.dtective.utils.NetworkAnalyticsHelper;
 import cucumber.api.java.en.And;
@@ -35,7 +36,7 @@ public class WebdriverWithProxySteps extends TestStepsCore {
      */
     @And("I save the HAR file in \"([^\"]*)\"$")
     public void iSaveTheHarFile(String harFilename) {
-        NetworkAnalyticsHelper.saveHar(harFilename);
+        NetworkAnalyticsHelper.saveHar(BDDPlaceholders.replace(harFilename));
     }
 
     /**
@@ -57,9 +58,9 @@ public class WebdriverWithProxySteps extends TestStepsCore {
     @Then("^the file \"([^\"]*)\" exists$")
     public void theFileExists(String filename) {
 
-        File file = new File(filename);
+        File file = new File(BDDPlaceholders.replace(filename));
         if (!file.exists()) {
-            Assert.fail("The file " + filename + " does not exist");
+            Assert.fail("The file " + BDDPlaceholders.replace(filename) + " does not exist");
         }
     }
 }

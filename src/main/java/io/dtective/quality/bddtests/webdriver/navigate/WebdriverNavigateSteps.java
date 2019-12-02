@@ -56,7 +56,7 @@ public class WebdriverNavigateSteps extends TestStepsCore {
      */
     @Then("^I am viewing \"([^\"]*)\"")
     public void iAmViewing(String url) {
-        getProfile().navigateTo(url);
+        getProfile().navigateTo(placeholders(url));
     }
 
     /**
@@ -113,6 +113,7 @@ public class WebdriverNavigateSteps extends TestStepsCore {
      */
     @When("I open local HTML file {string}")
     public void iOpenLocalHTMLFile(String file) {
+        file = placeholders(file);
         File htmlFile = new File(System.getProperty("user.dir") + file);
 
         try {

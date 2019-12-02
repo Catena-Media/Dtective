@@ -106,6 +106,10 @@ public class DataTestCore {
     @Given("^I add to data-store \"([^\"]*)\" containing key \"([^\"]*)\" and value \""
             + "([^\"]*)\"$")
     public void iAddTheFollowingLocalParameters(String name, String key, String value) {
+        name = BDDPlaceholders.replace(name);
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         Map<Object, Object> result = new HashMap<>();
         result.put(key, value);
 
@@ -120,7 +124,7 @@ public class DataTestCore {
      */
     @Then("^I can use the locally set data \"([^\"]*)\"$")
     public void iCanUseDataSetInDataStore(String key) {
-        Assert.assertNotNull(dataProvider.getLocalDataService().get(key));
+        Assert.assertNotNull(dataProvider.getLocalDataService().get(BDDPlaceholders.replace(key)));
     }
 
     /**
@@ -132,6 +136,9 @@ public class DataTestCore {
      */
     @Then("^value of data-store \"([^\"]*)\" matches the regex pattern \"(.*)\"$")
     public void valueOfStoredParamMatchesTheRegexPattern(String param, String regex) {
+        param = BDDPlaceholders.replace(param);
+        regex = BDDPlaceholders.replace(regex);
+
         String query = dataProvider.getLocalDataService().get(param).toString();
 
         Pattern p = Pattern.compile("^(" + regex + ")$");
@@ -147,6 +154,8 @@ public class DataTestCore {
      */
     @Then("^value of data-store \"([^\"]*)\" is null$")
     public void valueOfStoredParamIsNull(String param) {
+        param = BDDPlaceholders.replace(param);
+
         Assert.assertNull("data-store " + param + " was not null", dataProvider.getLocalDataService().get(param));
     }
 
@@ -158,6 +167,8 @@ public class DataTestCore {
      */
     @Then("^data-store \"([^\"]*)\" is not empty$")
     public void storedParamIsNotEmpty(String param) {
+        param = BDDPlaceholders.replace(param);
+
         Assert.assertNotNull("Param: " + param + " found empty", dataProvider.getLocalDataService().get(param));
     }
 
@@ -169,14 +180,14 @@ public class DataTestCore {
      */
     @And("^I clear the data-store \"([^\"]*)\"$")
     public void iClearTheStoredParam(String param) {
-        dataProvider.getLocalDataService().replace(param, null);
+        dataProvider.getLocalDataService().replace(BDDPlaceholders.replace(param), null);
     }
 
     /**
      * Asserts that the value from a specified paramater is equal to a specified value.
      *
-     * @param param The parameter name containing the value to be asserted.
-     * @param value The expected value.
+     * @param dataStore The parameter name containing the value to be asserted.
+     * @param expectedValue The expected value.
      * @since 1.0
      */
     @Then("^value of data-store \"(.*)\" is equal to \"(.*)\"$")
@@ -207,6 +218,9 @@ public class DataTestCore {
      */
     @And("^I add new JSON request body key \"([^\"]*)\" with value \"([^\"]*)\"$")
     public void iAddToTheJSONRequestBodyAKeyWithValue(String jsonPathKey, String value) {
+        jsonPathKey = BDDPlaceholders.replace(jsonPathKey);
+        value = BDDPlaceholders.replace(value);
+
         String json = addKeyValueToJSON(dataProvider.getLocalDataService().get("requestBody").toString(), jsonPathKey, value);
         dataProvider.getLocalDataService().put("requestBody", json);
     }
@@ -223,6 +237,9 @@ public class DataTestCore {
      */
     @And("^I add new JSON request body key \"([^\"]*)\" with Dict value \"(.*)\"$")
     public void iAddToTheJSONRequestBodyAKeyWithDictValue(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         JsonObject jsonWithDict = new Gson().fromJson(value, JsonObject.class);
         String json = addKeyValueToJSON(dataProvider.getLocalDataService().get("requestBody").toString(), key, jsonWithDict);
         dataProvider.getLocalDataService().put("requestBody", json);
@@ -240,6 +257,9 @@ public class DataTestCore {
      */
     @And("^I add new JSON request body key \"([^\"]*)\" with Array value \"(.*)\"$")
     public void iAddToTheJSONRequestBodyAKeyWithArrayValue(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         JsonParser parser = new JsonParser();
         JsonElement arrayElement = parser.parse(value);
         JsonArray arrayValue = arrayElement.getAsJsonArray();
@@ -255,6 +275,9 @@ public class DataTestCore {
      */
     @And("^I add a new JSON request body a key \"([^\"]*)\" with boolean value \"(.*)\"$")
     public void iAddToTheJSONRequestBodyAKeyWithBooleanValue(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         boolean booleanValue = Boolean.parseBoolean(value);
         JSONObject json = new JSONObject(dataProvider.getLocalDataService().get("requestBody").toString());
         json.put(key, booleanValue);
@@ -303,7 +326,11 @@ public class DataTestCore {
     public void iChangeValueOfKeyInJSONFromStoredParamWithValueAndSaveItInStoredParam(String key, String value, String bodyParam,
                                                                                       String newParam) {
 
+        key = BDDPlaceholders.replace(key);
         value = BDDPlaceholders.replace(value);
+        bodyParam = BDDPlaceholders.replace(bodyParam);
+        newParam = BDDPlaceholders.replace(newParam);
+
         String json = dataProvider.getLocalDataService().get(bodyParam).toString();
         String newJson = changeValueofKeyInJSON(json, key, value);
         dataProvider.getLocalDataService().put(newParam, newJson);
@@ -312,7 +339,9 @@ public class DataTestCore {
     @And("^I change value of key \"([^\"]*)\" to \"([^\"]*)\" in JSON request body$")
     public void iChangeValueOfKeyToInJSONRequestBody(String key, String value) {
 
+        key = BDDPlaceholders.replace(key);
         value = BDDPlaceholders.replace(value);
+
         String json = dataProvider.getLocalDataService().get("requestBody").toString();
         String newJson = changeValueofKeyInJSON(json, key, value);
         dataProvider.getLocalDataService().put("requestBody", newJson);
@@ -327,6 +356,10 @@ public class DataTestCore {
      */
     @Then("^JSON within data-store \"([^\"]*)\" contains key \"([^\"]*)\"$")
     public void jsonWithinStoredParamContainsKey(String param, String key) {
+
+        param = BDDPlaceholders.replace(param);
+        key = BDDPlaceholders.replace(key);
+
         JsonParser jsonParser = new JsonParser();
         JsonObject parsedBody = jsonParser.parse(dataProvider.getLocalDataService().get(param).toString()).getAsJsonObject();
 
@@ -347,6 +380,10 @@ public class DataTestCore {
      */
     @Then("^JSON within data-store \"([^\"]*)\" does not contain key \"([^\"]*)\"$")
     public void jsonWithinLocalParamDoesNotContainKey(String param, String key) {
+
+        param = BDDPlaceholders.replace(param);
+        key = BDDPlaceholders.replace(key);
+
         try {
             returnValueFromKeyInJSON(dataProvider.getLocalDataService().get(param).toString(), key);
             Assert.fail("Key '" + key + "' was found in data-store.");
@@ -365,6 +402,9 @@ public class DataTestCore {
      */
     @And("^I remove JSON key value pair with key \"([^\"]*)\" from JSON in data-store \"([^\"]*)\"$")
     public void iRemoveJSONKeyValuePairWithKeyFromJSON(String key, String param) {
+        key = BDDPlaceholders.replace(key);
+        param = BDDPlaceholders.replace(param);
+
         String newJson = deleteKeyValueFromJSON(
                 dataProvider.getLocalDataService().get(param).toString(), key);
         dataProvider.getLocalDataService().put(param, newJson);
@@ -381,6 +421,10 @@ public class DataTestCore {
     @And("^I get value of key \"([^\"]*)\" from JSON in data-store \"([^\"]*)\" and store it in data-store \""
             + "([^\"]*)\"$")
     public void iGetValueOfKeyFromJSONInLocalParamAndStoreItInLocalParam(String key, String param, String newParam) {
+        key = BDDPlaceholders.replace(key);
+        param = BDDPlaceholders.replace(param);
+        newParam = BDDPlaceholders.replace(newParam);
+
         dataProvider.getLocalDataService().put(
                 newParam, returnValueFromKeyInJSON(
                         dataProvider.getLocalDataService().get(param).toString(), key));

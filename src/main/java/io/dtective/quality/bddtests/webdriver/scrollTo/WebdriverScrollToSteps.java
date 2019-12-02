@@ -19,7 +19,7 @@ public class WebdriverScrollToSteps extends TestStepsCore {
      */
     @When("^I scroll to element by XPATH \"([^\"]*)\"$")
     public void iScrollToElementByXPATH(String xpath) {
-        getProfile().scrollTo(By.xpath(xpath));
+        getProfile().scrollTo(By.xpath(placeholders(xpath)));
     }
 
 }
