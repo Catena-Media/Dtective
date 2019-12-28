@@ -83,7 +83,7 @@ public class HttpStepsCore {
             uri = url + route.substring(1);
         } else {
             if ((!url.endsWith(("/")) && (!route.startsWith("/")))) {
-                if (route.length() > 1) {
+                if (route.length() > 0) {
                     uri = url + "/" + route;
                 } else {
                     uri = url;
