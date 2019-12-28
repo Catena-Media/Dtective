@@ -20,6 +20,7 @@ script:
   - docker ps
   - docker exec runner-chrome mvn checkstyle:check
   - mvn checkstyle:check
+  - docker exec runner-chrome mvn compile test "-Dcucumber.options=--tags @applydbmigrations"
   - docker exec runner-chrome mvn compile test "-Dcucumber.options=--tags @UnitTest"
   - docker exec runner-chrome mvn io.qameta.allure:allure-maven:report
   - docker-compose -f docker-compose.unittest.yml down
