@@ -27,7 +27,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with xpath \"([^\"]*)\" has background colour #\"([^\"]*)\"$")
     public void iAssertBackgroundColourXpath(String xpath, String expectedColor) {
-        getProfile().compareCSSValue(By.xpath(xpath), "background-color", expectedColor);
+        getProfile().compareCSSValue(By.xpath(placeholders(xpath)), "background-color", placeholders(expectedColor));
     }
 
     /**
@@ -42,7 +42,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with xpath \"([^\"]*)\" has Font Size \"([^\"]*)\" px$")
     public void iAssertFontSizeXpath(String xpath, String size) {
-        getProfile().compareCSSValue(By.xpath(xpath), "font-size", size);
+        getProfile().compareCSSValue(By.xpath(placeholders(xpath)), "font-size", placeholders(size));
     }
 
     /**
@@ -57,7 +57,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with xpath \"([^\"]*)\" has Font Colour #\"([^\"]*)\"$")
     public void iAssertFontColourXpath(String xpath, String expectedColor) {
-        getProfile().compareCSSValue(By.xpath(xpath), "color", expectedColor);
+        getProfile().compareCSSValue(By.xpath(placeholders(xpath)), "color", placeholders(expectedColor));
     }
 
     /**
@@ -75,7 +75,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with xpath \"([^\"]*)\" has CSS Attribute \"([^\"]*)\" with CSS Value \"([^\"]*)\"$")
     public void iAssertCSSattributeHasCSSvalueXpath(String xpath, String cssAttribute, String cssValue) {
-        getProfile().compareCSSValue(By.xpath(xpath), cssAttribute, cssValue);
+        getProfile().compareCSSValue(By.xpath(placeholders(xpath)), placeholders(cssAttribute), placeholders(cssValue));
     }
 
     /**
@@ -90,7 +90,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with Attribute and Value using data-store name \"([^\"]*)\" has background colour #\"([^\"]*)\"$")
     public void iAssertAttributeAndValueUsingLocalParamBackgroundColour(String param, String color) {
-        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(param), "background-color", color);
+        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(placeholders(param)), "background-color", placeholders(color));
     }
 
     /**
@@ -105,7 +105,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with Attribute and Value using data-store name \"([^\"]*)\" has Font Size \"([^\"]*)\" px$")
     public void iAssertAttributeAndValueUsingLocalParamFontSizePx(String param, String size) {
-        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(param), "font-size", size);
+        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(placeholders(param)), "font-size", placeholders(size));
     }
 
     /**
@@ -120,7 +120,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with Attribute and Value using data-store name \"([^\"]*)\" has Font Colour #\"([^\"]*)\"$")
     public void iAssertAttributeAndValueUsingLocalParamFontColour(String param, String expectedColor) {
-        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(param), "color", expectedColor);
+        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(placeholders(param)), "color", placeholders(expectedColor));
     }
 
     /**
@@ -140,7 +140,8 @@ public class WebdriverCSSSteps extends TestStepsCore {
     @Then("^I assert that the element with Attribute and Value using data-store name \"([^\"]*)\" has CSS "
             + "Attribute \"([^\"]*)\" with CSS Value \"([^\"]*)\"$")
     public void iAssertAttributeAndValueUsingLocalParamHasCSSAttributeWithCSSValue(String param, String cssAttribute, String cssValue) {
-        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(param), cssAttribute, cssValue);
+        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(placeholders(param)),
+                placeholders(cssAttribute), placeholders(cssValue));
     }
 
     /**
@@ -155,7 +156,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with xpath using data-store name \"([^\"]*)\" has background colour #\"([^\"]*)\"$")
     public void iAssertBackgroundColourUsingXpathFromLocalParam(String param, String color) {
-        getProfile().compareCSSValue(XpathHelper.findByXpathValue(param), "background-color", color);
+        getProfile().compareCSSValue(XpathHelper.findByXpathValue(placeholders(param)), "background-color", placeholders(color));
     }
 
     /**
@@ -170,7 +171,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with xpath using data-store name \"([^\"]*)\" has Font Size \"([^\"]*)\" px$")
     public void iAssertFontSizePxUsingXpathFromLocalParam(String param, String size) {
-        getProfile().compareCSSValue(XpathHelper.findByXpathValue(param), "font-size", size);
+        getProfile().compareCSSValue(XpathHelper.findByXpathValue(placeholders(param)), "font-size", placeholders(size));
     }
 
     /**
@@ -185,7 +186,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with xpath using data-store name \"([^\"]*)\" has Font Colour #\"([^\"]*)\"$")
     public void iAssertFontColourUsingXpathFromLocalParam(String param, String expectedColor) {
-        getProfile().compareCSSValue(XpathHelper.findByXpathValue(param), "color", expectedColor);
+        getProfile().compareCSSValue(XpathHelper.findByXpathValue(placeholders(param)), "color", placeholders(expectedColor));
     }
 
     /**
@@ -205,7 +206,8 @@ public class WebdriverCSSSteps extends TestStepsCore {
     @Then("^I assert that the element with xpath using data-store name \"([^\"]*)\" has CSS Attribute \"([^\"]*)\" with"
             + " CSS Value \"([^\"]*)\"$")
     public void iAssertCSSAttributeWithCSSValueUsingXpathFromLocalParam(String param, String cssAttribute, String cssValue) {
-        getProfile().compareCSSValue(XpathHelper.findByXpathValue(param), cssAttribute, cssValue);
+        getProfile().compareCSSValue(XpathHelper.findByXpathValue(placeholders(param)),
+                placeholders(cssAttribute), placeholders(cssValue));
     }
 
     /**
@@ -221,7 +223,8 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with Attribute \"([^\"]*)\" Value \"([^\"]*)\" has background colour #\"([^\"]*)\"$")
     public void iAssertAttributeValueHasBackgroundColour(String attr, String value, String color) {
-        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(attr, value), "background-color", color);
+        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)),
+                "background-color", placeholders(color));
     }
 
     /**
@@ -237,7 +240,8 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with Attribute \"([^\"]*)\" Value \"([^\"]*)\" has Font Size \"([^\"]*)\" px$")
     public void iAssertAttributeValueHasFontSizePx(String attr, String value, String size) {
-        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(attr, value), "font-size", size);
+        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)),
+                "font-size", placeholders(size));
     }
 
     /**
@@ -253,7 +257,8 @@ public class WebdriverCSSSteps extends TestStepsCore {
      */
     @Then("^I assert that the element with Attribute \"([^\"]*)\" Value \"([^\"]*)\" has Font Colour #\"([^\"]*)\"$")
     public void iAssertAttributeValueHasFontColour(String attr, String value, String expectedColor) {
-        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(attr, value), "color", expectedColor);
+        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)),
+                "color", placeholders(expectedColor));
     }
 
     /**
@@ -273,6 +278,7 @@ public class WebdriverCSSSteps extends TestStepsCore {
     @Then("^I assert that the element with Attribute \"([^\"]*)\" Value \"([^\"]*)\" has CSS Attribute \"([^\"]*)\" with"
             + " CSS Value \"([^\"]*)\"$")
     public void iAssertAttributeValueHasCSSAttributeWithCSSValue(String attr, String value, String cssAttribute, String cssValue) {
-        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(attr, value), cssAttribute, cssValue);
+        getProfile().compareCSSValue(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)),
+                placeholders(cssAttribute), placeholders(cssValue));
     }
 }

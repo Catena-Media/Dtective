@@ -23,7 +23,7 @@ public class WebdriverDropdownSteps extends TestStepsCore {
      */
     @When("^I select \"([^\"]*)\" from dropdown with Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void selectDropdownValue(String selectedvalue, String attr, String value) {
-        getProfile().dropdownSelect(XpathHelper.findByPropAndValue(attr, value), selectedvalue);
+        getProfile().dropdownSelect(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)), placeholders(selectedvalue));
     }
 
     /**
@@ -36,7 +36,7 @@ public class WebdriverDropdownSteps extends TestStepsCore {
      */
     @When("^I select \"([^\"]*)\" from dropdown with xpath \"([^\"]*)\"$")
     public void selectDropdownValue(String selectedValue, String xpath) {
-        getProfile().dropdownSelect(By.xpath(xpath), selectedValue);
+        getProfile().dropdownSelect(By.xpath(placeholders(xpath)), placeholders(selectedValue));
     }
 
     /**
@@ -49,7 +49,7 @@ public class WebdriverDropdownSteps extends TestStepsCore {
      */
     @When("^I select \"([^\"]*)\" from dropdown with xpath using data-store \"([^\"]*)\"$")
     public void selectDropdownValueByXpathFromMemory(String selectedValue, String param) {
-        getProfile().dropdownSelect(XpathHelper.findByXpathValue(param), selectedValue);
+        getProfile().dropdownSelect(XpathHelper.findByXpathValue(placeholders(param)), placeholders(selectedValue));
     }
 
     /**
@@ -62,6 +62,6 @@ public class WebdriverDropdownSteps extends TestStepsCore {
      */
     @When("^I select \"([^\"]*)\" from dropdown with Attribute and Value using data-store \"([^\"]*)\"$")
     public void selectDropdownValueByAttributeValueFromMemory(String selectedValue, String param) {
-        getProfile().dropdownSelect(XpathHelper.findByPropAndValue(param), selectedValue);
+        getProfile().dropdownSelect(XpathHelper.findByPropAndValue(placeholders(param)), placeholders(selectedValue));
     }
 }

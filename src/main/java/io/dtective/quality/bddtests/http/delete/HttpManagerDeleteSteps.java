@@ -1,5 +1,6 @@
 package io.dtective.quality.bddtests.http.delete;
 
+import io.dtective.placeholders.BDDPlaceholders;
 import io.dtective.web.HttpManager;
 import cucumber.api.java.en.When;
 
@@ -22,7 +23,7 @@ public class HttpManagerDeleteSteps {
      */
     @When("^I send a DELETE to URL \"([^\"]*)\"$")
     public void iSendADELETEToUrl(String url) throws IOException {
-        HttpManager.sendHTTPMethod("delete", url, "", null);
+        HttpManager.sendHTTPMethod("delete", BDDPlaceholders.replace(url), "", null);
     }
 
     /**
@@ -36,6 +37,6 @@ public class HttpManagerDeleteSteps {
      */
     @When("^I send a DELETE to URL \"([^\"]*)\" and route \"([^\"]*)\"$")
     public void iSendADELETEToURLAndRoute(String url, String route) throws IOException {
-        HttpManager.sendHTTPMethod("delete", url, route, null);
+        HttpManager.sendHTTPMethod("delete", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route), null);
     }
 }

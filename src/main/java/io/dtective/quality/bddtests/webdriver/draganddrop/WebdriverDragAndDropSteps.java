@@ -27,6 +27,11 @@ public class WebdriverDragAndDropSteps extends TestStepsCore {
             + "property \"([^\"]*)\" and value \"([^\"]*)\"$")
     public void iDragInto(String propertyFrom, String valueFrom, String propertyTo, String valueTo) {
 
+        propertyFrom = placeholders(propertyFrom);
+        valueFrom = placeholders(valueFrom);
+        propertyTo = placeholders(propertyTo);
+        valueTo = placeholders(valueTo);
+
         By source = XpathHelper.findByPropAndValue(propertyFrom, valueFrom);
         By target = XpathHelper.findByPropAndValue(propertyTo, valueTo);
 

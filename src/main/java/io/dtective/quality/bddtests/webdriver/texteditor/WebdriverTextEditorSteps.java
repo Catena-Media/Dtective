@@ -25,6 +25,8 @@ public class WebdriverTextEditorSteps extends TestStepsCore {
      */
     @And("^I replaceText \"([^\"]*)\" to \"([^\"]*)\"$")
     public void iReplaceTextTo(String from, String to) {
+        from = placeholders(from);
+        to = placeholders(to);
 
         QAWebElement focusedElement = getProfile().getCurrentFocus();
         String text = focusedElement.getText();
@@ -50,6 +52,10 @@ public class WebdriverTextEditorSteps extends TestStepsCore {
     @And("^I replaceText \"([^\"]*)\" to \"([^\"]*)\" in XPATH \"([^\"]*)\"$")
     public void iReplaceTextToXPATH(String from, String to, String xpath) {
 
+        from = placeholders(from);
+        to = placeholders(to);
+        xpath = placeholders(xpath);
+
         WebElement focusedElement = WebElementHelper.findElement(By.xpath(xpath));
         String text = focusedElement.getText();
 
@@ -74,6 +80,10 @@ public class WebdriverTextEditorSteps extends TestStepsCore {
      */
     @And("^I replaceText \"([^\"]*)\" to \"([^\"]*)\" in Attribute \"([^\"]*)\" and Value \"([^\"]*)\"$")
     public void iReplaceTextToInAttributeAndValue(String from, String to, String attribute, String value) {
+
+        from = placeholders(from);
+        to = placeholders(to);
+        value = placeholders(value);
 
         WebElement focusedElement = WebElementHelper.findElement(
                 XpathHelper.findByPropAndValue(attribute, value));

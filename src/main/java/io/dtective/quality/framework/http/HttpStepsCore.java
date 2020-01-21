@@ -55,7 +55,7 @@ public class HttpStepsCore {
             TestDataCore.addToDataStore("headers", new HashMap<String, Object>());
         }
 
-        ((Map<String, Object>) TestDataCore.getDataStore("headers")).put(key, value);
+        ((Map<String, Object>) TestDataCore.getDataStore("headers")).put(BDDPlaceholders.replace(key), BDDPlaceholders.replace(value));
     }
 
     /**
@@ -83,7 +83,7 @@ public class HttpStepsCore {
             uri = url + route.substring(1);
         } else {
             if ((!url.endsWith(("/")) && (!route.startsWith("/")))) {
-                if (route.length() > 1) {
+                if (route.length() > 0) {
                     uri = url + "/" + route;
                 } else {
                     uri = url;
@@ -196,7 +196,7 @@ public class HttpStepsCore {
 
         HttpResponseWrapper response = (HttpResponseWrapper) TestDataCore.getDataStore("response");
 
-        HttpManager.assertHTTPResponse(response, Integer.parseInt(responseCode));
+        HttpManager.assertHTTPResponse(response, Integer.parseInt(BDDPlaceholders.replace(responseCode)));
     }
 
     /**
@@ -208,6 +208,8 @@ public class HttpStepsCore {
      */
     @And("I add HTTP FORM data with key \"([^\"]*)\" and value \"([^\"]*)\"$")
     public void iSetFormData(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
 
         if (TestDataCore.getDataStore("form") == null) {
             TestDataCore.addToDataStore("form", new HashMap<String, Object>());
@@ -227,6 +229,8 @@ public class HttpStepsCore {
     @And("^I add HTTP Form file with path \"([^\"]*)\" and key \"([^\"]*)\"$")
     @SuppressWarnings("unchecked")
     public void iAddHTTPFormFile(String path, String key) {
+        path = BDDPlaceholders.replace(path);
+        key = BDDPlaceholders.replace(key);
 
         File file = new File(path);
 
@@ -246,6 +250,8 @@ public class HttpStepsCore {
      */
     @And("^I add HTTP Form file folder \"([^\"]*)\" and key \"([^\"]*)\"$")
     public void iAddHTTPFormFileFolder(String folder, String key) {
+        folder = BDDPlaceholders.replace(folder);
+        key = BDDPlaceholders.replace(key);
 
         File targetFolder = new File(folder);
 
@@ -267,6 +273,8 @@ public class HttpStepsCore {
      */
     @And("^I store URL redirections in param \"([^\"]*)\"$")
     public void iStoreUrlRedirectionsInParam(String localParamName) {
+        localParamName = BDDPlaceholders.replace(localParamName);
+
         HttpClientContext context = (HttpClientContext) TestDataCore.getDataStore("context");
 
         Assert.assertNotNull("Response cannot be null", context);
@@ -284,6 +292,9 @@ public class HttpStepsCore {
      */
     @Then("^response URL in param \"([^\"]*)\" is \"([^\"]*)\"$")
     public void responseURLInParamIs(String param, String expectedURL) {
+        param = BDDPlaceholders.replace(param);
+        expectedURL = BDDPlaceholders.replace(expectedURL);
+
         List<URI> urls = (List<URI>) TestDataCore.getDataStore(param);
         Assert.assertEquals(expectedURL, urls.get(urls.size() - 1).toString());
     }
@@ -299,6 +310,9 @@ public class HttpStepsCore {
      */
     @Then("^header \"([^\"]*)\" contains value of \"([^\"]*)\"$")
     public void headerContainsValueOf(String header, String expectedValue) throws NullPointerException {
+        header = BDDPlaceholders.replace(header);
+        expectedValue = BDDPlaceholders.replace(expectedValue);
+
         String actualHeaderValue = getHeaderValueFromResponse(header);
         if (actualHeaderValue != null) {
             Assert.assertTrue("Header value did not contain the expected value. Header value was: " + actualHeaderValue,
@@ -315,6 +329,8 @@ public class HttpStepsCore {
      * @return The value of the header.
      */
     private String getHeaderValueFromResponse(String header) {
+        header = BDDPlaceholders.replace(header);
+
         HttpResponseWrapper response = (HttpResponseWrapper) TestDataCore.getDataStore("response");
 
         try {
@@ -335,7 +351,10 @@ public class HttpStepsCore {
      */
     @Then("^header \"([^\"]*)\" is equal to the value of \"([^\"]*)\"$")
     public void headerIsEqualToTheValueOf(String header, String expectedValue) {
-        Assert.assertEquals(expectedValue, getHeaderValueFromResponse(header));
+        header = BDDPlaceholders.replace(header);
+        expectedValue = BDDPlaceholders.replace(expectedValue);
+
+        Assert.assertEquals(expectedValue, Objects.requireNonNull(getHeaderValueFromResponse(header)));
     }
 
     /**
@@ -350,6 +369,10 @@ public class HttpStepsCore {
             + " \"([^\"]*)\"$")
     public void iChangeValueOfKeyInJSONFromStoredParamToNullAndSaveItInStoredParam(String key, String bodyParam,
                                                                                    String newParam) {
+        key = BDDPlaceholders.replace(key);
+        bodyParam = BDDPlaceholders.replace(bodyParam);
+        newParam = BDDPlaceholders.replace(newParam);
+
         JSONObject jsonBody = new JSONObject(TestDataCore.getDataStore(bodyParam).toString());
 
         String[] keys = key.split(",");
@@ -374,6 +397,10 @@ public class HttpStepsCore {
             + "store \"([^\"]*)\"$")
     public void iChangeValueOfKeyInJSONFromStoredParamToTrueAndSaveItInStoredParam(String key, String bodyParam,
                                                                                    String newParam) {
+        key = BDDPlaceholders.replace(key);
+        bodyParam = BDDPlaceholders.replace(bodyParam);
+        newParam = BDDPlaceholders.replace(newParam);
+
         JSONObject jsonBody = new JSONObject(TestDataCore.getDataStore(bodyParam).toString());
 
         String[] keys = key.split(",");
@@ -398,6 +425,10 @@ public class HttpStepsCore {
             + "data-store \"([^\"]*)\"$")
     public void iChangeValueOfKeyInJSONFromStoredParamToFalseAndSaveItInStoredParam(String key, String bodyParam,
                                                                                     String newParam) {
+        key = BDDPlaceholders.replace(key);
+        bodyParam = BDDPlaceholders.replace(bodyParam);
+        newParam = BDDPlaceholders.replace(newParam);
+
         JSONObject jsonBody = new JSONObject(TestDataCore.getDataStore(bodyParam).toString());
 
         String[] keys = key.split(",");
@@ -426,6 +457,11 @@ public class HttpStepsCore {
                                                                                                      String bodyParam,
                                                                                                      String valueParam,
                                                                                                      String newParam) {
+        key = BDDPlaceholders.replace(key);
+        bodyParam = BDDPlaceholders.replace(bodyParam);
+        valueParam = BDDPlaceholders.replace(valueParam);
+        newParam = BDDPlaceholders.replace(newParam);
+
         JSONObject jsonBody = new JSONObject(TestDataCore.getDataStore(bodyParam).toString());
 
         String[] keys = key.split(",");
@@ -452,6 +488,10 @@ public class HttpStepsCore {
     public void iChangeValueOfKeyInJSONFromStoredParamWithAUniqueIDAndSaveModifiedJSONInStoredParm(String key,
                                                                                                    String bodyParam,
                                                                                                    String param) {
+        key = BDDPlaceholders.replace(key);
+        bodyParam = BDDPlaceholders.replace(bodyParam);
+        param = BDDPlaceholders.replace(param);
+
         JSONObject jsonBody = new JSONObject(TestDataCore.getDataStore(bodyParam).toString());
 
         String[] keys = key.split(",");
@@ -478,6 +518,11 @@ public class HttpStepsCore {
     public void iChangeValueOfKeyInJSONFromStoredParamWithValueAndSaveItInStoredParam(String key, String bodyParam,
                                                                                       String value,
                                                                                       String newParam) {
+        key = BDDPlaceholders.replace(key);
+        bodyParam = BDDPlaceholders.replace(bodyParam);
+        value = BDDPlaceholders.replace(value);
+        newParam = BDDPlaceholders.replace(newParam);
+
         JSONObject jsonBody = new JSONObject(TestDataCore.getDataStore(bodyParam).toString());
 
         String[] keys = key.split(",");
@@ -500,6 +545,9 @@ public class HttpStepsCore {
      */
     @And("^I add new JSON request body key \"([^\"]*)\" with value from data-store \"([^\"]*)\"$")
     public void iAddToTheJSONRequestBodyAKeyWithValueFromStoredParam(String key, String param) {
+        key = BDDPlaceholders.replace(key);
+        param = BDDPlaceholders.replace(param);
+
         JSONObject json = new JSONObject(TestDataCore.getDataStore("requestBody").toString());
         String value = TestDataCore.getDataStore(param).toString();
         json.put(key, value);
@@ -516,6 +564,8 @@ public class HttpStepsCore {
     @And("^I store contents of file \"([^\"]*)\" in data-store \"([^\"]*)\"$")
     public void iSaveContentsOfFileInStoredParam(String file, String param) {
         file = BDDPlaceholders.replace(file);
+        param = BDDPlaceholders.replace(param);
+
         JSONObject jsonBody = new JSONObject(TestDataCore.returnStringFromFileOrDataStore(file));
         TestDataCore.addToDataStore(param, jsonBody);
     }
@@ -528,6 +578,7 @@ public class HttpStepsCore {
      */
     @Then("^response contains key \"([^\"]*)\"$")
     public void responseContainsKey(String key) {
+        key = BDDPlaceholders.replace(key);
 
         JsonObject parsedBody = getResponseBodyAsJson();
         try {
@@ -545,6 +596,8 @@ public class HttpStepsCore {
      */
     @When("^I generate a new objectID and store it in data-store \"([^\"]*)\"$")
     public void iGenerateANewObjectIDAndSaveItInStoredParam(String param) {
+        param = BDDPlaceholders.replace(param);
+
         TestDataCore.addToDataStore(param, newObjectId());
     }
 
@@ -557,6 +610,9 @@ public class HttpStepsCore {
      */
     @Then("^response contains key \"([^\"]*)\" with value \"(.*)\"$")
     public void responseContainsKeyWithValue(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         assertKeyAndValueInJson(key, value, getResponseBodyAsJson());
     }
 
@@ -569,6 +625,9 @@ public class HttpStepsCore {
      */
     @Then("^response contains key \"([^\"]*)\" with anything other than value \"(.*)\"$")
     public void responseContainsKeyWithAnythingButValue(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         assertKeyAndExcludeValueInJson(key, value, getResponseBodyAsJson());
     }
 
@@ -582,6 +641,10 @@ public class HttpStepsCore {
      */
     @Then("^data-store \"([^\"]*)\" contains key \"([^\"]*)\" with value \"([^\"]*)\"$")
     public void storedParamContainsKeyWithValue(String param, String key, String value) {
+        param = BDDPlaceholders.replace(param);
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         JsonObject parsedBody = new JsonParser().parse(TestDataCore.getDataStore(param).toString()).getAsJsonObject();
         assertKeyAndValueInJson(key, value, parsedBody);
     }
@@ -596,6 +659,10 @@ public class HttpStepsCore {
      */
     @Then("^data-store \"([^\"]*)\" contains key \"([^\"]*)\" with anything other than value \"([^\"]*)\"$")
     public void storedParamContainsKeyAndExcludeValue(String param, String key, String value) {
+        param = BDDPlaceholders.replace(param);
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         JsonObject parsedBody = new JsonParser().parse(TestDataCore.getDataStore(param).toString()).getAsJsonObject();
         assertKeyAndExcludeValueInJson(key, value, parsedBody);
     }
@@ -609,7 +676,9 @@ public class HttpStepsCore {
      * @param jsonObject The JSON object in which to search for the specified key and value
      */
     private void assertKeyAndValueInJson(String key, String value, JsonObject jsonObject) {
+        key = BDDPlaceholders.replace(key);
         value = BDDPlaceholders.replace(value);
+
         String actualValue = extractValueFromJson(key, jsonObject);
 
         Assert.assertNotNull("Value of searched key was null or not a valid type: " + actualValue, actualValue);
@@ -625,7 +694,9 @@ public class HttpStepsCore {
      * @param jsonObject The JSON object in which to search for the specified key and value
      */
     private void assertKeyAndExcludeValueInJson(String key, String value, JsonObject jsonObject) {
+        key = BDDPlaceholders.replace(key);
         value = BDDPlaceholders.replace(value);
+
         String actualValue = extractValueFromJson(key, jsonObject);
 
         Assert.assertNotNull("Value of searched key was null or not a valid type: " + actualValue, actualValue);
@@ -635,6 +706,7 @@ public class HttpStepsCore {
 
     private String extractValueFromJson(String key, JsonObject jsonObject) {
         final int jsonIndentation = 4;
+        key = BDDPlaceholders.replace(key);
         String actualValue = null;
 
         try {
@@ -655,6 +727,8 @@ public class HttpStepsCore {
      */
     @When("I set basic Authentication for API request with username \"([^\"]*)\" and password \"([^\"]*)\"$")
     public void iSetBasicAuth(String username, String password) {
+        username = BDDPlaceholders.replace(username);
+        password = BDDPlaceholders.replace(password);
 
         Base64 b = new Base64();
         String encodedAuth = b.encodeAsString((username + ":" + password).getBytes());
@@ -676,6 +750,9 @@ public class HttpStepsCore {
      */
     @Then("^I assert that value of key \"([^\"]*)\" from the response body is greater than \"([^\"]*)\"$")
     public void iAssertGreaterThan(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         JsonObject jsonObject = getResponseBodyAsJson();
 
         try {
@@ -700,6 +777,9 @@ public class HttpStepsCore {
      */
     @Then("^I assert that value of key \"([^\"]*)\" from the response body is smaller than \"([^\"]*)\"$")
     public void iAssertSmallerThan(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         JsonObject jsonObject = getResponseBodyAsJson();
 
         try {
@@ -726,6 +806,8 @@ public class HttpStepsCore {
      */
     @Then("^value of header \"([^\"]*)\" matches the regex pattern \"([^\"]*)\"$")
     public void valueOfHeaderMatchesTheRegexPattern(String header, String regex) {
+        header = BDDPlaceholders.replace(header);
+        regex = BDDPlaceholders.replace(regex);
         String headerValue = getHeaderValueFromResponse(header);
 
         Pattern p = Pattern.compile("^(" + regex + ")$");
@@ -742,6 +824,8 @@ public class HttpStepsCore {
      */
     @And("^response body is equal to \"(.*)\"$")
     public void responseBodyIsEqualTo(String expectedValue) {
+        expectedValue = BDDPlaceholders.replace(expectedValue);
+
         HttpResponseWrapper response = (HttpResponseWrapper) TestDataCore.getDataStore("response");
         String responseBody = response.getHttpResponseBody();
 
@@ -758,6 +842,9 @@ public class HttpStepsCore {
      */
     @And("^I store response body key \"([^\"]*)\" as \"([^\"]*)\"$")
     public void iGetValueOfKeyFromTheResponseBodyAndSaveItInStoredParam(String key, String param) {
+        key = BDDPlaceholders.replace(key);
+        param = BDDPlaceholders.replace(param);
+
         try {
             String value = JsonPath.read(getResponseBodyAsJson().toString(), key).toString();
             TestDataCore.addToDataStore(param, value);
@@ -791,6 +878,9 @@ public class HttpStepsCore {
      */
     @And("^response does not contain key \"([^\"]*)\" with value \"([^\"]*)\"$")
     public void responseDoesNotContainKeyWithValue(String key, String value) {
+        key = BDDPlaceholders.replace(key);
+        value = BDDPlaceholders.replace(value);
+
         HttpResponseWrapper response = (HttpResponseWrapper) TestDataCore.getDataStore("response");
         String responseBody = response.getHttpResponseBody();
         String actualValue = null;
@@ -813,6 +903,8 @@ public class HttpStepsCore {
      */
     @And("^response does not contain key \"([^\"]*)\"$")
     public void responseDoesNotContainKey(String key) {
+        key = BDDPlaceholders.replace(key);
+
         HttpResponseWrapper response = (HttpResponseWrapper) TestDataCore.getDataStore("response");
         String responseBody = response.getHttpResponseBody();
         try {
@@ -825,6 +917,9 @@ public class HttpStepsCore {
 
     @And("^I store value of header \"([^\"]*)\" into the data store \"([^\"]*)\"$")
     public void iStoreValueOfHeaderIntoTheDataStore(String header, String param) {
+        header = BDDPlaceholders.replace(header);
+        param = BDDPlaceholders.replace(param);
+
         String headerValue = getHeaderValueFromResponse(header);
         TestDataCore.addToDataStore(param, headerValue);
     }
@@ -841,6 +936,8 @@ public class HttpStepsCore {
      */
     @And("response body contains \"([^\"]*)\"")
     public void responseBodyContains(String text) {
+        text = BDDPlaceholders.replace(text);
+
         HttpResponseWrapper response = (HttpResponseWrapper) TestDataCore.getDataStore("response");
         String responseBody;
 

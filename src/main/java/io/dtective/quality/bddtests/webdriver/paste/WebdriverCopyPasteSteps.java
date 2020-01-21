@@ -22,7 +22,7 @@ public class WebdriverCopyPasteSteps extends TestStepsCore {
      */
     @Given("^I put \"([^\"]*)\" in the clipboard$")
     public void addToClipboard(String text) {
-        getProfile().clipboardAdd(text);
+        getProfile().clipboardAdd(placeholders(text));
     }
 
     /**
@@ -35,7 +35,7 @@ public class WebdriverCopyPasteSteps extends TestStepsCore {
      */
     @When("^I copy text of element by XPATH \"([^\"]*)\" to param \"([^\"]*)\"$")
     public void copyToMemory(String xpath, String param) {
-        getProfile().copyTextToMemory(By.xpath(xpath), param);
+        getProfile().copyTextToMemory(By.xpath(placeholders(xpath)), placeholders(param));
     }
 
     /**
@@ -49,7 +49,7 @@ public class WebdriverCopyPasteSteps extends TestStepsCore {
      */
     @When("^I copy text of element by Attribute \"([^\"]*)\" Value \"([^\"]*)\" to param \"([^\"]*)\"$")
     public void copyToMemory(String attr, String value, String param) {
-        getProfile().copyTextToMemory(XpathHelper.findByPropAndValue(attr, value), param);
+        getProfile().copyTextToMemory(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)), placeholders(param));
     }
 
     /**
@@ -62,7 +62,7 @@ public class WebdriverCopyPasteSteps extends TestStepsCore {
      */
     @When("^I copy text of element by Attribute \"([^\"]*)\" Value \"([^\"]*)\" to clipboard$")
     public void copyToClipboard(String attr, String value) {
-        getProfile().copyElementTextToClipboard(XpathHelper.findByPropAndValue(attr, value));
+        getProfile().copyElementTextToClipboard(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)));
     }
 
     /**
@@ -75,7 +75,7 @@ public class WebdriverCopyPasteSteps extends TestStepsCore {
      */
     @And("^I paste the value of param \"([^\"]*)\" to element by XPATH \"([^\"]*)\"$")
     public void pasteValueFromMemory(String param, String xpath) {
-        getProfile().pasteTextFromMemory(By.xpath(xpath), param);
+        getProfile().pasteTextFromMemory(By.xpath(placeholders(xpath)), placeholders(param));
     }
 
     /**
@@ -89,7 +89,7 @@ public class WebdriverCopyPasteSteps extends TestStepsCore {
      */
     @And("^I paste the value of param \"([^\"]*)\" to element by Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void pasteValueFromMemory(String param, String attr, String value) {
-        getProfile().pasteTextFromMemory(XpathHelper.findByPropAndValue(attr, value), param);
+        getProfile().pasteTextFromMemory(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)), placeholders(param));
     }
 
     /**
@@ -101,7 +101,7 @@ public class WebdriverCopyPasteSteps extends TestStepsCore {
      */
     @And("^I paste the value from clipboard to element by XPATH \"([^\"]*)\"$")
     public void pasteValueFromClipboard(String xpath) {
-        getProfile().pasteFromClipboard(By.xpath(xpath));
+        getProfile().pasteFromClipboard(By.xpath(placeholders(xpath)));
     }
 
     /**
@@ -114,7 +114,7 @@ public class WebdriverCopyPasteSteps extends TestStepsCore {
      */
     @When("^I paste the value from clipboard to element by Attribute \"([^\"]*)\" Value \"([^\"]*)\"$")
     public void pasteValueFromClipboard(String attr, String value) {
-        getProfile().pasteFromClipboard(XpathHelper.findByPropAndValue(attr, value));
+        getProfile().pasteFromClipboard(XpathHelper.findByPropAndValue(placeholders(attr), placeholders(value)));
     }
 
 

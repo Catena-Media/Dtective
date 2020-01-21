@@ -1,5 +1,6 @@
 package io.dtective.quality.bddtests.http.patch;
 
+import io.dtective.placeholders.BDDPlaceholders;
 import io.dtective.test.TestDataCore;
 import io.dtective.web.HttpManager;
 import cucumber.api.java.en.And;
@@ -26,7 +27,7 @@ public class HttpManagerPatchSteps {
      */
     @When("^I send a PATCH to URL \"([^\"]*)\"$")
     public void iSendAPATCHToUrl(String url) throws IOException {
-        HttpManager.sendHTTPMethod("patch", url, "", null);
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), "", null);
     }
 
     /**
@@ -40,7 +41,7 @@ public class HttpManagerPatchSteps {
      */
     @When("^I send a PATCH to URL \"([^\"]*)\" and route \"([^\"]*)\"$")
     public void iSendAPATCHToURLAndRoute(String url, String route) throws IOException {
-        HttpManager.sendHTTPMethod("patch", url, route, null);
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route), null);
     }
 
     /**
@@ -53,7 +54,7 @@ public class HttpManagerPatchSteps {
      */
     @When("^I send a PATCH to URL \"([^\"]*)\" with the JSON request body$")
     public void iSendAPATCHToURLWithTheJSONRequestBody(String url) throws IOException {
-        HttpManager.sendHTTPMethod("patch", url, "", new String[]{"dataStore", "requestBody"});
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), "", new String[]{"dataStore", "requestBody"});
     }
 
     /**
@@ -67,7 +68,8 @@ public class HttpManagerPatchSteps {
      */
     @When("^I send a PATCH to URL \"([^\"]*)\" and route \"([^\"]*)\" with the JSON request body$")
     public void iSendAPATCHToURLAndRouteWithTheJSONRequestBody(String url, String route) throws IOException {
-        HttpManager.sendHTTPMethod("patch", url, route, new String[]{"dataStore", "requestBody"});
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route),
+                new String[]{"dataStore", "requestBody"});
     }
 
 
@@ -84,7 +86,7 @@ public class HttpManagerPatchSteps {
         HashMap formData = (HashMap) TestDataCore.getDataStore("form");
         TestDataCore.addToDataStore("patchFormData", formData);
 
-        HttpManager.sendHTTPMethod("patch", url, "", new String[]{"dataStore", "patchFormData"});
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), "", new String[]{"dataStore", "patchFormData"});
     }
 
     /**
@@ -101,7 +103,8 @@ public class HttpManagerPatchSteps {
         HashMap formData = (HashMap) TestDataCore.getDataStore("form");
         TestDataCore.addToDataStore("patchFormData", formData);
 
-        HttpManager.sendHTTPMethod("patch", url, route, new String[]{"dataStore", "patchFormData"});
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route),
+                new String[]{"dataStore", "patchFormData"});
     }
 
     /**
@@ -115,7 +118,7 @@ public class HttpManagerPatchSteps {
      */
     @And("^I send a PATCH to URL \"([^\"]*)\" with request body from file \"([^\"]*)\"$")
     public void iSendAPATCHToURLWithJSONRequestBodyFromFile(String url, String file) throws IOException {
-        HttpManager.sendHTTPMethod("patch", url, "", new String[]{"file", file});
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), "", new String[]{"file", BDDPlaceholders.replace(file)});
     }
 
     /**
@@ -130,7 +133,8 @@ public class HttpManagerPatchSteps {
      */
     @And("^I send a PATCH to URL \"([^\"]*)\" and route \"([^\"]*)\" with request body from file \"([^\"]*)\"$")
     public void iSendAPATCHToURLAndRouteWithJSONRequestBodyFromFile(String url, String route, String file) throws IOException {
-        HttpManager.sendHTTPMethod("patch", url, route, new String[]{"file", file});
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route),
+                new String[]{"file", BDDPlaceholders.replace(file)});
     }
 
     /**
@@ -146,7 +150,8 @@ public class HttpManagerPatchSteps {
     @And("^I send a PATCH to URL \"([^\"]*)\" with request body from data-store \"([^\"]*)\"$")
     public void iSendAPATCHToURLWithBodyFromDataStore(String url, String dataStore) throws
             IOException {
-        HttpManager.sendHTTPMethod("patch", url, "", new String[]{"dataStore", dataStore});
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), "",
+                new String[]{"dataStore", BDDPlaceholders.replace(dataStore)});
     }
 
     /**
@@ -163,6 +168,7 @@ public class HttpManagerPatchSteps {
     @And("^I send a PATCH to URL \"([^\"]*)\" and route \"([^\"]*)\" with request body from data-store \"([^\"]*)\"$")
     public void iSendAPATCHToURLWithBodyFromDataStore(String url, String route, String dataStore) throws
             IOException {
-        HttpManager.sendHTTPMethod("patch", url, route, new String[]{"dataStore", dataStore});
+        HttpManager.sendHTTPMethod("patch", BDDPlaceholders.replace(url), BDDPlaceholders.replace(route),
+                new String[]{"dataStore", BDDPlaceholders.replace(dataStore)});
     }
 }
