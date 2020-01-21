@@ -350,7 +350,7 @@
                     <!--<resultsDirectory>${project.build.directory}/surefire-reports</resultsDirectory>-->
                     <reportVersion>${allure.version}</reportVersion>
                     <allureDownloadUrl>
-                        http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/%s/allure-commandline-%s.zip
+                        https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/%s/allure-commandline-%s.zip
                     </allureDownloadUrl>
                 </configuration>
             </plugin>
