@@ -113,7 +113,7 @@
         <cucumber.version>4.2.6</cucumber.version>
         <junit.version>4.13-beta-2</junit.version>
         <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
-        <jackson-databind.version>2.9.10.1</jackson-databind.version>
+        <jackson-databind.version>2.9.10.4</jackson-databind.version>
         <json.version>20180813</json.version>
         <guava.version>27.1-jre</guava.version>
         <ashot.version>1.5.4</ashot.version>
