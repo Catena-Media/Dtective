@@ -408,7 +408,6 @@ public class ConfigurationSteps extends TestStepsCore {
     @When("^I want to run tests on mobile device on SauceLabs$")
     public void iWantToRunTestsOnMobileDeviceSauceLabs() {
         ParameterMap.setParamCloudProvider("saucelabs");
-        ParameterMap.setParamCloudProviderMobile(true);
         ParameterMap.setParamIsSingleInstance("false");
     }
 

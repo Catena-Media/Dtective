@@ -10,10 +10,9 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/quality/bddtests/integrations/cloudprovider/CloudProviderTests2.feature"},
         glue = {"quality", "classpath:io.dtective"},
         plugin = {"io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm",
                 "json:target/cucumber-report/report.json"})
 
-public class CloudProviderTests2Test {
+public class CloudProviderTest {
 }

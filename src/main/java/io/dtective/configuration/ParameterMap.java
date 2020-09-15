@@ -444,13 +444,58 @@ public class ParameterMap {
     /**
      * Maven Parameter binding reference.
      * --
-     * Enable running test against mobile devices
+     * Used to set the complete run on cloud provider (I set it in environment.properties)
      * --
      * Default : false
      * --
-     * Expected value - (boolean) Cloud Provider Mobile
+     * Expected value - (booelan) Cloud Provider Fixed
      */
-    private static boolean paramCloudProviderMobile = false;
+    private static String paramCloudProviderFixed = "false";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Default Cloud platformName
+     * --
+     * Default : 'macOS 10.14'
+     * --
+     * Expected value - (string) Cloud Browser Type
+     */
+    private static String paramCloudPlatformNameSL = "macOS 10.14";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Default Cloud browser Version
+     * --
+     * Default : 'latest'
+     * --
+     * Expected value - (string) Cloud Browser Version
+     */
+    private static String paramCloudBrowserVersionSL = "latest";
+
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Default Cloud OS Version
+     * --
+     * Default : 'Mojave'
+     * --
+     * Expected value - (string) Cloud OS Version
+     */
+    private static String paramCloudOSVersionBS = "Mojave";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Default Cloud OS
+     * --
+     * Default : 'OS X'
+     * --
+     * Expected value - (string) Cloud OS
+     */
+    private static String paramCloudOSBS = "OS X";
 
     /**
      * Maven Parameter binding reference.
@@ -495,6 +540,17 @@ public class ParameterMap {
      * Expected value - (string) Saucelabs Server Address
      */
     private static String paramSauceLabsServer = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Tunnel ID to run tests on cloud
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Tunnel ID
+     */
+    private static String paramTunnelID = "";
 
     /**
      * Maven Parameter binding reference.
@@ -1222,10 +1278,6 @@ public class ParameterMap {
         ParameterMap.paramCloudProvider = paramCloudProvider;
     }
 
-    public static void setParamCloudProviderMobile(boolean paramCloudProviderMobile) {
-        ParameterMap.paramCloudProviderMobile = paramCloudProviderMobile;
-    }
-
     public static void setParamCloudBrowserType(String paramCloudBrowserType) {
         ParameterMap.paramCloudBrowserType = paramCloudBrowserType;
     }
@@ -1234,12 +1286,32 @@ public class ParameterMap {
         return paramCloudProvider;
     }
 
-    public static boolean getParamCloudProviderMobile() {
-        return paramCloudProviderMobile;
+    public static String getParamTunnelID() {
+        return paramTunnelID;
+    }
+
+    public static String getParamCloudProviderFixed() {
+        return paramCloudProviderFixed;
     }
 
     public static String getParamCloudBrowserType() {
         return paramCloudBrowserType;
+    }
+
+    public static String getParamCloudPlatformNameSL() {
+        return paramCloudPlatformNameSL;
+    }
+
+    public static String getParamCloudBrowserVersionSL() {
+        return paramCloudBrowserVersionSL;
+    }
+
+    public static String getParamCloudOSBS() {
+        return paramCloudOSBS;
+    }
+
+    public static String getParamCloudOSVersionBS() {
+        return paramCloudOSVersionBS;
     }
 
     public static String getParamSauceUserName() {
