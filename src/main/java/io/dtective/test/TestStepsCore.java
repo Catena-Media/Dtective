@@ -6,9 +6,12 @@ import io.dtective.placeholders.BDDPlaceholders;
 import io.dtective.selenium.Extensions.QAWebDriver;
 import io.dtective.user.QAUserProfile;
 import cucumber.api.Scenario;
+import io.dtective.webdrivers.CloudWebDriverCapabilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.AssumptionViolatedException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 /**
  * Base for any test step implementation
@@ -66,15 +69,28 @@ public class TestStepsCore {
     public void after() {
 
         if (TestStepsCore.getScenario() != null) {
+            if (!ParameterMap.getParamCloudProvider().isEmpty()) {
+                try {
+                    if (TestStepsCore.getScenario().isFailed()) {
+                        RegisterFailure.call();
+                        CloudWebDriverCapabilities.markTestResult("failed");
+                    } else {
+                        CloudWebDriverCapabilities.markTestResult("passed");
+                    }
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                logger.trace("Stopping Test-Framework for : " + getScenario().getName());
 
-            logger.trace("Stopping Test-Framework for : " + getScenario().getName());
-
-            if (TestStepsCore.getScenario().isFailed()) {
-                RegisterFailure.call();
+                if (TestStepsCore.getScenario().isFailed()) {
+                    RegisterFailure.call();
+                }
             }
 
             SeleniumCore.dispose();
         }
     }
-
 }
