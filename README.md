@@ -18,4 +18,3 @@ We welcome you in our [Community Chat](https://gitter.im/Dtective/community) in 
 
 Yours,
 🔍 Sherlock, Watson, Poirot, Dupin & The Core Maintainers 🙌
-
