@@ -393,4 +393,42 @@ public class ConfigurationSteps extends TestStepsCore {
     public void browserMobProxyIsSetTo(String bool) {
         assert ParameterMap.getParamBrowsermobProxy() == Boolean.parseBoolean(bool);
     }
+
+    /**
+     * Sets the configuration fields of SauceLabs and Single Instance to run on cloud provider.
+     * The default value for these fields can be found in environment.properties.
+     * This step overwrites default values.
+     */
+    @When("^I want to run tests on SauceLabs$")
+    public void iWantToRunTestsOnSauceLabs() {
+        ParameterMap.setParamCloudProvider("saucelabs");
+        ParameterMap.setParamIsSingleInstance("false");
+    }
+
+    @When("^I want to run tests on mobile device on SauceLabs$")
+    public void iWantToRunTestsOnMobileDeviceSauceLabs() {
+        ParameterMap.setParamCloudProvider("saucelabs");
+        ParameterMap.setParamIsSingleInstance("false");
+    }
+
+    /**
+     * Sets the configuration fields of BrowserStack and Single Instance to run on cloud provider.
+     * The default value for these fields can be found in environment.properties.
+     * This step overwrites default values.
+     */
+    @When("^I want to run tests on BrowserStack")
+    public void iWantToRunTestsOnBrowserStack() {
+        ParameterMap.setParamCloudProvider("browserstack");
+        ParameterMap.setParamIsSingleInstance("false");
+    }
+
+    /**
+     * Sets the configuration field of SauceLabs Browser Type to use on cloud provider.
+     * The default value can be found in environment.properties.
+     * This step overwrites it.
+     */
+    @When("^I set cloud browser to \"([^\"]*)\"$")
+    public void iSetCloudBrowserTo(String browser) {
+        ParameterMap.setParamCloudBrowserType(browser);
+    }
 }

@@ -72,3 +72,51 @@ APIClearHeadersBeforeScenario=true
 ## Custom class name for the HTTP manager class.
 ## Specify your extension class' fully qualified name to use it instead of the default one
 paramHTTPManagerClassName=HttpManager
+
+##### Cloud Provider settings #####
+## Authentication
+SauceUserName=
+SauceAccessKey=
+SauceLabsServer=https://ondemand.eu-central-1.saucelabs.com/wd/hub
+
+BrowserStackUserName=
+BrowserStackAccessKey=
+BrowserStackServer=@hub-cloud.browserstack.com/wd/hub
+
+### Params needed to run on Cloud Provider ###
+## Provider Name
+CloudProvider=
+
+## Param to set the provider used for testing
+# True to use a fixed provider specified in CloudProvider
+# False to use the provider specified in each scenario
+CloudProviderFixed=false
+
+## Provider Browser
+CloudBrowserType=chrome
+
+## Browser version for SauceLabs provider
+CloudBrowserVersionSL=
+
+## OS for SauceLabs provider
+CloudPlatformNameSL=
+
+## Browser version for BrowserStack provider
+CloudOSVersionBS=
+
+## OS for BrowserStack provider
+CloudOSBS=
+
+## TunnelID
+# Tunnel used to open a secure "tunnel" connection
+#
+# To use TunnelID you need to download the appropriate binary for the system:
+# https://www.browserstack.com/local-testing/automate
+# https://app.eu-central-1.saucelabs.com/tunnels
+#
+# and run the command:
+# bin/sc -u <USER_ID> -k <ACCESS_KEY> -x https://eu-central-1.saucelabs.com/rest/v1 -i <TUNNEL_ID>
+#
+# ./BrowserStackLocal --key <ACCESS_KEY> --local-identifier <TUNNEL_ID> --force-local
+TunnelID=
+
