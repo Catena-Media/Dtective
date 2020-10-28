@@ -111,7 +111,7 @@
         <apache.httpcomponents.version>4.5.9</apache.httpcomponents.version>
         <aspectj.version>1.9.3.RC1</aspectj.version>
         <cucumber.version>4.2.6</cucumber.version>
-        <junit.version>4.13-beta-2</junit.version>
+        <junit.version>4.13.1</junit.version>
         <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
         <jackson-databind.version>2.9.10.5</jackson-databind.version>
         <json.version>20180813</json.version>
