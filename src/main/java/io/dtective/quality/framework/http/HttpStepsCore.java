@@ -930,7 +930,7 @@ public class HttpStepsCore {
     }
 
     private String getCurrentResponseBody() {
-        HttpResponseWrapper response = (HttpResponseWrapper)TestDataCore.getDataStore("response");
+        HttpResponseWrapper response = (HttpResponseWrapper) TestDataCore.getDataStore("response");
         return response.getHttpResponseBody();
     }
 
