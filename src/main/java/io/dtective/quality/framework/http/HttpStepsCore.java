@@ -929,6 +929,11 @@ public class HttpStepsCore {
         TestDataCore.removeFromDataStore("headers");
     }
 
+    private String getCurrentResponseBody() {
+        HttpResponseWrapper response = (HttpResponseWrapper)TestDataCore.getDataStore("response");
+        return response.getHttpResponseBody();
+    }
+
     /**
      * Asserts if a text exists within the response from an HTTP request
      *
@@ -937,14 +942,16 @@ public class HttpStepsCore {
     @And("response body contains \"([^\"]*)\"")
     public void responseBodyContains(String text) {
         text = BDDPlaceholders.replace(text);
+        if (!this.getCurrentResponseBody().contains(text)) {
+            Assert.fail(String.format("Expected string [%s] was not found in response [%s]", text, this.getCurrentResponseBody()));
+        }
+    }
 
-        HttpResponseWrapper response = (HttpResponseWrapper) TestDataCore.getDataStore("response");
-        String responseBody;
-
-        responseBody = response.getHttpResponseBody();
-
-        if (!responseBody.contains(text)) {
-            Assert.fail(String.format("Expected string [%s] was not found in response [%s]", text, responseBody));
+    @And("response body does not contain \"([^\"]*)\"")
+    public void responseBodyDoesNotContain(String text) {
+        text = BDDPlaceholders.replace(text);
+        if (this.getCurrentResponseBody().contains(text)) {
+            Assert.fail(String.format("Expected string [%s] was found in response [%s]", text, this.getCurrentResponseBody()));
         }
     }
 }

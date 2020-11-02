@@ -585,6 +585,28 @@ public class ParameterMap {
      */
     private static String paramBrowserStackServer = "";
 
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Auth0 Authentication Username
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Auth0 Authentication Username
+     */
+    private static String paramAuth0User = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * Auth0 Authentication Password
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Auth0 Authentication Password
+     */
+    private static String paramAuth0Password = "";
+
     public static boolean getParamAPIClearHeadersBeforeScenario() {
         return Boolean.parseBoolean(paramAPIClearHeadersBeforeScenario);
     }
@@ -1336,6 +1358,22 @@ public class ParameterMap {
 
     public static String getParamBrowserStackServer() {
         return paramBrowserStackServer;
+    }
+
+    public static String getParamAuth0User() {
+        return paramAuth0User;
+    }
+
+    public static void setParamAuth0User(String paramAuth0User) {
+        ParameterMap.paramAuth0User = paramAuth0User;
+    }
+
+    public static String getParamAuth0Password() {
+        return paramAuth0Password;
+    }
+
+    public static void setParamAuth0Password(String paramAuth0Password) {
+        ParameterMap.paramAuth0Password = paramAuth0Password;
     }
 
 }
