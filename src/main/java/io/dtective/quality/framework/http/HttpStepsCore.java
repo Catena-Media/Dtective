@@ -707,11 +707,12 @@ public class HttpStepsCore {
 
     private String extractValueFromJson(String key, JsonObject jsonObject) {
         Object actualValue = null;
+        final int jsonIndentation = 4;
 
         try {
-            actualValue = JsonPath.read(jsonObject.toString(), key);
+            actualValue = JsonPath.read(jsonObject.toString(), key, new Predicate[0]);
         } catch (PathNotFoundException e) {
-            Assert.fail("Key '" + key + "' was not found within " + (new JSONObject(jsonObject)).toString(4));
+            Assert.fail("Key '" + key + "' was not found within " + (new JSONObject(jsonObject)).toString(jsonIndentation));
         }
 
         return "" + actualValue;
