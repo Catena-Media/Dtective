@@ -1,5 +1,6 @@
 package io.dtective.quality.framework.http;
 
+import com.jayway.jsonpath.Predicate;
 import io.dtective.configuration.ParameterMap;
 import io.dtective.placeholders.BDDPlaceholders;
 import io.dtective.test.TestDataCore;
@@ -705,17 +706,16 @@ public class HttpStepsCore {
     }
 
     private String extractValueFromJson(String key, JsonObject jsonObject) {
+        Object actualValue = null;
         final int jsonIndentation = 4;
-        key = BDDPlaceholders.replace(key);
-        String actualValue = null;
 
         try {
-            actualValue = JsonPath.read(jsonObject.toString(), key).toString();
+            actualValue = JsonPath.read(jsonObject.toString(), key, new Predicate[0]);
         } catch (PathNotFoundException e) {
-            Assert.fail("Key '" + key + "' was not found within " + new JSONObject(jsonObject).toString(jsonIndentation));
+            Assert.fail("Key '" + key + "' was not found within " + (new JSONObject(jsonObject)).toString(jsonIndentation));
         }
 
-        return actualValue;
+        return "" + actualValue;
     }
 
     /**
