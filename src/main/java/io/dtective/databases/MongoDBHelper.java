@@ -138,13 +138,13 @@ public class MongoDBHelper {
 
     public String returnObjectID(String filePath) {
         String id = "";
-        final int START_OBJ_CHECK = 22;
-        final int END_OBJ_CHECK = 46;
+        final int start_obj_check = 22;
+        final int end_obj_check = 46;
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = null;
             while ((line = br.readLine()) != null) {
                 if (line.contains("\"_id\"")) {
-                    id = line.substring(START_OBJ_CHECK, END_OBJ_CHECK);
+                    id = line.substring(start_obj_check, end_obj_check);
                 }
             }
             return id;
