@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 public class MongoDBHelper {
 
-    private static final Logger classLogger = LogManager.getLogger(HttpStepsCore.class);
+    private static final Logger LOGGER = LogManager.getLogger(HttpStepsCore.class);
     private final String host = ParameterMap.getParamMongoDBHost();
     private final int port = ParameterMap.getParamMongoDBPort();
     private final MongoClient client = new MongoClient(this.host, this.port);
@@ -60,21 +60,21 @@ public class MongoDBHelper {
             MongoDatabase db = this.client.getDatabase(dbName);
 
             //Read file content which will be inserted
-            Scanner scanner = new Scanner( new File(pathName));
+            Scanner scanner = new Scanner(new File(pathName));
             String text = scanner.useDelimiter("\\A").next();
 
             //Delete Record which will be inserted
-            deleteRecordByObjId(dbName,collectionName, returnObjectID(pathName));
+            deleteRecordByObjId(dbName, collectionName, returnObjectID(pathName));
 
             //Perform insert
             db.getCollection(collectionName).insertOne(Document.parse(text));
 
             scanner.close();
 
-            classLogger.info("Successfully imported into database: "+dbName+" collection: "+collectionName);
+            LOGGER.info("Successfully imported into database: " + dbName + " collection: " + collectionName);
 
         } catch (Exception e) {
-            classLogger.info("Failed to import into database: "+dbName+" collection: "+collectionName);
+            LOGGER.info("Failed to import into database: " + dbName + " collection: " + collectionName);
             e.printStackTrace();
         }
     }
@@ -103,11 +103,11 @@ public class MongoDBHelper {
      * @param map It should pass a map which is be used as search criteria.
      * @return 1 in case the search criteria found the record and 0 in case it couldn't find the anything.
      */
-    public long searchRecord(String dbName, String collectionName, Map<String,String> map) {
+    public long searchRecord(String dbName, String collectionName, Map<String, String> map) {
         DB db = this.client.getDB(dbName);
         DBCollection coll = db.getCollection(collectionName);
         BasicDBObject query = new BasicDBObject();
-        for(int i=0; i < map.size(); i++) {
+        for (int i = 0; i < map.size(); i++) {
             query.append(map.keySet().toArray()[i].toString(), map.values().toArray()[i].toString());
         }
         DBObject document = coll.findOne(query);
@@ -118,14 +118,14 @@ public class MongoDBHelper {
         try {
             MongoDatabase db = this.client.getDatabase(dbName);
             db.getCollection(collectionName).deleteMany(new Document());
-            classLogger.info("Successfully deleted all the documents from database: "+dbName+" collection: "+collectionName);
+            LOGGER.info("Successfully deleted all the documents from database: " + dbName + " collection: " + collectionName);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public long countAllDocumentsFromACollection(String dbName, String collectionName) {
-        long count =0;
+        long count = 0;
         try {
             MongoDatabase db = this.client.getDatabase(dbName);
             count = db.getCollection(collectionName).countDocuments();
@@ -136,13 +136,15 @@ public class MongoDBHelper {
         return count;
     }
 
-    public String returnObjectID(String filePath){
+    public String returnObjectID(String filePath) {
         String id = "";
+        final int START_OBJ_CHECK = 22;
+        final int END_OBJ_CHECK = 46;
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = null;
             while ((line = br.readLine()) != null) {
                 if (line.contains("\"_id\"")) {
-                    id = line.substring(22,46);
+                    id = line.substring(START_OBJ_CHECK, END_OBJ_CHECK);
                 }
             }
             return id;
