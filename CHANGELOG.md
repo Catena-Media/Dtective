@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.4] - 2020-11-12
+### Added
+- Mongo DB Helper
+
 ## [1.0.3] - 2020-11-04
 ### Changed
 - Adapted method extractValueFromJson to make it work with null values
