@@ -141,9 +141,9 @@ public class MongoDBHelper {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = null;
-            int startIndex = 10;
+            int start_index = 10;
             while ((line = br.readLine()) != null) {
-                int begin = line.indexOf("\"", startIndex);
+                int begin = line.indexOf("\"", start_index);
                 int end = line.lastIndexOf("\"");
                 if (line.contains("\"_id\"")) {
                     id = line.substring(begin + 1, end);
