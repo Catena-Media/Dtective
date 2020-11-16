@@ -565,9 +565,7 @@ public class HttpStepsCore {
     @And("^I store contents of file \"([^\"]*)\" in data-store \"([^\"]*)\"$")
     public void iSaveContentsOfFileInStoredParam(String file, String param) {
         file = BDDPlaceholders.replace(file);
-        param = BDDPlaceholders.replace(param);
-
-        JSONObject jsonBody = new JSONObject(TestDataCore.returnStringFromFileOrDataStore(file));
+        JSONObject jsonBody = TestDataCore.returnJSONFromFileOrParam(file);
         TestDataCore.addToDataStore(param, jsonBody);
     }
 

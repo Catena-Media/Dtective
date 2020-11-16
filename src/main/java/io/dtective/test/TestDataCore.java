@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.json.JSONObject;
 
 import java.io.File;
 
@@ -192,5 +193,13 @@ public class TestDataCore {
             return getDataStore(storage).toString();
     }
 
+    public static JSONObject returnJSONFromFileOrParam(String location) {
+        if (location.toLowerCase().contains(".json")) {
+            location = System.getProperty("user.dir") + BDDPlaceholders.replace(location);
+            return new JSONObject(TestEnvironmentManager.readFile(location));
+        } else {
+            return new JSONObject(getDataStore(location).toString());
+        }
+    }
 
 }
