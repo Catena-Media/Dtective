@@ -136,15 +136,16 @@ public class MongoDBHelper {
         return count;
     }
 
-    public String returnObjectID(String filePath) {
+    public String returnObjectID(String filePath){
         String id = "";
-        final int startObjCheck = 22;
-        final int endObjCheck = 46;
+
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = null;
             while ((line = br.readLine()) != null) {
+                int begin = line.indexOf("\"", 10);
+                int end = line.lastIndexOf("\"");
                 if (line.contains("\"_id\"")) {
-                    id = line.substring(startObjCheck, endObjCheck);
+                    id = line.substring(begin + 1, end);
                 }
             }
             return id;
