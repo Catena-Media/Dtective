@@ -138,12 +138,11 @@ public class MongoDBHelper {
 
     public String returnObjectID(String filePath) {
         String id = "";
-
+        int startIndex = 10;
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = null;
-            int start_index = 10;
             while ((line = br.readLine()) != null) {
-                int begin = line.indexOf("\"", start_index);
+                int begin = line.indexOf("\"", startIndex);
                 int end = line.lastIndexOf("\"");
                 if (line.contains("\"_id\"")) {
                     id = line.substring(begin + 1, end);
