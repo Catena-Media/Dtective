@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.5] - 2020-11-16
+### Added
+- Mongo DB Helper
+
 ## [1.0.4] - 2020-11-16
 ### Changed
 - Method iSaveContentsOfFileInStoredParam
