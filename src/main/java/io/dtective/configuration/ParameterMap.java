@@ -614,7 +614,7 @@ public class ParameterMap {
      * --
      * Default : ''
      * --
-     * Expected value - (string) Auth0 Authentication Password
+     * Expected value - (string) Mongo DB Host
      */
     private static String paramMongoDBHost = "";
 
@@ -625,9 +625,9 @@ public class ParameterMap {
      * --
      * Default : ''
      * --
-     * Expected value - (string) Auth0 Authentication Password
+     * Expected value - (int) Mongo DB Port
      */
-    private static int paramMongoDBPort;
+    private static String paramMongoDBPort;
 
     public static boolean getParamAPIClearHeadersBeforeScenario() {
         return Boolean.parseBoolean(paramAPIClearHeadersBeforeScenario);
@@ -1407,10 +1407,10 @@ public class ParameterMap {
     }
 
     public static int getParamMongoDBPort() {
-        return paramMongoDBPort;
+        return Integer.parseInt(paramMongoDBPort);
     }
 
-    public static void setParamMongoDBPort(int paramMongoDBPort) {
+    public static void setParamMongoDBPort(String paramMongoDBPort) {
         ParameterMap.paramMongoDBPort = paramMongoDBPort;
     }
 
