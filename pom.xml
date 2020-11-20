@@ -47,7 +47,7 @@
         </developer>
         <developer>
             <name>Dwane Debono</name>
-            <email>dwane.debono@catenamedia.com</email>
+            <email>dwane.debono@gmail.com</email>
             <roles>
                 <role>Software Development Engineer in Test</role>
             </roles>
@@ -69,6 +69,27 @@
         <developer>
             <name>Ilenia Castellana</name>
             <email>ilenia.castellana@catenamedia.com</email>
+            <roles>
+                <role>Software Development Engineer in Test</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Andreivan Dos Santos</name>
+            <email>andreivan.santos@catenamedia.com</email>
+            <roles>
+                <role>Software Development Engineer in Test</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>David Borg</name>
+            <email>david.borg@catenamedia.com</email>
+            <roles>
+                <role>Software Development Engineer in Test</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Pierre Caruana</name>
+            <email>pierre.caruana@catenamedia.com</email>
             <roles>
                 <role>Software Development Engineer in Test</role>
             </roles>
