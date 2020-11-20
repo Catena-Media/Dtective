@@ -607,6 +607,28 @@ public class ParameterMap {
      */
     private static String paramAuth0Password = "";
 
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * MongoDB host
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Mongo DB Host
+     */
+    private static String paramMongoDBHost = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * MongoDB port
+     * --
+     * Default : ''
+     * --
+     * Expected value - (int) Mongo DB Port
+     */
+    private static String paramMongoDBPort;
+
     public static boolean getParamAPIClearHeadersBeforeScenario() {
         return Boolean.parseBoolean(paramAPIClearHeadersBeforeScenario);
     }
@@ -1374,6 +1396,22 @@ public class ParameterMap {
 
     public static void setParamAuth0Password(String paramAuth0Password) {
         ParameterMap.paramAuth0Password = paramAuth0Password;
+    }
+
+    public static String getParamMongoDBHost() {
+        return paramMongoDBHost;
+    }
+
+    public static void setParamMongoDBHost(String paramMongoDBHost) {
+        ParameterMap.paramMongoDBHost = paramMongoDBHost;
+    }
+
+    public static int getParamMongoDBPort() {
+        return Integer.parseInt(paramMongoDBPort);
+    }
+
+    public static void setParamMongoDBPort(String paramMongoDBPort) {
+        ParameterMap.paramMongoDBPort = paramMongoDBPort;
     }
 
 }
