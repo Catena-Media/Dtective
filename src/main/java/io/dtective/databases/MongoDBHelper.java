@@ -184,13 +184,13 @@ public class MongoDBHelper {
         DB db = this.client.getDB(dbName);
         DBCollection coll = db.getCollection(collectionName);
 
-        BasicDBObject findObject = new BasicDBObject().append(key,value);
+        BasicDBObject findObject = new BasicDBObject().append(key, value);
         BasicDBObject sortObject = new BasicDBObject().append("created_at", -1);
 
         DBCursor cur = coll.find(findObject).sort(sortObject).limit(1);
         DBObject obj = cur.one();
 
-        if(obj != null) {
+        if (obj != null) {
             org.bson.Document doc = org.bson.Document.parse(String.valueOf(obj));
             JsonWriterSettings relaxed = JsonWriterSettings.builder().outputMode(JsonMode.RELAXED).build();
             return String.valueOf(doc.toJson(relaxed));
@@ -209,7 +209,7 @@ public class MongoDBHelper {
     public void deleteRecord(String dbName, String collectionName, String jsonPathField, String value) {
         try {
             MongoDatabase db = this.client.getDatabase(dbName);
-            if(jsonPathField.equals("_id")) {
+            if (jsonPathField.equals("_id")) {
                 db.getCollection(collectionName).deleteOne(new Document(jsonPathField, new ObjectId(value)));
             } else {
                 db.getCollection(collectionName).deleteOne(new Document(jsonPathField, value));
@@ -237,7 +237,7 @@ public class MongoDBHelper {
         DBCollection coll = db.getCollection(collectionName);
         BasicDBObject query = new BasicDBObject();
 
-        for(int i = 0; i < map.size(); ++i) {
+        for (int i = 0; i < map.size(); ++i) {
             query.append(map.keySet().toArray()[i].toString(), map.values().toArray()[i]);
         }
 
