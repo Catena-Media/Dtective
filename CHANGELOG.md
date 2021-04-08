@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.7] - 2021-04-08
+### Changed
+- MongoDB Helper: Added new methods.
+
 ## [1.0.6] - 2020-11-18
 ### Fixed
 - Issue with Mongo DB Port parse int

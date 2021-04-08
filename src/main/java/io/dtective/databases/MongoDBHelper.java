@@ -10,12 +10,16 @@ import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.*;
+
+import org.bson.json.JsonMode;
+import org.bson.json.JsonWriterSettings;
 import org.bson.types.ObjectId;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -27,13 +31,13 @@ public class MongoDBHelper {
     private final MongoClient client = new MongoClient(this.host, this.port);
 
     /**
-     * Method update a single mongo record
+     * Method update a single mongo record.
      *
-     * @param dbName database name
-     * @param collectionName collection name
-     * @param filterFieldName collection field name which will be used as search criteria
-     * @param filterValue value for the field filterFieldName which will be user as search criteria
-     * @param fieldName Name of the field which will have its value updated
+     * @param dbName database name.
+     * @param collectionName collection name.
+     * @param filterFieldName collection field name which will be used as search criteria.
+     * @param filterValue value for the field filterFieldName which will be user as search criteria.
+     * @param fieldName Name of the field which will have its value updated.
      * @param newValue Value of the field fieldName. This will be new value if the update is successful.
      */
     public void updateMongoDBRecord(String dbName, String collectionName, String filterFieldName,
@@ -47,13 +51,13 @@ public class MongoDBHelper {
 
     /**
      * Method to import a single mongo DB record into the data base.
-     * The file extension can be either .txt or .json
-     * In order to the endpoints properly return the values inserted the ids needs to be
+     * The file extension can be either .txt or .json.
+     * In order to the endpoints properly return the values inserted the ids needs to be.
      * with the format "ObjectId("000000000000000000000002")".
      *
-     * @param dbName database name
-     * @param collectionName collection name
-     * @param pathName path file name. It must be the absolute path
+     * @param dbName database name.
+     * @param collectionName collection name.
+     * @param pathName path file name. It must be the absolute path.
      */
     public void importMongoObjectFileIntoCollection(String dbName, String collectionName, String pathName) {
         try {
@@ -114,6 +118,11 @@ public class MongoDBHelper {
         return document != null ? 1 : 0;
     }
 
+    /**
+     * Method to delete all records from a collection.
+     * @param dbName database name.
+     * @param collectionName collection name.
+     */
     public void deleteAllDocumentsFromACollection(String dbName, String collectionName) {
         try {
             MongoDatabase db = this.client.getDatabase(dbName);
@@ -124,6 +133,11 @@ public class MongoDBHelper {
         }
     }
 
+    /**
+     * Method to count the amount of records from a collection,
+     * @param dbName database name.
+     * @param collectionName collection name.
+     */
     public long countAllDocumentsFromACollection(String dbName, String collectionName) {
         long count = 0;
         try {
@@ -136,6 +150,10 @@ public class MongoDBHelper {
         return count;
     }
 
+    /**
+     * Method to return the _id of a MongoDB file. Used as an auxiliary method.
+     * @param filePath path to the file.
+     */
     public String returnObjectID(String filePath) {
         String id = "";
         final int startIndex = 10;
@@ -153,5 +171,77 @@ public class MongoDBHelper {
             e.printStackTrace();
             return id;
         }
+    }
+
+    /**
+     * Method to perform a search by key returning a string value.
+     * @param dbName database name.
+     * @param collectionName collection name.
+     * @param key name of the field to perform the search.
+     * @param value value of the field to perform the search.
+     */
+    public String getRecordFind(String dbName, String collectionName, String key, Object value) {
+        DB db = this.client.getDB(dbName);
+        DBCollection coll = db.getCollection(collectionName);
+
+        BasicDBObject findObject = new BasicDBObject().append(key,value);
+        BasicDBObject sortObject = new BasicDBObject().append("created_at", -1);
+
+        DBCursor cur = coll.find(findObject).sort(sortObject).limit(1);
+        DBObject obj = cur.one();
+
+        if(obj != null) {
+            org.bson.Document doc = org.bson.Document.parse(String.valueOf(obj));
+            JsonWriterSettings relaxed = JsonWriterSettings.builder().outputMode(JsonMode.RELAXED).build();
+            return String.valueOf(doc.toJson(relaxed));
+        } else {
+            return "";
+        }
+    }
+
+    /**
+     * Method to delete a single MongoDB record.
+     * @param dbName database name.
+     * @param collectionName collection name.
+     * @param jsonPathField json path to the field which will be deleted.
+     * @param value value of the field which will be deleted.
+     */
+    public void deleteRecord(String dbName, String collectionName, String jsonPathField, String value) {
+        try {
+            MongoDatabase db = this.client.getDatabase(dbName);
+            if(jsonPathField.equals("_id")) {
+                db.getCollection(collectionName).deleteOne(new Document(jsonPathField, new ObjectId(value)));
+            } else {
+                db.getCollection(collectionName).deleteOne(new Document(jsonPathField, value));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Method return an MongoDB objectID.
+     */
+    public String generateObjectID() {
+        return new ObjectId().toString();
+    }
+
+     /**
+     * Method return an MongoDB objectID.
+     * @param dbName database name.
+     * @param collectionName collection name.
+     * @param map map to be used as filter criteria.
+     */
+    public long searchRecord(String dbName, String collectionName, HashMap<String, Object> map) {
+        DB db = this.client.getDB(dbName);
+        DBCollection coll = db.getCollection(collectionName);
+        BasicDBObject query = new BasicDBObject();
+
+        for(int i = 0; i < map.size(); ++i) {
+            query.append(map.keySet().toArray()[i].toString(), map.values().toArray()[i]);
+        }
+
+        DBObject document = coll.findOne(query);
+        return document != null ? 1L : 0L;
     }
 }
