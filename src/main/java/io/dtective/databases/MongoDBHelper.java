@@ -38,7 +38,7 @@ public class MongoDBHelper {
         if ((!host.contains("localhost")) && (!host.contains("127.0.0.1"))) {
             String user = ParameterMap.getParamMongoDBUser();
             String pass = ParameterMap.getParamMongoDBPass();
-            MongoClientURI uri = new MongoClientURI("mongodb://" + user + ":" + pass +"@" + host +":" + port + "/admin?ssl=true");
+            MongoClientURI uri = new MongoClientURI("mongodb://" + user + ":" + pass + "@" + host + ":" + port + "/admin?ssl=true");
             mongoClient = new MongoClient(uri);
         } else {
             mongoClient = new MongoClient(host, port);
