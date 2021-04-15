@@ -629,6 +629,28 @@ public class ParameterMap {
      */
     private static String paramMongoDBPort;
 
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * MongoDB Username
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Mongo DB Username
+     */
+    private static String paramMongoDBUser = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * MongoDB Password
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) Mongo DB Password
+     */
+    private static String paramMongoDBPass = "";
+
     public static boolean getParamAPIClearHeadersBeforeScenario() {
         return Boolean.parseBoolean(paramAPIClearHeadersBeforeScenario);
     }
@@ -1412,6 +1434,22 @@ public class ParameterMap {
 
     public static void setParamMongoDBPort(String paramMongoDBPort) {
         ParameterMap.paramMongoDBPort = paramMongoDBPort;
+    }
+
+    public static String getParamMongoDBUser() {
+        return paramMongoDBUser;
+    }
+
+    public static void setParamMongoDBUser(String paramMongoDBUser) {
+        ParameterMap.paramMongoDBUser = paramMongoDBUser;
+    }
+
+    public static String getParamMongoDBPass() {
+        return paramMongoDBPass;
+    }
+
+    public static void setParamMongoDBPass(String paramMongoDBPass) {
+        ParameterMap.paramMongoDBPass = paramMongoDBPass;
     }
 
 }

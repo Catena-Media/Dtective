@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.8] - 2021-04-15
+### Changed
+- Implemented constructor on MongoDB class to allow remote connections
+
 ## [1.0.7] - 2021-04-08
 ### Changed
 - MongoDB Helper: Added new methods.

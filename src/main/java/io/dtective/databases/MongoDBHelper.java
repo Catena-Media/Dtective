@@ -26,9 +26,24 @@ import java.util.Scanner;
 public class MongoDBHelper {
 
     private static final Logger LOGGER = LogManager.getLogger(HttpStepsCore.class);
-    private final String host = ParameterMap.getParamMongoDBHost();
-    private final int port = ParameterMap.getParamMongoDBPort();
-    private final MongoClient client = new MongoClient(this.host, this.port);
+    private final MongoClient mongoClient;
+
+    /**
+     * Constructor to create MongoDB Connection which will be
+     * either local or remote based on host param.
+     */
+    public MongoDBHelper() {
+        String host = ParameterMap.getParamMongoDBHost();
+        int port = ParameterMap.getParamMongoDBPort();
+        if ((!host.contains("localhost")) && (!host.contains("127.0.0.1"))) {
+            String user = ParameterMap.getParamMongoDBUser();
+            String pass = ParameterMap.getParamMongoDBPass();
+            MongoClientURI uri = new MongoClientURI("mongodb://"+ user +":"+ pass +"@"+ host +":"+ port +"/admin?ssl=true");
+            mongoClient = new MongoClient(uri);
+        } else {
+            mongoClient = new MongoClient(host, port);
+        }
+    }
 
     /**
      * Method update a single mongo record.
@@ -43,7 +58,7 @@ public class MongoDBHelper {
     public void updateMongoDBRecord(String dbName, String collectionName, String filterFieldName,
                                     String filterValue, String fieldName, String newValue) {
 
-        MongoDatabase db = this.client.getDatabase(dbName);
+        MongoDatabase db = mongoClient.getDatabase(dbName);
         MongoCollection<Document> collection = db.getCollection(collectionName);
 
         collection.updateOne(eq(filterFieldName, filterValue), set(fieldName, newValue));
@@ -61,7 +76,7 @@ public class MongoDBHelper {
      */
     public void importMongoObjectFileIntoCollection(String dbName, String collectionName, String pathName) {
         try {
-            MongoDatabase db = this.client.getDatabase(dbName);
+            MongoDatabase db = mongoClient.getDatabase(dbName);
 
             //Read file content which will be inserted
             Scanner scanner = new Scanner(new File(pathName));
@@ -92,7 +107,7 @@ public class MongoDBHelper {
      */
     public void deleteRecordByObjId(String dbName, String collectionName, String objectId) {
         try {
-            MongoDatabase db = this.client.getDatabase(dbName);
+            MongoDatabase db = mongoClient.getDatabase(dbName);
             db.getCollection(collectionName).deleteOne(new Document("_id", new ObjectId(objectId)));
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,7 +123,7 @@ public class MongoDBHelper {
      * @return 1 in case the search criteria found the record and 0 in case it couldn't find the anything.
      */
     public long searchRecord(String dbName, String collectionName, Map<String, String> map) {
-        DB db = this.client.getDB(dbName);
+        DB db = mongoClient.getDB(dbName);
         DBCollection coll = db.getCollection(collectionName);
         BasicDBObject query = new BasicDBObject();
         for (int i = 0; i < map.size(); i++) {
@@ -125,7 +140,7 @@ public class MongoDBHelper {
      */
     public void deleteAllDocumentsFromACollection(String dbName, String collectionName) {
         try {
-            MongoDatabase db = this.client.getDatabase(dbName);
+            MongoDatabase db = mongoClient.getDatabase(dbName);
             db.getCollection(collectionName).deleteMany(new Document());
             LOGGER.info("Successfully deleted all the documents from database: " + dbName + " collection: " + collectionName);
         } catch (Exception e) {
@@ -141,7 +156,7 @@ public class MongoDBHelper {
     public long countAllDocumentsFromACollection(String dbName, String collectionName) {
         long count = 0;
         try {
-            MongoDatabase db = this.client.getDatabase(dbName);
+            MongoDatabase db = mongoClient.getDatabase(dbName);
             count = db.getCollection(collectionName).countDocuments();
             return count;
         } catch (Exception e) {
@@ -181,7 +196,7 @@ public class MongoDBHelper {
      * @param value value of the field to perform the search.
      */
     public String getRecordFind(String dbName, String collectionName, String key, Object value) {
-        DB db = this.client.getDB(dbName);
+        DB db = mongoClient.getDB(dbName);
         DBCollection coll = db.getCollection(collectionName);
 
         BasicDBObject findObject = new BasicDBObject().append(key, value);
@@ -208,7 +223,7 @@ public class MongoDBHelper {
      */
     public void deleteRecord(String dbName, String collectionName, String jsonPathField, String value) {
         try {
-            MongoDatabase db = this.client.getDatabase(dbName);
+            MongoDatabase db = mongoClient.getDatabase(dbName);
             if (jsonPathField.equals("_id")) {
                 db.getCollection(collectionName).deleteOne(new Document(jsonPathField, new ObjectId(value)));
             } else {
@@ -233,7 +248,7 @@ public class MongoDBHelper {
      * @param map map to be used as filter criteria.
      */
     public long searchRecord(String dbName, String collectionName, HashMap<String, Object> map) {
-        DB db = this.client.getDB(dbName);
+        DB db = mongoClient.getDB(dbName);
         DBCollection coll = db.getCollection(collectionName);
         BasicDBObject query = new BasicDBObject();
 
