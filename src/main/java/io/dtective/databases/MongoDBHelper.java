@@ -44,7 +44,7 @@ public class MongoDBHelper {
             dbConnectionString = "mongodb://" + host + ":" + port;
         }
         MongoClientURI uri = new MongoClientURI(dbConnectionString);
-        this.mongoClient = new MongoClient(uri);
+        mongoClient = new MongoClient(uri);
     }
 
     /**
