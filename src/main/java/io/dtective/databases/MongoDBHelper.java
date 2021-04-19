@@ -30,19 +30,25 @@ public class MongoDBHelper {
 
     /**
      * Constructor to create MongoDB Connection which will be
-     * either local or remote based on host param.
+     * either local or remote based on the user and pass parameters.
+     *
+     * If ParamMongoDBUser and ParamMongoDBPort parameters from .properties file are empty it
+     * will create a local connection assuming there will be no user and password.
+     * If the parameters above are not empty it will create a remote connection using ssl.
      */
     public MongoDBHelper() {
         String host = ParameterMap.getParamMongoDBHost();
         int port = ParameterMap.getParamMongoDBPort();
-        if ((!host.contains("localhost")) && (!host.contains("127.0.0.1"))) {
-            String user = ParameterMap.getParamMongoDBUser();
-            String pass = ParameterMap.getParamMongoDBPass();
-            MongoClientURI uri = new MongoClientURI("mongodb://" + user + ":" + pass + "@" + host + ":" + port + "/admin?ssl=true");
-            mongoClient = new MongoClient(uri);
+        String user = ParameterMap.getParamMongoDBUser();
+        String pass = ParameterMap.getParamMongoDBPass();
+        String dbConnectionString = "";
+        if (!user.equals("") && !pass.equals("")) {
+            dbConnectionString = "mongodb://" + user + ":" + pass + "@" + host + ":" + port + "/admin?ssl=true";
         } else {
-            mongoClient = new MongoClient(host, port);
+            dbConnectionString = "mongodb://" + host + ":" + port;
         }
+        MongoClientURI uri = new MongoClientURI(dbConnectionString);
+        mongoClient = new MongoClient(uri);
     }
 
     /**
