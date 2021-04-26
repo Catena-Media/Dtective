@@ -128,7 +128,7 @@
         <log4j.version>2.13.2</log4j.version>
         <xml.apis.version>1.0.b2</xml.apis.version>
         <common.langs3.version>3.9</common.langs3.version>
-        <commons.io.version>2.6</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <apache.httpcomponents.version>4.5.9</apache.httpcomponents.version>
         <aspectj.version>1.9.3.RC1</aspectj.version>
         <cucumber.version>4.2.6</cucumber.version>
