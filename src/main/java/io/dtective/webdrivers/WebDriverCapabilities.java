@@ -80,6 +80,7 @@ public class WebDriverCapabilities {
                         .ForSeleniumServer.AVOIDING_PROXY, true);
                 capa.setCapability("chrome.switches",
                         Collections.singletonList("--incognito"));
+                capa.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
                 break;
 
             }
