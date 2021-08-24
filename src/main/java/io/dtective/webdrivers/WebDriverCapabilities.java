@@ -81,6 +81,8 @@ public class WebDriverCapabilities {
                 capa.setCapability("chrome.switches",
                         Collections.singletonList("--incognito"));
                 capa.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+                options.addArguments("--allow-insecure-localhost");
+                options.addArguments("--ignore-certificate-errors");
                 break;
 
             }
