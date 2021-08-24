@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.11] - 2021-08-24
+### Changed
+- Add certificate errors
+
 ## [1.0.10] - 2021-08-13
 ### Changed
 - WebDriver capabilities to accept insecure connections on Chrome
