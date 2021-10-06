@@ -13,6 +13,8 @@ import org.openqa.selenium.net.NetworkUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class NetworkAnalyticsHelper {
 
@@ -62,6 +64,21 @@ public class NetworkAnalyticsHelper {
         proxy.setTrustAllServers(true);
         proxy.setHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
         proxy.start();
+
+        if(!ParameterMap.getParamListKeysAndValuesHttpHeaders().equals("")) {
+            String paramGet = ParameterMap.getParamListKeysAndValuesHttpHeaders();
+            String[] keyValuePairs = paramGet.split(",");
+            Map<String,String> map = new HashMap<>();
+
+            for(String pair : keyValuePairs) {
+                String[] entry = pair.split(":");
+                map.put(entry[0].trim(), entry[1].trim());
+            }
+
+            map.forEach((key, value) -> {
+                proxy.addHeader(key, value);
+            });
+        }
 
         ipAddress = new NetworkUtils().getIp4NonLoopbackAddressOfThisMachine().getHostAddress();
 

@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.12] - 2021-10-06
+### Change
+- Proxy method will now accept adding custom http headers
+
 ## [1.0.11] - 2021-08-24
 ### Changed
 - Add certificate errors

@@ -11,6 +11,8 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Framework Parameter Mapping Class.
@@ -650,6 +652,27 @@ public class ParameterMap {
      * Expected value - (string) Mongo DB Password
      */
     private static String paramMongoDBPass = "";
+
+    /**
+     * Maven Parameter binding reference.
+     * --
+     * List of Keys and Values for Custom HTTP Headers
+     * --
+     * Default : ''
+     * --
+     * Expected value - (string) following the format Key1 : value1, key2 : value 2
+     */
+    private static String paramListKeysAndValuesHttpHeaders = "";
+
+
+    public static String getParamListKeysAndValuesHttpHeaders() {
+        return paramListKeysAndValuesHttpHeaders;
+    }
+
+    public static void setParamListKeysAndValuesHttpHeaders(String paramListKeysAndValuesHttpHeaders) {
+        ParameterMap.paramListKeysAndValuesHttpHeaders = paramListKeysAndValuesHttpHeaders;
+    }
+
 
     public static boolean getParamAPIClearHeadersBeforeScenario() {
         return Boolean.parseBoolean(paramAPIClearHeadersBeforeScenario);
