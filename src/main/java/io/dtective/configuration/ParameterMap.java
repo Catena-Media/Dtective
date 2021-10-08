@@ -11,8 +11,6 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Framework Parameter Mapping Class.

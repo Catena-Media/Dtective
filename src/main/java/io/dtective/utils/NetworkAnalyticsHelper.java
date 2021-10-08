@@ -65,12 +65,12 @@ public class NetworkAnalyticsHelper {
         proxy.setHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
         proxy.start();
 
-        if(!ParameterMap.getParamListKeysAndValuesHttpHeaders().equals("")) {
+        if (!ParameterMap.getParamListKeysAndValuesHttpHeaders().equals("")) {
             String paramGet = ParameterMap.getParamListKeysAndValuesHttpHeaders();
             String[] keyValuePairs = paramGet.split(",");
-            Map<String,String> map = new HashMap<>();
+            Map<String, String> map = new HashMap<>();
 
-            for(String pair : keyValuePairs) {
+            for (String pair : keyValuePairs) {
                 String[] entry = pair.split(":");
                 map.put(entry[0].trim(), entry[1].trim());
             }
