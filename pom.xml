@@ -7,7 +7,7 @@
     <groupId>io.dtective</groupId>
     <artifactId>dtective-core</artifactId>
 
-    <version>1.0.11</version>
+    <version>1.0.12</version>
 
     <!--Project Organization-->
     <organization>
@@ -227,6 +227,12 @@
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
                         <version>${aspectj.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.lightbody.bmp</groupId>
+                        <artifactId>browsermob-core</artifactId>
+                        <version>2.1.5</version>
+                        <scope>runtime</scope>
                     </dependency>
                 </dependencies>
             </plugin>
