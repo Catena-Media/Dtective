@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.13] - 2021-12-14
+### Change
+- Upgrade log4j version
+
 ## [1.0.12] - 2021-10-06
 ### Change
 - Proxy method will now accept adding custom http headers
