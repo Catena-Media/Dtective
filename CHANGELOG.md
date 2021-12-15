@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.14] - 2021-12-15
+### Change
+- Upgrade log4j version
+
 ## [1.0.13] - 2021-12-14
 ### Change
 - Upgrade log4j version
