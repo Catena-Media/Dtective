@@ -99,7 +99,7 @@
         <cucumber.version>4.2.6</cucumber.version>
         <junit.version>4.13.1</junit.version>
         <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
-        <jackson.version>2.11.3</jackson.version>
+        <jackson.version>2.12.6.1</jackson.version>
         <json.version>20180813</json.version>
         <guava.version>27.1-jre</guava.version>
         <ashot.version>1.5.4</ashot.version>
