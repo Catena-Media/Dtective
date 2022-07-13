@@ -39,41 +39,6 @@
     <!--Development Team-->
     <developers>
         <developer>
-            <name>Matyas Banszki</name>
-            <email>matyas.banszki@catenamedia.com</email>
-            <roles>
-                <role>Software Development Engineer in Test</role>
-            </roles>
-        </developer>
-        <developer>
-            <name>Dwane Debono</name>
-            <email>dwane.debono@gmail.com</email>
-            <roles>
-                <role>Software Development Engineer in Test</role>
-            </roles>
-        </developer>
-        <developer>
-            <name>Andrea Borg</name>
-            <email>andrea.borg@catenamedia.com</email>
-            <roles>
-                <role>Software Development Engineer in Test</role>
-            </roles>
-        </developer>
-        <developer>
-            <name>Sofia Vistas</name>
-            <email>sofia.vistas@catenamedia.com</email>
-            <roles>
-                <role>Software Development Engineer in Test</role>
-            </roles>
-        </developer>
-        <developer>
-            <name>Ilenia Castellana</name>
-            <email>ilenia.castellana@catenamedia.com</email>
-            <roles>
-                <role>Software Development Engineer in Test</role>
-            </roles>
-        </developer>
-        <developer>
             <name>Andreivan Dos Santos</name>
             <email>andreivan.santos@catenamedia.com</email>
             <roles>
@@ -81,8 +46,8 @@
             </roles>
         </developer>
         <developer>
-            <name>David Borg</name>
-            <email>david.borg@catenamedia.com</email>
+            <name>Filip Gontarczyk</name>
+            <email>filip.gontarczyk@catenamedia.com</email>
             <roles>
                 <role>Software Development Engineer in Test</role>
             </roles>
@@ -110,15 +75,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!--Maven Local Properties-->
-        <maven.checkstyle.version>3.1.0</maven.checkstyle.version>
-        <maven.site.version>3.7.1</maven.site.version>
+        <maven.checkstyle.version>3.1.2</maven.checkstyle.version>
+        <maven.site.version>3.12.0</maven.site.version>
         <maven.site.port>9000</maven.site.port>
-        <maven.jar.version>3.1.1</maven.jar.version>
+        <maven.jar.version>3.2.2</maven.jar.version>
         <maven.versions.version>2.7</maven.versions.version>
         <maven-project-info-reports.version>3.0.0</maven-project-info-reports.version>
-        <maven-javadoc.version>3.1.0</maven-javadoc.version>
+        <maven-javadoc.version>3.3.2</maven-javadoc.version>
         <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
-        <maven-enforcer.version>3.0.0-M2</maven-enforcer.version>
+        <maven-enforcer.version>3.1.0</maven-enforcer.version>
 
         <!--Testing Framework Integrations-->
         <selenium.version>3.141.59</selenium.version>
@@ -133,7 +98,7 @@
         <aspectj.version>1.9.3.RC1</aspectj.version>
         <cucumber.version>4.2.6</cucumber.version>
         <junit.version>4.13.1</junit.version>
-        <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
         <jackson.version>2.11.3</jackson.version>
         <json.version>20180813</json.version>
         <guava.version>27.1-jre</guava.version>
