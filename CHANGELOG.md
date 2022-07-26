@@ -5,6 +5,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.17] - 2022-07-26
+### Change
+- Upgrade log4j version
+
+## [1.0.16] - 2022-07-20
+### Change
+- Upgrade log4j version
+
 ## [1.0.15] - 2022-03-25
 ### Change
 - Upgrade log4j and maven compiler plugin versions
