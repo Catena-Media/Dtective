@@ -100,7 +100,7 @@
         <junit.version>4.13.1</junit.version>
         <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
         <jackson.version>2.11.3</jackson.version>
-        <json.version>20180813</json.version>
+        <json.version>20230227</json.version>
         <guava.version>27.1-jre</guava.version>
         <ashot.version>1.5.4</ashot.version>
         <bson.version>3.10.1</bson.version>
